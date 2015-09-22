@@ -1,0 +1,126 @@
+
+blod_id: 16
+line_no: 1
+id: 0
+type: temp
+status: final
+agreement: ems
+value: diapers 
+object: diaper duties 
+
+blod_id: 16
+line_no: 2
+id: 1
+type: perm
+status: 
+agreement: m
+value: purse 
+object: purse 
+
+blod_id: 16
+line_no: 2
+id: 2
+type: perm
+status: final
+agreement: ems
+value: diaper bag 
+object: diaper bag 
+
+blod_id: 16
+line_no: 16
+id: 3
+type: perm
+status: final
+agreement: es
+value: picture 
+object: Pictures 
+
+blod_id: 16
+line_no: 18
+id: 3
+type: perm
+status: final
+agreement: es
+value: picture 
+object: picture 
+
+blod_id: 16
+line_no: 20
+id: 3
+type: perm
+status: final
+agreement: es
+value: picture 
+object: picture 
+
+blod_id: 16
+line_no: 26
+id: 4
+type: perm
+status: 
+agreement: m
+value: pacifier 
+object: pacifier 
+
+blod_id: 16
+line_no: 28
+id: 5
+type: perm
+status: final
+agreement: em
+value: baby carrier 
+object: strapped to my chest 
+
+blod_id: 16
+line_no: 29
+id: 5
+type: perm
+status: final
+agreement: ems
+value: baby carrier 
+object: carrier 
+
+blod_id: 16
+line_no: 33
+id: 6
+type: perm
+status: final
+agreement: es
+value: bathtub 
+object: Baths 
+
+blod_id: 16
+line_no: 33
+id: 6
+type: perm
+status: final
+agreement: ems
+value: bathtub 
+object: bath 
+
+blod_id: 16
+line_no: 38
+id: 6
+type: perm
+status: final
+agreement: ems
+value: bathtub 
+object: bathe 
+
+blod_id: 16
+line_no: 39
+id: 3
+type: perm
+status: final
+agreement: es
+value: picture 
+object: picture 
+
+blod_id: 16
+line_no: 40
+id: 6
+type: perm
+status: final
+agreement: ems
+value: bathtub 
+object: tub 

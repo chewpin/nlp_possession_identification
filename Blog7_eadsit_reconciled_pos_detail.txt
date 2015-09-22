@@ -1,0 +1,10 @@
+
+blod_id: 7
+line_no: 0
+id: 0
+type: perm
+status: final
+agreement: e
+value: blog 
+object: blog 
+general_pronoun_indicator: my

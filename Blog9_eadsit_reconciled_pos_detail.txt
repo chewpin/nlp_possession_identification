@@ -1,0 +1,64 @@
+
+blod_id: 9
+line_no: 2
+id: 0
+type: perm
+status: final
+agreement: e
+value: blog 
+object: blog post 
+
+blod_id: 9
+line_no: 15
+id: 0
+type: perm
+status: final
+agreement: e
+value: blog 
+object: blog 
+
+blod_id: 9
+line_no: 26
+id: 1
+type: perm
+status: 
+agreement: s
+value: bed 
+object: bed 
+
+blod_id: 9
+line_no: 26
+id: 2
+type: perm
+status: final
+agreement: ems
+value: car shaped marker 
+object: car 
+general_pronoun_indicator: my
+
+blod_id: 9
+line_no: 26
+id: 3
+type: perm
+status: final
+agreement: em
+value: behavior chart 
+object: stoplight behavior chart 
+
+blod_id: 9
+line_no: 30
+id: 4
+type: perm
+status: final
+agreement: ems
+value: index cards 
+object: index cards 
+
+blod_id: 9
+line_no: 48
+id: 5
+type: perm
+status: 
+agreement: s
+value: video games 
+object: video games 

@@ -1,0 +1,351 @@
+
+blod_id: 18
+line_no: 3
+id: 0
+type: perm
+status: final
+agreement: ems
+value: computer 
+object: computer 
+
+blod_id: 18
+line_no: 4
+id: 0
+type: perm
+status: 
+agreement: m
+value: computer 
+object: computer 
+
+blod_id: 18
+line_no: 5
+id: 1
+type: perm
+status: final
+agreement: es
+value: pictures 
+object: pictures 
+general_pronoun_indicator: my
+
+blod_id: 18
+line_no: 9
+id: 2
+type: perm
+status: final
+agreement: ems
+value: mantel 
+object: mantel 
+general_pronoun_indicator: my
+
+blod_id: 18
+line_no: 9
+id: 3
+type: perm
+status: 
+agreement: m
+value: spring decor 
+object: spring decor 
+
+blod_id: 18
+line_no: 15
+id: 4
+type: perm
+status: final
+agreement: em
+value: house 
+object: house 
+
+blod_id: 18
+line_no: 17
+id: 5
+type: perm
+status: final
+agreement: ems
+value: books 
+object: books 
+
+blod_id: 18
+line_no: 17
+id: 6
+type: perm
+status: final
+agreement: ems
+value: candle holder 
+object: twine-wrapped candle holder 
+
+blod_id: 18
+line_no: 17
+id: 7
+type: perm
+status: final
+agreement: ems
+value: brass owl 
+object: small brass owl 
+
+blod_id: 18
+line_no: 18
+id: 8
+type: perm
+status: final
+agreement: ems
+value: chalkboard 
+object: diy chalkboard 
+general_pronoun_indicator: my
+
+blod_id: 18
+line_no: 18
+id: 9
+type: perm
+status: 
+agreement: s
+value: window 
+object: window 
+
+blod_id: 18
+line_no: 19
+id: 8
+type: perm
+status: final
+agreement: ems
+value: chalkboard 
+object: chalkboard 
+
+blod_id: 18
+line_no: 19
+id: 8
+type: perm
+status: final
+agreement: es
+value: chalkboard 
+object: upcycled thrift store frame 
+
+blod_id: 18
+line_no: 19
+id: 2
+type: perm
+status: final
+agreement: ems
+value: mantel 
+object: mantel 
+
+blod_id: 18
+line_no: 19
+id: 10
+type: perm
+status: final
+agreement: ems
+value: lantern 
+object: tall lantern 
+
+blod_id: 18
+line_no: 19
+id: 6
+type: perm
+status: final
+agreement: ems
+value: candle holder 
+object: twine-wrapped candle holder 
+
+blod_id: 18
+line_no: 20
+id: 11
+type: perm
+status: final
+agreement: ems
+value: glass 
+object: glass full of corks 
+
+blod_id: 18
+line_no: 20
+id: 12
+type: perm
+status: final
+agreement: ems
+value: spool 
+object: vintage spool 
+general_pronoun_indicator: my
+
+blod_id: 18
+line_no: 21
+id: 14
+type: perm
+status: final
+agreement: ems
+value: twine 
+object: twine < /object > . Finally I hung a set of < object value = `` keys '' id = `` 13 '' type = `` perm '' > metal keys 
+
+blod_id: 18
+line_no: 21
+id: 9
+type: perm
+status: 
+agreement: s
+value: window 
+object: window 
+
+blod_id: 18
+line_no: 21
+id: 14
+type: perm
+status: final
+agreement: ems
+value: twine 
+object: twine 
+
+blod_id: 18
+line_no: 24
+id: 15
+type: perm
+status: final
+agreement: e
+value: blog 
+object: post 
+
+blod_id: 18
+line_no: 26
+id: 16
+type: perm
+status: final
+agreement: e
+value: website 
+object: website 
+
+blod_id: 18
+line_no: 30
+id: 15
+type: perm
+status: final
+agreement: e
+value: blog 
+object: blog 
+general_pronoun_indicator: this
+
+blod_id: 18
+line_no: 31
+id: 4
+type: perm
+status: final
+agreement: ems
+value: house 
+object: house 
+general_pronoun_indicator: my
+
+blod_id: 18
+line_no: 33
+id: 19
+type: perm
+status: final
+agreement: es
+value: furniture rehabs 
+object: furniture rehabs 
+
+blod_id: 18
+line_no: 34
+id: 19
+type: perm
+status: final
+agreement: es
+value: furniture rehabs 
+object: furniture rehabs 
+
+blod_id: 18
+line_no: 34
+id: 4
+type: perm
+status: final
+agreement: ems
+value: house 
+object: house 
+general_pronoun_indicator: my
+
+blod_id: 18
+line_no: 35
+id: 20
+type: perm
+status: final
+agreement: ems
+value: garage 
+object: garage 
+general_pronoun_indicator: my
+
+blod_id: 18
+line_no: 35
+id: 21
+type: perm
+status: final
+agreement: ems
+value: storage unit 
+object: storage unit 
+
+blod_id: 18
+line_no: 35
+id: 15
+type: perm
+status: final
+agreement: e
+value: blog 
+object: blogging 
+
+blod_id: 18
+line_no: 38
+id: 22
+type: perm
+status: 
+agreement: m
+value: EcoFest booth 
+object: booth 
+general_pronoun_indicator: my
+
+blod_id: 18
+line_no: 39
+id: 1
+type: perm
+status: final
+agreement: e
+value: pictures 
+object: pictures 
+
+blod_id: 18
+line_no: 45
+id: 16
+type: perm
+status: final
+agreement: em
+value: website 
+object: website 
+
+blod_id: 18
+line_no: 46
+id: 16
+type: perm
+status: final
+agreement: e
+value: website 
+object: website 
+
+blod_id: 18
+line_no: 47
+id: 16
+type: perm
+status: final
+agreement: e
+value: website 
+object: site 
+
+blod_id: 18
+line_no: 49
+id: 16
+type: perm
+status: final
+agreement: e
+value: website 
+object: site 
+
+blod_id: 18
+line_no: 50
+id: 16
+type: perm
+status: final
+agreement: e
+value: website 
+object: Lavish 

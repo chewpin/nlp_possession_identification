@@ -1,0 +1,346 @@
+
+blod_id: 8
+line_no: 38
+id: 0
+type: perm
+status: final
+agreement: es
+value: pictures 
+object: pictures 
+
+blod_id: 8
+line_no: 38
+id: 1
+type: perm
+status: final
+agreement: em
+value: home 
+object: at-home 
+
+blod_id: 8
+line_no: 40
+id: 1
+type: perm
+status: final
+agreement: em
+value: home 
+object: home 
+
+blod_id: 8
+line_no: 41
+id: 2
+type: perm
+status: 
+agreement: m
+value: bowl 
+object: bowl 
+
+blod_id: 8
+line_no: 47
+id: 1
+type: perm
+status: final
+agreement: e
+value: home 
+object: at-home 
+
+blod_id: 8
+line_no: 64
+id: 3
+type: perm
+status: final
+agreement: e
+value: blog 
+object: blog post 
+
+blod_id: 8
+line_no: 65
+id: 4
+type: perm
+status: final
+agreement: es
+value: gym 
+object: gym 
+
+blod_id: 8
+line_no: 68
+id: 5
+type: perm
+status: final
+agreement: ems
+value: bike 
+object: bike 
+general_pronoun_indicator: my
+
+blod_id: 8
+line_no: 70
+id: 4
+type: perm
+status: final
+agreement: es
+value: gym 
+object: gym 
+
+blod_id: 8
+line_no: 71
+id: 5
+type: perm
+status: final
+agreement: ems
+value: bike 
+object: mountain bike 
+
+blod_id: 8
+line_no: 72
+id: 5
+type: perm
+status: 
+agreement: s
+value: bike 
+object: mountain bike 
+
+blod_id: 8
+line_no: 80
+id: 6
+type: perm
+status: final
+agreement: ems
+value: cold medication 
+object: cold meds 
+
+blod_id: 8
+line_no: 91
+id: 4
+type: perm
+status: final
+agreement: es
+value: gym 
+object: gym 
+
+blod_id: 8
+line_no: 93
+id: 4
+type: perm
+status: final
+agreement: es
+value: gym 
+object: gym 
+
+blod_id: 8
+line_no: 99
+id: 7
+type: perm
+status: final
+agreement: em
+value: WW monthly pass 
+object: monthly pass 
+
+blod_id: 8
+line_no: 104
+id: 8
+type: perm
+status: 
+agreement: m
+value: tracker 
+object: tracker 
+general_pronoun_indicator: my
+
+blod_id: 8
+line_no: 121
+id: 4
+type: perm
+status: final
+agreement: es
+value: gym 
+object: gym 
+
+blod_id: 8
+line_no: 123
+id: 4
+type: perm
+status: final
+agreement: es
+value: gym 
+object: gym 
+general_pronoun_indicator: my
+
+blod_id: 8
+line_no: 129
+id: 4
+type: perm
+status: final
+agreement: es
+value: gym 
+object: gym 
+
+blod_id: 8
+line_no: 134
+id: 4
+type: perm
+status: final
+agreement: es
+value: gym 
+object: gym 
+
+blod_id: 8
+line_no: 137
+id: 9
+type: perm
+status: final
+agreement: em
+value: bib 
+object: bib 
+general_pronoun_indicator: my
+
+blod_id: 8
+line_no: 140
+id: 9
+type: perm
+status: final
+agreement: em
+value: bib 
+object: bib 
+general_pronoun_indicator: my
+
+blod_id: 8
+line_no: 140
+id: 10
+type: perm
+status: final
+agreement: em
+value: shirt 
+object: shirt 
+
+blod_id: 8
+line_no: 140
+id: 11
+type: perm
+status: final
+agreement: em
+value: camera 
+object: take a picture 
+
+blod_id: 8
+line_no: 145
+id: 12
+type: perm
+status: final
+agreement: em
+value: packet 
+object: packet 
+general_pronoun_indicator: my
+
+blod_id: 8
+line_no: 156
+id: 13
+type: perm
+status: final
+agreement: ems
+value: sweatpants 
+object: sweats 
+
+blod_id: 8
+line_no: 156
+id: 14
+type: perm
+status: final
+agreement: em
+value: jacket 
+object: zip up jacket 
+
+blod_id: 8
+line_no: 156
+id: 15
+type: perm
+status: 
+agreement: m
+value: clothes 
+object: running clothes 
+general_pronoun_indicator: my
+
+blod_id: 8
+line_no: 157
+id: 13
+type: perm
+status: final
+agreement: em
+value: sweatpants 
+object: sweats 
+
+blod_id: 8
+line_no: 166
+id: 16
+type: perm
+status: final
+agreement: em
+value: GPS 
+object: Garmin 
+
+blod_id: 8
+line_no: 173
+id: 17
+type: perm
+status: final
+agreement: em
+value: phone 
+object: phone 
+general_pronoun_indicator: my
+
+blod_id: 8
+line_no: 175
+id: 14
+type: perm
+status: 
+agreement: m
+value: jacket 
+object: zip-up jacket 
+general_pronoun_indicator: my
+
+blod_id: 8
+line_no: 180
+id: 18
+type: perm
+status: final
+agreement: em
+value: headphones 
+object: headphones 
+general_pronoun_indicator: my
+
+blod_id: 8
+line_no: 187
+id: 19
+type: perm
+status: 
+agreement: s
+value: proof 
+object: proof 
+
+blod_id: 8
+line_no: 188
+id: 16
+type: perm
+status: final
+agreement: em
+value: GPS 
+object: Garmin 
+general_pronoun_indicator: my
+
+blod_id: 8
+line_no: 189
+id: 16
+type: perm
+status: final
+agreement: em
+value: GPS 
+object: Garmin 
+general_pronoun_indicator: my
+
+blod_id: 8
+line_no: 190
+id: 20
+type: perm
+status: final
+agreement: em
+value: medal 
+object: medal 
+general_pronoun_indicator: my
