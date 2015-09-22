@@ -1,7 +1,10 @@
+
 from xml.dom.minidom import Document, parseString
+#from __future__ import print_function, division
 from collections import Counter
     
-import nltk
+import nltk, re, pprint
+from nltk import word_tokenize
     
 filenum_list = [7, 8, 9, 16, 17, 18, 25, 26, 27];
 
@@ -20,6 +23,8 @@ indicator_feature_2d[0].append("component_noun")
 
 general_pronoun_dict_met = dict()
 general_pronoun_dict_actual = dict()
+general_adj_dict_met = dict()
+general_adj_dict_actual = dict()
 
 for i in range(0,10):
     indicator_feature_2d[1].append(0)
@@ -35,10 +40,9 @@ total_golden_object_pos_dict = dict()
 file5 = open( "total_pos.txt", "w")
 
 def is_general_pronoun(temp_indicate):
-    if temp_indicate == "my" or temp_indicate == "our" or temp_indicate == "this" or temp_indicate == "that" or temp_indicate == "those" or temp_indicate == "these":
-        return True
-    else:
-        return False
+    return temp_indicate in ["my", "our", "this", "that", "those", "these"]
+def is_general_adj(temp_indicate):
+    return temp_indicate in ["favorite", "new", "old", "some", "other", "best", "same", "good", "own", "modern", "entire"]
 
 for round in range(0, len(filenum_list)):
     filename = 'Blog' + str(filenum_list[round]) + '_eadsit_reconciled.xml'
@@ -93,6 +97,14 @@ for round in range(0, len(filenum_list)):
                     general_pronoun_dict_met[str(temp_indicate)] += 1
                 else:
                     general_pronoun_dict_met[str(temp_indicate)] = 1
+                        
+            if is_general_adj(temp_indicate):
+                indicator_feature_2d[1][1] += 1
+                if str(temp_indicate) in general_adj_dict_met:
+                    general_adj_dict_met[str(temp_indicate)] += 1
+                else:
+                    general_adj_dict_met[str(temp_indicate)] = 1
+            
             #        print "[[[" + temp_indicate + "]]]"
             if temp_indicate == "/object":
                 xml_start = -1
@@ -112,7 +124,7 @@ for round in range(0, len(filenum_list)):
                 type_present = status_present = False
                 golden = False
                 
-                general_pronoun_indicator_temp = -1
+                general_pronoun_indicator_temp = general_adj_indicator_temp = -1
                 
                 current_index = j
                 while True:
@@ -154,14 +166,22 @@ for round in range(0, len(filenum_list)):
 #                features
                 if ( xml_start != -1 ):
                     if is_general_pronoun(str(tag[xml_start-1][0])):
-                        print "\n\n\n\n\n\n\npronoun indicator!\npronoun indicator!\npronoun indicator!\npronoun indicator!\n\n\n\n\n\n\n"
                         indicator_feature_2d[2][0] += 1
                         general_pronoun_indicator_temp = str(tag[xml_start-1][0])
                         if str(tag[xml_start-1][0]) in general_pronoun_dict_actual:
                             general_pronoun_dict_actual[str(tag[xml_start-1][0])] += 1
                         else:
                             general_pronoun_dict_actual[str(tag[xml_start-1][0])] = 1
-                
+
+                if ( xml_start != -1 ):
+                    if is_general_adj(str(tag[xml_start-1][0])):
+                        indicator_feature_2d[2][1] += 1
+                        general_adj_indicator_temp = str(tag[xml_start-1][0])
+                        if str(tag[xml_start-1][0]) in general_adj_dict_actual:
+                            general_adj_dict_actual[str(tag[xml_start-1][0])] += 1
+                        else:
+                            general_adj_dict_actual[str(tag[xml_start-1][0])] = 1
+            
 
                 while value_index_start <= value_index_end:
 #                    print "value_index: " , value_index_start
@@ -243,6 +263,8 @@ for round in range(0, len(filenum_list)):
                 file3.write( "object: " + str(object_value) + "\n" )
                 if general_pronoun_indicator_temp != -1:
                     file3.write( "general_pronoun_indicator: " + general_pronoun_indicator_temp + "\n" )
+                if general_adj_indicator_temp != -1:
+                    file3.write( "general_adj_indicator_temp: " + general_adj_indicator_temp + "\n" )
 
                 print "blog_id: ", blog_id, ", line_no: " , line_no, ", nound_id: ", noun_id, "object: ", object_value, ", object pos: ", object_pos, ", object identified as ", value_value, " which is " , value_pos
 
@@ -355,12 +377,18 @@ for row in indicator_feature_2d:
     for column in row:
         print column , " "
     print "\n"
-
+print "general pronoun indicator:"
 for key, value in general_pronoun_dict_met.iteritems():
     print key, ' has met count ', general_pronoun_dict_met[key]
 print "\n"
 for key, value in general_pronoun_dict_actual.iteritems():
     print key, ' has actual count ', general_pronoun_dict_actual[key]
+print "\n\n\ngeneral adj indicator:"
+for key, value in general_adj_dict_met.iteritems():
+    print key, ' has met count ', general_adj_dict_met[key]
+print "\n"
+for key, value in general_adj_dict_actual.iteritems():
+    print key, ' has actual count ', general_adj_dict_actual[key]
 
 
 
