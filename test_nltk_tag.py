@@ -79,6 +79,8 @@ for round in range(0, len(filenum_list)):
         j = 0
         #    print tag[0]
         while True:
+            if j >= len(tag):
+                break
             file2.write(str(i)+","+str(j))
             file2.write("\n")
             temp_str = str(tag[j])
