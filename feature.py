@@ -8,7 +8,50 @@ from nltk import word_tokenize
     
 filenum_list = [7, 8, 9, 16, 17, 18, 25, 26, 27];
 
-features = {}
+before_word_features = ["my", "our", "this", "that", "those", "these", 
+    "favorite", "new", "old", "some", "other", "best", "same", "good", "own", "modern", "entire", "a few", "lots of", "a lot of", 
+    "big", "small", "huge", "tiny", "mini", "large", "medium", "round", "square", "smooth", "rough", "bright", "dark", "warm", "cold",
+    "first", "second", "1st", "2nd", "third",
+    "love", "like", "buy", "get", "have", "use", "give", "lose", "receive", "repair", "break", "wash", "clean", "tend to", "take", "hate", "carry", "look at", "look into", "find", "put on", "place", "change", "keep", "use", "drive", "sit on"]
+
+before_features = {}
+
+def single_word_features(document):
+    document_words = set(document)
+    print "document words: "
+    print  document_words
+    for word in before_word_features:
+        word = word.lower()
+        if word in document_words:
+            if 'contains({})'.format(word) in before_features:
+                before_features['contains({})'.format(word)] += 1
+            else:
+                before_features['contains({})'.format(word)] = 1
+    return before_features
+
+def is_feature(document):
+    document_words = set(document)
+    print "document words: "
+    print  document_words
+    result = []
+    for word in before_word_features:
+        word = word.lower()
+        if word in document_words:
+            result.append(word)
+    return result
+
+def return_arff_feature(document):
+    document_words = set(document)
+    print "document words: "
+    print  document_words
+    result = ""
+    for word in before_word_features:
+        word = word.lower()
+        if word in document_words:
+            result = result + "1, "
+        else:
+            result = result + "0, "
+    return result
 
 indicator_feature_2d = []
 indicator_feature_2d.append([]) # 0 indicator_name
@@ -47,6 +90,7 @@ def is_general_adj(temp_indicate):
     return temp_indicate in ["favorite", "new", "old", "some", "other", "best", "same", "good", "own", "modern", "entire"]
 
 for round in range(0, len(filenum_list)):
+# for round in range(0, 1):
     filename = 'Blog' + str(filenum_list[round]) + '_eadsit_reconciled.xml'
 #    filename = 'Blog27_eadsit_reconciled.xml'
     filename_alone = filename.rsplit('.', 1)[0]
@@ -64,6 +108,11 @@ for round in range(0, len(filenum_list)):
     file = open( filename_alone + "_pos.txt", "w")
     file2 = open( filename_alone + "_pos_complete.txt", "w")
     file3 = open( filename_alone + "_pos_detail.txt", "w")
+    file6 = open( filename_alone + "_arff.txt", "w")
+    file6.write("@DATA")
+    for word in before_word_features:
+        file6.write("@ATTRIBUTE " + word + " NUMERIC\n")
+    file6.write("\n")
     
 #    target_object = []
 #    target_pos = []
@@ -232,8 +281,10 @@ for round in range(0, len(filenum_list)):
                             golden_target_object_value.append( str(tag[object_index_start][0]) )
                             golden_target_object_pos.append( str(tag[object_index_start][1]) )
                     object_index_start += 1
-                
-                
+                temp_list = []
+                temp_list.append(tag[xml_start-3][0])
+                temp_list.append(tag[xml_start-2][0])
+                temp_list.append(tag[xml_start-1][0])
                 
                 agreement_value = str(tag[agreement_index][0])
                 if type_present:
@@ -263,10 +314,19 @@ for round in range(0, len(filenum_list)):
                 file3.write( "agreement: " + str(agreement_value) + "\n" )
                 file3.write( "value: " + str(value_value) + "\n" )
                 file3.write( "object: " + str(object_value) + "\n" )
+                print single_word_features(temp_list)
+                temp_feature_result_list = is_feature(temp_list)
+                for res in temp_feature_result_list:
+                    print "res: " + res + " in result list"
+                    file3.write( "feature: " + res + "\n" )
                 if general_pronoun_indicator_temp != -1:
                     file3.write( "general_pronoun_indicator: " + general_pronoun_indicator_temp + "\n" )
                 if general_adj_indicator_temp != -1:
                     file3.write( "general_adj_indicator_temp: " + general_adj_indicator_temp + "\n" )
+                file6.write( "\n" + str(id_value) + ", " + str(blog_id) + ": " + str(line_no) + ", " + str(tag[j][1]) + ", possession\n")
+                arff_str = return_arff_feature(temp_list)
+                file6.write(arff_str + "\n")
+
 
                 print "blog_id: ", blog_id, ", line_no: " , line_no, ", nound_id: ", noun_id, "object: ", object_value, ", object pos: ", object_pos, ", object identified as ", value_value, " which is " , value_pos
 
@@ -342,6 +402,7 @@ for round in range(0, len(filenum_list)):
     file3.close()
     file2.close()
     file4.close()
+    file6.close()
 
 
 
@@ -391,6 +452,14 @@ for key, value in general_adj_dict_met.iteritems():
 print "\n"
 for key, value in general_adj_dict_actual.iteritems():
     print key, ' has actual count ', general_adj_dict_actual[key]
+
+
+
+print "\n"
+file5.write("\nfeatures:\n")
+for key, value in before_features.iteritems():
+    print key, ' has actual count ', before_features[key]
+    file5.write( str(key) + " has count " + str(before_features[key]) + "\n" )
 
 
 
