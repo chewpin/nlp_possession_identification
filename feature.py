@@ -82,19 +82,21 @@ total_object_pos_dict = dict()
 
 total_golden_value_pos_dict = dict()
 total_golden_object_pos_dict = dict()
-file5 = open( "total_pos.txt", "w")
+file5 = open(  'feature/' +"total_pos.txt", "w")
 
 def is_general_pronoun(temp_indicate):
     return temp_indicate in ["my", "our", "this", "that", "those", "these"]
 def is_general_adj(temp_indicate):
     return temp_indicate in ["favorite", "new", "old", "some", "other", "best", "same", "good", "own", "modern", "entire"]
 
+running_tagged_num = 0
+
 for round in range(0, len(filenum_list)):
 # for round in range(0, 1):
-    filename = 'Blog' + str(filenum_list[round]) + '_eadsit_reconciled.xml'
+    filename ='Blog ' + str(filenum_list[round]) + '_eadsit_reconciled.xml'
 #    filename = 'Blog27_eadsit_reconciled.xml'
     filename_alone = filename.rsplit('.', 1)[0]
-    file = open(filename, 'r')
+    file = open("reconcile/" + filename, 'r')
     
     sentences = str(file.readlines())
     #sentences = "Call me Ishmael. Some years ago - never mind how long precisely - having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world."
@@ -105,10 +107,10 @@ for round in range(0, len(filenum_list)):
     
     #counts = Counter(tag for word,tag in tagged)
     #print counts
-    file = open( filename_alone + "_pos.txt", "w")
-    file2 = open( filename_alone + "_pos_complete.txt", "w")
-    file3 = open( filename_alone + "_pos_detail.txt", "w")
-    file6 = open( filename_alone + "_arff.txt", "w")
+    file = open( 'feature/' + filename_alone + "_pos.txt", "w")
+    file2 = open( 'feature/' + filename_alone + "_pos_complete.txt", "w")
+    file3 = open( 'feature/' + filename_alone + "_pos_detail.txt", "w")
+    file6 = open( 'feature/' + filename_alone + "_arff.txt", "w")
     file6.write("@DATA")
     for word in before_word_features:
         file6.write("@ATTRIBUTE " + word + " NUMERIC\n")
@@ -360,7 +362,7 @@ for round in range(0, len(filenum_list)):
     file.write("\n\n\n\n\n\n\n\n\n\n")
     file.write(tagged)
     file.close()
-    file4 = open( filename_alone + "_pos_only.txt", "w")
+    file4 = open(  'feature/' +filename_alone + "_pos_only.txt", "w")
 
     file4.write("\nTotal object statistics:\n")
     print "Total:"
