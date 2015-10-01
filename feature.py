@@ -5,6 +5,7 @@ from collections import Counter, defaultdict
     
 import nltk, re, pprint
 from nltk import word_tokenize
+import string
     
 
 def check_word_valid (word, clean_tag):
@@ -19,7 +20,7 @@ def check_word_valid (word, clean_tag):
     return False
 
 
-
+invalidChars = set(string.punctuation.replace("_", ""))
 
 picturable_word_list = ["angle", "ant", "apple", "arch", "arm", "army", "baby", "bag", "ball", "band", "basin", "basket", "bath", "bed", "bee", "bell", "berry", "bird", "blade", "board", "boat", "bone", "book", "boot", "bottle", "box", "boy", "brain", "brake", "branch", "brick", "bridge", "brush", "bucket", "bulb", "button", "cake", "camera", "card", "cart", "carriage", "cat", "chain", "cheese", "chest", "chin", "church", "circle", "clock", "cloud", "coat", "collar", "comb", "cord", "cow", "cup", "curtain", "cushion", "dog", "door", "drain", "drawer", "dress", "drop", "ear", "egg", "engine", "eye", "face", "farm", "feather", "finger", "fish", "flag", "floor", "fly", "foot", "fork", "fowl", "frame", "garden", "girl", "glove", "goat", "gun", "hair", "hammer", "hand", "hat", "head", "heart", "hook", "horn", "horse", "hospital", "house", "island", "jewel", "kettle", "key", "knee", "knife", "knot", "leaf", "leg", "library", "line", "lip", "lock", "map", "match", "monkey", "moon", "mouth", "muscle", "nail", "neck", "needle", "nerve", "net", "nose", "nut", "office", "orange", "oven", "parcel", "pen", "pencil", "picture", "pig", "pin", "pipe", "plane", "plate", "plow", "pocket", "pot", "potato", "prison", "pump", "rail", "rat", "receipt", "ring", "rod", "roof", "root", "sail", "school", "scissors", "screw", "seed", "sheep", "shelf", "ship", "shirt", "shoe", "skin", "skirt", "snake", "sock", "spade", "sponge", "spoon", "spring", "square", "stamp", "star", "station", "stem", "stick", "stocking", "stomach", "store", "street", "sun", "table", "tail", "thread", "throat", "thumb", "ticket", "toe", "tongue", "tooth", "town", "train", "tray", "tree", "trousers", "umbrella", "wall", "watch", "wheel", "whip", "whistle", "window", "wing", "wire", "worm"]
 
@@ -36,7 +37,7 @@ for round in range(0, len(filenum_list)):
 # for round in range(0, 1):
     # file_feature.write( "\n\n" )
     filename = 'Blog ' + str(filenum_list[round]) + '_reconciled.xml'
-    filename = 'Blog 1_reconciled.xml'
+    # filename = 'Blog 1_reconciled.xml'
     filename_alone = filename.rsplit('.', 1)[0]
     file = open("reconcile/" + filename, 'r')
     
@@ -186,9 +187,15 @@ for round in range(0, len(filenum_list)):
                 id_value = str(tag[id_index][0])
                 line_no = i
                 blog_id = filenum_list[round] 
-
-                file_feature.write( str(blog_id) + "_" + str(line_no) + "_" + str(id_value) + ", " + object_value)
-                file_feature_original.write( str(blog_id) + "_" + str(line_no) + "_" + str(id_value) + ", " + object_value)
+                insert = object_value.replace("\\xe2\\x80\\x99", "'")
+                insert = insert.replace("\\xe2\\x80\\xb2", "'")
+                insert = insert.replace("\\xe2\\x80\\xa6", "...")
+                insert = insert.replace("\\xe2\\x80\\x9c", '"')
+                insert = insert.replace('\\', '')
+                if all(char in invalidChars for char in insert):
+                    file_error.write( "\n[" + insert + "] is Invalid")
+                file_feature.write( str(blog_id) + "_" + str(line_no) + "_" + str(id_value) + ", " + insert)
+                file_feature_original.write( str(blog_id) + "_" + str(line_no) + "_" + str(id_value) + ", " + insert)
                 current_index = xml_start-1
                 feature_location_count = 1
                 file_debug_pos.write("\n\n\n\n")
@@ -208,9 +215,15 @@ for round in range(0, len(filenum_list)):
                         break
                     else:
                         # print " [", tag[current_index][0], "]: ", check_word_valid(tag[current_index][0], clean_tag), 
-                        feature_location_count += 1
-                        file_feature.write( ", " + check_word_valid(tag[current_index][0], clean_tag) )
-                        file_feature_original.write( ", " + str(tag[current_index][0]).replace("\\xe2\\x80\\x99", "'") )
+                        insert = str(tag[current_index][0]).replace("\\xe2\\x80\\x99", "'")
+                        insert = insert.replace("\\xe2\\x80\\xb2", "'")
+                        insert = insert.replace("\\xe2\\x80\\xa6", "...")
+                        insert = insert.replace("\\xe2\\x80\\x9c", '"')
+                        insert = insert.replace('\\', '')
+                        if not all(char in invalidChars for char in insert):
+                            feature_location_count += 1
+                            file_feature.write( ", " + check_word_valid(tag[current_index][0], clean_tag) )
+                            file_feature_original.write( ", " + insert )
                     current_index -= 1
                 while ( feature_location_count < 6 ):
                     file_feature.write( ', ""' )
@@ -219,11 +232,11 @@ for round in range(0, len(filenum_list)):
                 feature_location_count = 1
                 current_index = j + 2
                 while current_index >= 0 and current_index < len(tag) and feature_location_count < 6:
-                    if tag[current_index][0] == "/object" :
-                        current_index -= 2
-                    elif tag[current_index][0] == ">" :
-                        while tag[current_index][0] != "<" and current_index >= 0:
-                            current_index -= 1
+                    if tag[current_index][0] == "<" :
+                        while tag[current_index][0] != ">" and current_index < len(tag):
+                            current_index += 1
+                    elif tag[current_index][0] == "/object" :
+                        current_index += 2
                     # print tag[current_index][0] 
                     file_debug_pos.write( str(tag[current_index][0]) + ": " + str(tag[current_index][1]) + "\n" )
                     if not check_word_valid(tag[current_index][0], clean_tag):
@@ -233,9 +246,15 @@ for round in range(0, len(filenum_list)):
                         break
                     else:
                         # print " [", tag[current_index][0], "]: ", check_word_valid(tag[current_index][0], clean_tag), 
-                        feature_location_count += 1
-                        file_feature.write( ", " + check_word_valid(tag[current_index][0], clean_tag) )
-                        file_feature_original.write( ", " + str(tag[current_index][0]).replace("\\xe2\\x80\\x99", "'") )
+                        insert = str(tag[current_index][0]).replace("\\xe2\\x80\\x99", "'")
+                        insert = insert.replace("\\xe2\\x80\\xb2", "'")
+                        insert = insert.replace("\\xe2\\x80\\xa6", "...")
+                        insert = insert.replace("\\xe2\\x80\\x9c", '"')
+                        insert = insert.replace('\\', '')
+                        if not all(char in invalidChars for char in insert):
+                            feature_location_count += 1
+                            file_feature.write( ", " + check_word_valid(tag[current_index][0], clean_tag) )
+                            file_feature_original.write( ", " + insert )
                     current_index += 1
                 while ( feature_location_count < 6 ):
                     file_feature.write( ', ""' )
@@ -243,7 +262,7 @@ for round in range(0, len(filenum_list)):
 
                 file_feature.write( '\n' )
                 file_feature_original.write( '\n' )
-                print "\n"
+                # print "\n"
 
                 object_value = object_value.replace(" \\", "")
                 object_value = object_value.replace("\\", "")
