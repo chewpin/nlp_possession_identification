@@ -1,169 +1,110 @@
 
 from xml.dom.minidom import Document, parseString
 #from __future__ import print_function, division
-from collections import Counter
+from collections import Counter, defaultdict
     
 import nltk, re, pprint
 from nltk import word_tokenize
     
-filenum_list = [7, 8, 9, 16, 17, 18, 25, 26, 27];
 
-before_word_features = ["my", "our", "this", "that", "those", "these", 
-    "favorite", "new", "old", "some", "other", "best", "same", "good", "own", "modern", "entire", "a few", "lots of", "a lot of", 
-    "big", "small", "huge", "tiny", "mini", "large", "medium", "round", "square", "smooth", "rough", "bright", "dark", "warm", "cold",
-    "first", "second", "1st", "2nd", "third",
-    "love", "like", "buy", "get", "have", "use", "give", "lose", "receive", "repair", "break", "wash", "clean", "tend to", "take", "hate", "carry", "look at", "look into", "find", "put on", "place", "change", "keep", "use", "drive", "sit on"]
-
-before_features = {}
-
-def single_word_features(document):
-    document_words = set(document)
-    print "document words: "
-    print  document_words
-    for word in before_word_features:
-        word = word.lower()
-        if word in document_words:
-            if 'contains({})'.format(word) in before_features:
-                before_features['contains({})'.format(word)] += 1
-            else:
-                before_features['contains({})'.format(word)] = 1
-    return before_features
-
-def is_feature(document):
-    document_words = set(document)
-    print "document words: "
-    print  document_words
-    result = []
-    for word in before_word_features:
-        word = word.lower()
-        if word in document_words:
-            result.append(word)
-    return result
-
-def return_arff_feature(document):
-    document_words = set(document)
-    print "document words: "
-    print  document_words
-    result = ""
-    for word in before_word_features:
-        word = word.lower()
-        if word in document_words:
-            result = result + "1, "
-        else:
-            result = result + "0, "
-    return result
-
-indicator_feature_2d = []
-indicator_feature_2d.append([]) # 0 indicator_name
-indicator_feature_2d.append([]) # 1 count of met
-indicator_feature_2d.append([]) # 2 count of actual (use)
-
-indicator_feature_2d[0].append("general_pronoun")
-indicator_feature_2d[0].append("general_adj_pronoun")
-indicator_feature_2d[0].append("general_appearance_descriptor")
-indicator_feature_2d[0].append("general_verb")
-indicator_feature_2d[0].append("general_noun")
-indicator_feature_2d[0].append("brand_noun")
-indicator_feature_2d[0].append("component_noun")
-
-general_pronoun_dict_met = dict()
-general_pronoun_dict_actual = dict()
-general_adj_dict_met = dict()
-general_adj_dict_actual = dict()
-
-for i in range(0,10):
-    indicator_feature_2d[1].append(0)
-for i in range(0,10):
-    indicator_feature_2d[2].append(0)
+def check_word_valid (word, clean_tag):
+    # print clean_tag
+    word = str(word)
+    if word == "<" or word == ">":
+        return False
+    if word.lower() not in dict(clean_tag):
+        return False
+    if str(dict(clean_tag)[word.lower()])[0].isalpha() or str(dict(clean_tag)[word.lower()]) =="-NONE-":
+        return dict(clean_tag)[word.lower()]
+    return False
 
 
-total_value_pos_dict = dict()
-total_object_pos_dict = dict()
 
-total_golden_value_pos_dict = dict()
-total_golden_object_pos_dict = dict()
-file5 = open(  'feature/' +"total_pos.txt", "w")
 
-def is_general_pronoun(temp_indicate):
-    return temp_indicate in ["my", "our", "this", "that", "those", "these"]
-def is_general_adj(temp_indicate):
-    return temp_indicate in ["favorite", "new", "old", "some", "other", "best", "same", "good", "own", "modern", "entire"]
+picturable_word_list = ["angle", "ant", "apple", "arch", "arm", "army", "baby", "bag", "ball", "band", "basin", "basket", "bath", "bed", "bee", "bell", "berry", "bird", "blade", "board", "boat", "bone", "book", "boot", "bottle", "box", "boy", "brain", "brake", "branch", "brick", "bridge", "brush", "bucket", "bulb", "button", "cake", "camera", "card", "cart", "carriage", "cat", "chain", "cheese", "chest", "chin", "church", "circle", "clock", "cloud", "coat", "collar", "comb", "cord", "cow", "cup", "curtain", "cushion", "dog", "door", "drain", "drawer", "dress", "drop", "ear", "egg", "engine", "eye", "face", "farm", "feather", "finger", "fish", "flag", "floor", "fly", "foot", "fork", "fowl", "frame", "garden", "girl", "glove", "goat", "gun", "hair", "hammer", "hand", "hat", "head", "heart", "hook", "horn", "horse", "hospital", "house", "island", "jewel", "kettle", "key", "knee", "knife", "knot", "leaf", "leg", "library", "line", "lip", "lock", "map", "match", "monkey", "moon", "mouth", "muscle", "nail", "neck", "needle", "nerve", "net", "nose", "nut", "office", "orange", "oven", "parcel", "pen", "pencil", "picture", "pig", "pin", "pipe", "plane", "plate", "plow", "pocket", "pot", "potato", "prison", "pump", "rail", "rat", "receipt", "ring", "rod", "roof", "root", "sail", "school", "scissors", "screw", "seed", "sheep", "shelf", "ship", "shirt", "shoe", "skin", "skirt", "snake", "sock", "spade", "sponge", "spoon", "spring", "square", "stamp", "star", "station", "stem", "stick", "stocking", "stomach", "store", "street", "sun", "table", "tail", "thread", "throat", "thumb", "ticket", "toe", "tongue", "tooth", "town", "train", "tray", "tree", "trousers", "umbrella", "wall", "watch", "wheel", "whip", "whistle", "window", "wing", "wire", "worm"]
 
-running_tagged_num = 0
+filenum_list = [1,2,3,4,5,6,7, 8, 9,10,11,12,13,14,15, 16, 17, 18,19,20,21,22,23,24, 25, 26, 27];
+
+
+file_error = open( "feature/error.txt", "w")
+file_feature = open( "feature/feature.txt", "w" )
+file_feature_original = open( "feature/feature_original.txt", "w" )
+file_debug_pos = open("feature/debug_pos.txt", "w")
+
 
 for round in range(0, len(filenum_list)):
 # for round in range(0, 1):
-    filename ='Blog ' + str(filenum_list[round]) + '_eadsit_reconciled.xml'
-#    filename = 'Blog27_eadsit_reconciled.xml'
+    # file_feature.write( "\n\n" )
+    filename = 'Blog ' + str(filenum_list[round]) + '_reconciled.xml'
+    filename = 'Blog 1_reconciled.xml'
     filename_alone = filename.rsplit('.', 1)[0]
     file = open("reconcile/" + filename, 'r')
     
     sentences = str(file.readlines())
+    print "blog_id: ", filenum_list[round] ,"\n"
+    # file7.write(str(filenum_list[round]) + "\n")
     #sentences = "Call me Ishmael. Some years ago - never mind how long precisely - having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world."
     
     tagged = nltk.sent_tokenize(sentences.strip())
     tagged = [nltk.word_tokenize(sent) for sent in tagged]
     tagged = [nltk.pos_tag(sent) for sent in tagged]
-    
-    #counts = Counter(tag for word,tag in tagged)
-    #print counts
-    file = open( 'feature/' + filename_alone + "_pos.txt", "w")
-    file2 = open( 'feature/' + filename_alone + "_pos_complete.txt", "w")
-    file3 = open( 'feature/' + filename_alone + "_pos_detail.txt", "w")
-    file6 = open( 'feature/' + filename_alone + "_arff.txt", "w")
-    file6.write("@DATA")
-    for word in before_word_features:
-        file6.write("@ATTRIBUTE " + word + " NUMERIC\n")
-    file6.write("\n")
-    
-#    target_object = []
-#    target_pos = []
-
-    value_pos_dict = dict()
-    object_pos_dict = dict()
-    
-    golden_target_object_value = []
-    golden_target_object_pos = []
-    golden_target_value_value = []
-    golden_target_value_pos = []
-
-    golden_object_pos_dict = dict()
-    golden_value_pos_dict = dict()
-    
     i = 0
-    noun_id = 0
     for tag in tagged:
         j = 0
-        #    print tag[0]
+        # print "i = " , i, ", tag = "
+        # print tag
+        # get original pos
+        to_get_clean_pos_index = 0
+        to_get_clean_sentence = ""
+        raw_i = 0
+        while to_get_clean_pos_index < len(tag):
+            # print str(to_get_clean_pos_index) + ": " , tag[to_get_clean_pos_index][0]
+            while to_get_clean_pos_index < len(tag) and tag[to_get_clean_pos_index][0] != "<" :
+                # print str(to_get_clean_pos_index) + ": " , tag[to_get_clean_pos_index][0] , " != <"
+                to_get_clean_sentence += " " + tag[to_get_clean_pos_index][0]
+                to_get_clean_pos_index += 1
+                raw_i += 1
+            if to_get_clean_pos_index >= len(tag):
+                break
+            while to_get_clean_pos_index < len(tag) and ">" not in tag[to_get_clean_pos_index][0]:
+                # print str(to_get_clean_pos_index) + ": " , tag[to_get_clean_pos_index][0] , " != e>"
+                to_get_clean_pos_index += 1
+            if to_get_clean_pos_index >= len(tag):
+                break
+            to_get_clean_pos_index += 1
+            while to_get_clean_pos_index < len(tag) and "<" not in tag[to_get_clean_pos_index][0]:
+                # if i == current_index:
+                    # clean_index = raw_i
+                # print "object: " , tag[to_get_clean_pos_index][0]
+                to_get_clean_sentence += " " + tag[to_get_clean_pos_index][0]
+                raw_i += 1
+                to_get_clean_pos_index += 1
+                # print str(to_get_clean_pos_index) + ": " , tag[to_get_clean_pos_index][0]
+            # print "\n"
+            if to_get_clean_pos_index >= len(tag):
+                break
+            to_get_clean_pos_index += 3
+
+        # print "clean sentence: "
+        # print to_get_clean_sentence
+
+        to_get_clean_sentence = to_get_clean_sentence.lower()
+        clean_text = word_tokenize(to_get_clean_sentence)
+        clean_tag = nltk.pos_tag(clean_text)
+        # file7.write(to_get_clean_sentence + "\n")
+
+        # print "\n\n\n\n\n\n\n"
+        # print "clean_tag: "
+        # print clean_tag
         while True:
             if j >= len(tag):
-                break
-            file2.write(str(i)+","+str(j))
-            file2.write("\n")
-            temp_str = str(tag[j])
-            file2.write(temp_str)
-            file2.write("\n")
+                break    
             temp_indicate = tag[j][0]
-            if is_general_pronoun(temp_indicate):
-                indicator_feature_2d[1][0] += 1
-                if str(temp_indicate) in general_pronoun_dict_met:
-                    general_pronoun_dict_met[str(temp_indicate)] += 1
-                else:
-                    general_pronoun_dict_met[str(temp_indicate)] = 1
-                        
-            if is_general_adj(temp_indicate):
-                indicator_feature_2d[1][1] += 1
-                if str(temp_indicate) in general_adj_dict_met:
-                    general_adj_dict_met[str(temp_indicate)] += 1
-                else:
-                    general_adj_dict_met[str(temp_indicate)] = 1
-            
-            #        print "[[[" + temp_indicate + "]]]"
+            # print temp_indicate
+            # if temp_indicate in dict(clean_tag):
+                # if ( str(dict(clean_tag)[temp_indicate])[0].isalpha() or str(dict(clean_tag)[temp_indicate]) =="-NONE-" ):
             if temp_indicate == "/object":
-                xml_start = -1
-                value_pos_temp = []
-                object_pos_temp = []
-                
+                xml_start = -1                
                 value_value = value_pos = ""
                 object_value = object_pos = ""
                 status_value = agreement_value = type_value = ""
@@ -173,11 +114,8 @@ for round in range(0, len(filenum_list)):
                 type_index = 0
                 id_index = 0
                 value_index_start = value_index_end = 0
-                agreement_present = True
-                type_present = status_present = False
+                agreement_present = type_present = status_present = False
                 golden = False
-                
-                general_pronoun_indicator_temp = general_adj_indicator_temp = -1
                 
                 current_index = j
                 while True:
@@ -188,10 +126,14 @@ for round in range(0, len(filenum_list)):
                 while True:
                     current_index -= 1
                     if ( str(tag[current_index][0]) == ">" and str(tag[current_index-5][0]) == "agreement" ):
-                        if str(tag[current_index-2][0]) == "ems":
+                        if len(str(tag[current_index-2][0])) == 3: # ems / sem
                             golden = True
                         object_index_start = current_index+1
                         agreement_index = current_index-2
+                        agreement_present = True
+                        break
+                    if ( str(tag[current_index][0]) == ">" and str(tag[current_index-5][0]) != "agreement" ):
+                        object_index_start = current_index+1
                         break
                 while True:
                     current_index -= 1
@@ -210,277 +152,128 @@ for round in range(0, len(filenum_list)):
                         id_index = current_index+3
                         value_index_end = current_index-2
                         break
+
                 while True:
                     current_index -= 1
+                    # print "current index: " , current_index, ": " , tag[current_index][0]
                     if ( str(tag[current_index][0]) == "value" and str(tag[current_index-1][0]) == "object" and str(tag[current_index-2][0]) == "<" ):
                         value_index_start = current_index+3
                         xml_start = current_index - 2
                         break
-#                features
-                if ( xml_start != -1 ):
-                    if is_general_pronoun(str(tag[xml_start-1][0])):
-                        indicator_feature_2d[2][0] += 1
-                        general_pronoun_indicator_temp = str(tag[xml_start-1][0])
-                        if str(tag[xml_start-1][0]) in general_pronoun_dict_actual:
-                            general_pronoun_dict_actual[str(tag[xml_start-1][0])] += 1
-                        else:
-                            general_pronoun_dict_actual[str(tag[xml_start-1][0])] = 1
-
-                if ( xml_start != -1 ):
-                    if is_general_adj(str(tag[xml_start-1][0])):
-                        indicator_feature_2d[2][1] += 1
-                        general_adj_indicator_temp = str(tag[xml_start-1][0])
-                        if str(tag[xml_start-1][0]) in general_adj_dict_actual:
-                            general_adj_dict_actual[str(tag[xml_start-1][0])] += 1
-                        else:
-                            general_adj_dict_actual[str(tag[xml_start-1][0])] = 1
-            
-
-                while value_index_start <= value_index_end:
-#                    print "value_index: " , value_index_start
-                    if value_index_start < len(tag):
-#                        print "yes value"
-                        value_value = value_value + str(tag[value_index_start][0]) + " "
-                        value_pos = value_pos + str(tag[value_index_start][0]) + " "
-#                        value_pos_temp.append( str(tag[value_index_start][0]) )
-                        if str(tag[value_index_start][1]) in value_pos_dict:
-                            value_pos_dict[str(tag[value_index_start][1])] += 1
-                        #                            file.write( str_object + ":     " + str_pos + " in dict, update count to " + str(pos_dict[str_pos]) + "\n" )
-                        else:
-                            value_pos_dict[str(tag[value_index_start][1])] = 1
-#                            file.write( str_object + ":     " + str_pos + " not in dict, set to " + str(pos_dict[str_pos]) + "\n" )
-                        if golden:
-                            if str(tag[value_index_start][1]) in golden_value_pos_dict:
-                                golden_value_pos_dict[str(tag[value_index_start][1])] += 1
-#                        file.write( str_object + ":     " + str_pos + " in dict, update count to " + str(golden_pos_dict[str_pos]) + "\n" )
-                            else:
-                                golden_value_pos_dict[str(tag[value_index_start][1])] = 1
-#                        file.write( str_object + ":     " + str_pos + " not in dict, set to " + str(golden_pos_dict[str_pos]) + "\n" )
-                            golden_target_value_value.append( str(tag[value_index_start][0]) )
-                            golden_target_value_pos.append( str(tag[value_index_start][1]) )
-                    value_index_start += 1
-                        
+                if agreement_present and len(str(tag[agreement_index][0])):
+                    golden = True
+                # print "object_index_start: " , object_index_start, ": " , tag[object_index_start][0]
+                # print "object_index_end: ", object_index_end, ": " , tag[object_index_end][0]
+                # print "value_index_end: " , value_index_end
+                # print "current index: " , current_index, ": " , tag[current_index][0]
+                # print "id index: " , id_index, ": " , tag[id_index][0]
+                object_value_count = 0
+                object_value_arr = []
+                object_value_decode = ""  
+                # first_time_temp = True    
                 while object_index_start <= object_index_end:
-#                    print "object_index: " , object_index_start
+                    # print "object_index: " , object_index_start
                     if object_index_start < len(tag):
-#                        print "yes object"
+                        object_value_arr.append(str(tag[object_index_start][0]))
+                        temp = str(tag[object_index_start][0]).lower()
+                        temp_decode = temp.replace("\\xe2\\x80\\xb2", "'") # erase some weird characters
+                        object_value_decode = object_value_decode + temp_decode + " "
                         object_value = object_value + str(tag[object_index_start][0]) + " "
-                        object_pos = object_pos + str(tag[object_index_start][0]) + " "
-#                        object_pos_temp.append( str(tag[object_index_start][0]) )
-                        if str(tag[object_index_start][1]) in object_pos_dict:
-                            object_pos_dict[str(tag[object_index_start][1])] += 1
-#                            file.write( str_object + ":     " + str_pos + " in dict, update count to " + str(pos_dict[str_pos]) + "\n" )
-                        else:
-                            object_pos_dict[str(tag[object_index_start][1])] = 1
-#                            file.write( str_object + ":     " + str_pos + " not in dict, set to " + str(pos_dict[str_pos]) + "\n" )
-                        if golden:
-                            if str(tag[object_index_start][1]) in golden_object_pos_dict:
-                                golden_object_pos_dict[str(tag[object_index_start][1])] += 1
-#                        file.write( str_object + ":     " + str_pos + " in dict, update count to " + str(golden_pos_dict[str_pos]) + "\n" )
-                            else:
-                                golden_object_pos_dict[str(tag[object_index_start][1])] = 1
-#                        file.write( str_object + ":     " + str_pos + " not in dict, set to " + str(golden_pos_dict[str_pos]) + "\n" )
-                            golden_target_object_value.append( str(tag[object_index_start][0]) )
-                            golden_target_object_pos.append( str(tag[object_index_start][1]) )
+                        object_pos = object_pos + str(tag[object_index_start][0]) + " " 
+                        object_value_count += 1                      
                     object_index_start += 1
-                temp_list = []
-                temp_list.append(tag[xml_start-3][0])
-                temp_list.append(tag[xml_start-2][0])
-                temp_list.append(tag[xml_start-1][0])
-                
-                agreement_value = str(tag[agreement_index][0])
-                if type_present:
-                    type_value = str(tag[type_index][0])
-                if status_present:
-                    status_value = str(tag[status_index][0])
+
                 id_value = str(tag[id_index][0])
-                #            print "YESSSSS"
                 line_no = i
-                blog_id = filenum_list[round]
-                
+                blog_id = filenum_list[round] 
+
+                file_feature.write( str(blog_id) + "_" + str(line_no) + "_" + str(id_value) + ", " + object_value)
+                file_feature_original.write( str(blog_id) + "_" + str(line_no) + "_" + str(id_value) + ", " + object_value)
+                current_index = xml_start-1
+                feature_location_count = 1
+                file_debug_pos.write("\n\n\n\n")
+                # print "\n\nOBJECT: [" + str(object_value) + "]"
+                while current_index >= 0 and current_index < len(tag) and feature_location_count < 6:
+                    if tag[current_index][0] == "/object" :
+                        current_index -= 2
+                    elif tag[current_index][0] == ">" :
+                        while tag[current_index][0] != "<" and current_index >= 0:
+                            current_index -= 1
+                    # print tag[current_index][0] 
+                    file_debug_pos.write( str(tag[current_index][0]) + ": " + str(tag[current_index][1]) + "\n" )
+                    if not check_word_valid(tag[current_index][0], clean_tag):
+                        file_error.write( str(tag[current_index][0])+ " not valid")
+                    elif '\\r' in str(tag[current_index][0]) or '"\\n"' in str(tag[current_index][0]):
+                        # print "\n" + tag[current_index][0] , " contains '\\r' or '\\n' "
+                        break
+                    else:
+                        # print " [", tag[current_index][0], "]: ", check_word_valid(tag[current_index][0], clean_tag), 
+                        feature_location_count += 1
+                        file_feature.write( ", " + check_word_valid(tag[current_index][0], clean_tag) )
+                        file_feature_original.write( ", " + str(tag[current_index][0]).replace("\\xe2\\x80\\x99", "'") )
+                    current_index -= 1
+                while ( feature_location_count < 6 ):
+                    file_feature.write( ', ""' )
+                    feature_location_count += 1
+                file_debug_pos.write("\n\n")
+                feature_location_count = 1
+                current_index = j + 2
+                while current_index >= 0 and current_index < len(tag) and feature_location_count < 6:
+                    if tag[current_index][0] == "/object" :
+                        current_index -= 2
+                    elif tag[current_index][0] == ">" :
+                        while tag[current_index][0] != "<" and current_index >= 0:
+                            current_index -= 1
+                    # print tag[current_index][0] 
+                    file_debug_pos.write( str(tag[current_index][0]) + ": " + str(tag[current_index][1]) + "\n" )
+                    if not check_word_valid(tag[current_index][0], clean_tag):
+                        file_error.write( str(tag[current_index][0])+ " not valid\n")
+                    elif '\\r' in str(tag[current_index][0]) or '\\n' in str(tag[current_index][0]): 
+                        # print "\n" + tag[current_index][0] , " contains '\\r' or '\\n' "                       
+                        break
+                    else:
+                        # print " [", tag[current_index][0], "]: ", check_word_valid(tag[current_index][0], clean_tag), 
+                        feature_location_count += 1
+                        file_feature.write( ", " + check_word_valid(tag[current_index][0], clean_tag) )
+                        file_feature_original.write( ", " + str(tag[current_index][0]).replace("\\xe2\\x80\\x99", "'") )
+                    current_index += 1
+                while ( feature_location_count < 6 ):
+                    file_feature.write( ', ""' )
+                    feature_location_count += 1
+
+                file_feature.write( '\n' )
+                file_feature_original.write( '\n' )
+                print "\n"
+
                 object_value = object_value.replace(" \\", "")
                 object_value = object_value.replace("\\", "")
                 object_value = object_value.replace("\\ ", "")
                 object_value = object_value.replace(" /'", "")
-                print "id_value: " + id_value
-                print "value_value: " + value_value
-                print "type_value: " + type_value
-                print "status_value: " + status_value
-                print "object_value: " + object_value
-                print "agreement_value: " + agreement_value
-                file3.write( "\nblod_id: " + str(blog_id) + "\n" )
-                file3.write( "line_no: " + str(line_no) + "\n" )
-                file3.write( "id: " + str(id_value) + "\n" )
-                file3.write( "type: " + str(type_value) + "\n" )
-                file3.write( "status: " + str(status_value) + "\n" )
-                file3.write( "agreement: " + str(agreement_value) + "\n" )
-                file3.write( "value: " + str(value_value) + "\n" )
-                file3.write( "object: " + str(object_value) + "\n" )
-                print single_word_features(temp_list)
-                temp_feature_result_list = is_feature(temp_list)
-                for res in temp_feature_result_list:
-                    print "res: " + res + " in result list"
-                    file3.write( "feature: " + res + "\n" )
-                if general_pronoun_indicator_temp != -1:
-                    file3.write( "general_pronoun_indicator: " + general_pronoun_indicator_temp + "\n" )
-                if general_adj_indicator_temp != -1:
-                    file3.write( "general_adj_indicator_temp: " + general_adj_indicator_temp + "\n" )
-                file6.write( "\n" + str(id_value) + ", " + str(blog_id) + ": " + str(line_no) + ", " + str(tag[j][1]) + ", possession\n")
-                arff_str = return_arff_feature(temp_list)
-                file6.write(arff_str + "\n")
-
-
-                print "blog_id: ", blog_id, ", line_no: " , line_no, ", nound_id: ", noun_id, "object: ", object_value, ", object pos: ", object_pos, ", object identified as ", value_value, " which is " , value_pos
-
-#                target_object.append( str(object_value) )
-#                target_pos.append( str(object_pos) )
-#                if j > 5 and str(tag[j-5][0]) == "ems":
-#                    print "golden"
-#                    if str_pos in golden_pos_dict:
-#                        golden_pos_dict[str_pos] += 1
-##                        file.write( str_object + ":     " + str_pos + " in dict, update count to " + str(golden_pos_dict[str_pos]) + "\n" )
-#                    else:
-#                        golden_pos_dict[str_pos] = 1
-##                        file.write( str_object + ":     " + str_pos + " not in dict, set to " + str(golden_pos_dict[str_pos]) + "\n" )
-#                    golden_target_object.append( str_object )
-#                    golden_target_pos.append( str_pos )
-                noun_id += 1
+                object_value = object_value.strip()
+               
+                # print "\nxml_start: " , xml_start
+                # print "object_index_start: " , object_index_start
+                # print "object_index_end: ", object_index_end
+                # print "value_index_start:", value_index_start
+                # print "value_index_end: " , value_index_end
+                # print "object: " , object_value
+                # print "blog_id: ", blog_id
+                # print to_get_clean_sentence
+                # file6.write( "\n" + object_value_decode + "\n" )
+                # file6.write( str(object_value) + "\n" )
+                # print str(object_value)
+                # print object_value
+                            
             j += 1
         i += 1
-#    for x in range(0, len(target_object)):
-#        print target_object[x]
-#        print target_pos[x]
-    print "value:"
-    for key, value in value_pos_dict.iteritems():
-        print key, 'corresponds to', value_pos_dict[key]
-        file.write( "\n" + str(key) + " has count " + str(value_pos_dict[key]) + "\n" )
-    print "object:"
-    for key, value in object_pos_dict.iteritems():
-        print key, 'corresponds to', object_pos_dict[key]
-        file.write( "\n" + str(key) + " has count " + str(object_pos_dict[key]) + "\n" )
-    tagged = str(tagged)
-    file.write("\n\n\n\n\n\n\n\n\n\n")
-    file.write(tagged)
+
     file.close()
-    file4 = open(  'feature/' +filename_alone + "_pos_only.txt", "w")
-
-    file4.write("\nTotal object statistics:\n")
-    print "Total:"
-    for key, value in object_pos_dict.iteritems():
-        if key in total_object_pos_dict:
-            total_object_pos_dict[key] += object_pos_dict[key]
-        else:
-            total_object_pos_dict[key] = 1
-        print key, 'corresponds to', object_pos_dict[key]
-        file4.write( str(key) + " has count " + str(object_pos_dict[key]) + "\n" )
-    file4.write("\nTotal value statistics:\n")
-    print "Total:"
-    for key, value in value_pos_dict.iteritems():
-        if key in total_value_pos_dict:
-            total_value_pos_dict[key] += value_pos_dict[key]
-        else:
-            total_value_pos_dict[key] = 1
-        print key, 'corresponds to', value_pos_dict[key]
-        file4.write( str(key) + " has count " + str(value_pos_dict[key]) + "\n" )
-
-    file4.write("\nGolden Standard object statistics:\n")
-    print "Golden object:"
-    for key, value in golden_object_pos_dict.iteritems():
-        if key in total_golden_object_pos_dict:
-            total_golden_object_pos_dict[key] += golden_object_pos_dict[key]
-        else:
-            total_golden_object_pos_dict[key] = 1
-        print key, 'corresponds to', golden_object_pos_dict[key]
-        file4.write( str(key) + " has count " + str(golden_object_pos_dict[key]) + "\n" )
-    file4.write("\nGolden Standard value statistics:\n")
-    print "Golden object:"
-    for key, value in golden_value_pos_dict.iteritems():
-        if key in total_golden_value_pos_dict:
-            total_golden_value_pos_dict[key] += golden_value_pos_dict[key]
-        else:
-            total_golden_value_pos_dict[key] = 1
-        print key, 'corresponds to', golden_value_pos_dict[key]
-        file4.write( str(key) + " has count " + str(golden_value_pos_dict[key]) + "\n" )
-    file3.close()
-    file2.close()
-    file4.close()
-    file6.close()
 
 
-
-print "Total object:"
-file5.write("\nTotal object statistics:\n")
-for key, value in total_object_pos_dict.iteritems():
-    print key, 'corresponds to', total_object_pos_dict[key]
-    file5.write( str(key) + " has count " + str(total_object_pos_dict[key]) + "\n" )
-
-
-print "Total value:"
-file5.write("\nTotal value statistics:\n")
-for key, value in total_value_pos_dict.iteritems():
-    print key, 'corresponds to', total_value_pos_dict[key]
-    file5.write( str(key) + " has count " + str(total_value_pos_dict[key]) + "\n" )
-
-
-print "Total golden object:"
-file5.write("\nTotal golden Standard object statistics:\n")
-for key, value in total_golden_object_pos_dict.iteritems():
-    print key, 'corresponds to', total_golden_object_pos_dict[key]
-    file5.write( str(key) + " has count " + str(total_golden_object_pos_dict[key]) + "\n" )
-
-
-print "Total golden value:"
-file5.write("\nTotal golden Standard value statistics:\n")
-for key, value in total_golden_value_pos_dict.iteritems():
-    print key, 'corresponds to', total_golden_value_pos_dict[key]
-    file5.write( str(key) + " has count " + str(total_golden_value_pos_dict[key]) + "\n" )
-
-
-# Loop over rows.
-for row in indicator_feature_2d:
-    # Loop over columns.
-    for column in row:
-        print column , " "
-    print "\n"
-print "general pronoun indicator:"
-for key, value in general_pronoun_dict_met.iteritems():
-    print key, ' has met count ', general_pronoun_dict_met[key]
-print "\n"
-for key, value in general_pronoun_dict_actual.iteritems():
-    print key, ' has actual count ', general_pronoun_dict_actual[key]
-print "\n\n\ngeneral adj indicator:"
-for key, value in general_adj_dict_met.iteritems():
-    print key, ' has met count ', general_adj_dict_met[key]
-print "\n"
-for key, value in general_adj_dict_actual.iteritems():
-    print key, ' has actual count ', general_adj_dict_actual[key]
-
-
-
-print "\n"
-file5.write("\nfeatures:\n")
-for key, value in before_features.iteritems():
-    print key, ' has actual count ', before_features[key]
-    file5.write( str(key) + " has count " + str(before_features[key]) + "\n" )
-
-
-
-
-
-
-
-
-
-
-
-
-
-file5.close()
-
-
-
-
-
+file_feature.close()
+file_feature_original.close()
+file_error.close()
+file_debug_pos.close()
 
 
 
