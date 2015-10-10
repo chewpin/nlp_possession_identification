@@ -25,7 +25,10 @@ invalidChars = set(string.punctuation.replace("_", ""))
 picturable_word_list = ["angle", "ant", "apple", "arch", "arm", "army", "baby", "bag", "ball", "band", "basin", "basket", "bath", "bed", "bee", "bell", "berry", "bird", "blade", "board", "boat", "bone", "book", "boot", "bottle", "box", "boy", "brain", "brake", "branch", "brick", "bridge", "brush", "bucket", "bulb", "button", "cake", "camera", "card", "cart", "carriage", "cat", "chain", "cheese", "chest", "chin", "church", "circle", "clock", "cloud", "coat", "collar", "comb", "cord", "cow", "cup", "curtain", "cushion", "dog", "door", "drain", "drawer", "dress", "drop", "ear", "egg", "engine", "eye", "face", "farm", "feather", "finger", "fish", "flag", "floor", "fly", "foot", "fork", "fowl", "frame", "garden", "girl", "glove", "goat", "gun", "hair", "hammer", "hand", "hat", "head", "heart", "hook", "horn", "horse", "hospital", "house", "island", "jewel", "kettle", "key", "knee", "knife", "knot", "leaf", "leg", "library", "line", "lip", "lock", "map", "match", "monkey", "moon", "mouth", "muscle", "nail", "neck", "needle", "nerve", "net", "nose", "nut", "office", "orange", "oven", "parcel", "pen", "pencil", "picture", "pig", "pin", "pipe", "plane", "plate", "plow", "pocket", "pot", "potato", "prison", "pump", "rail", "rat", "receipt", "ring", "rod", "roof", "root", "sail", "school", "scissors", "screw", "seed", "sheep", "shelf", "ship", "shirt", "shoe", "skin", "skirt", "snake", "sock", "spade", "sponge", "spoon", "spring", "square", "stamp", "star", "station", "stem", "stick", "stocking", "stomach", "store", "street", "sun", "table", "tail", "thread", "throat", "thumb", "ticket", "toe", "tongue", "tooth", "town", "train", "tray", "tree", "trousers", "umbrella", "wall", "watch", "wheel", "whip", "whistle", "window", "wing", "wire", "worm"]
 
 filenum_list = [1,2,3,4,5,6,7, 8, 9,10,11,12,13,14,15, 16, 17, 18,19,20,21,22,23,24, 25, 26, 27];
-
+before_pos_dict = {}
+after_pos_dict = {}
+picturable_count_dict = {}
+picture_dict = {}
 
 file_error = open( "feature/error.txt", "w")
 file_feature = open( "feature/feature.txt", "w" )
@@ -171,13 +174,23 @@ for round in range(0, len(filenum_list)):
                 object_value_count = 0
                 object_value_arr = []
                 object_value_decode = ""  
-                # first_time_temp = True    
+                # first_time_temp = True  
+                picturable = []  
+                picturable_temp = []
                 while object_index_start <= object_index_end:
                     # print "object_index: " , object_index_start
                     if object_index_start < len(tag):
                         object_value_arr.append(str(tag[object_index_start][0]))
                         temp = str(tag[object_index_start][0]).lower()
                         temp_decode = temp.replace("\\xe2\\x80\\xb2", "'") # erase some weird characters
+                        temp_decode = temp_decode.replace("\\xe2\\x80\\x99", "'")
+                        temp_decode = temp_decode.replace("\\xe2\\x80\\xa6", "...")
+                        temp_decode = temp_decode.replace("\\xe2\\x80\\x9c", '"')
+                        temp_decode = temp_decode.replace('\\', '')
+                        if temp_decode.strip() in picturable_word_list:
+                            picturable_temp.append( temp_decode.strip() )
+                            picturable.append( picturable_word_list.index(temp_decode.strip()))
+                            print temp_decode.strip() , " picturable: ", picturable_word_list.index(temp_decode.strip())
                         object_value_decode = object_value_decode + temp_decode + " "
                         object_value = object_value + str(tag[object_index_start][0]) + " "
                         object_pos = object_pos + str(tag[object_index_start][0]) + " " 
@@ -222,11 +235,16 @@ for round in range(0, len(filenum_list)):
                         insert = insert.replace('\\', '')
                         if not all(char in invalidChars for char in insert):
                             feature_location_count += 1
+                            if check_word_valid(tag[current_index][0], clean_tag) in before_pos_dict:
+                                before_pos_dict[check_word_valid(tag[current_index][0], clean_tag)] += 1
+                            else:
+                                before_pos_dict[check_word_valid(tag[current_index][0], clean_tag)] = 1
                             file_feature.write( ", " + check_word_valid(tag[current_index][0], clean_tag) )
                             file_feature_original.write( ", " + insert )
                     current_index -= 1
                 while ( feature_location_count < 6 ):
                     file_feature.write( ', ""' )
+                    file_feature_original.write( ', ""' )
                     feature_location_count += 1
                 file_debug_pos.write("\n\n")
                 feature_location_count = 1
@@ -253,13 +271,24 @@ for round in range(0, len(filenum_list)):
                         insert = insert.replace('\\', '')
                         if not all(char in invalidChars for char in insert):
                             feature_location_count += 1
+                            if check_word_valid(tag[current_index][0], clean_tag) in after_pos_dict:
+                                after_pos_dict[check_word_valid(tag[current_index][0], clean_tag)] += 1
+                            else:
+                                after_pos_dict[check_word_valid(tag[current_index][0], clean_tag)] = 1
                             file_feature.write( ", " + check_word_valid(tag[current_index][0], clean_tag) )
                             file_feature_original.write( ", " + insert )
                     current_index += 1
                 while ( feature_location_count < 6 ):
                     file_feature.write( ', ""' )
+                    file_feature_original.write( ', ""' )
                     feature_location_count += 1
-
+                for index in picturable:
+                    if index in picture_dict:
+                        picture_dict[index] += 1
+                    else:
+                        picture_dict[index] = 1
+                    file_feature.write( ", " + str(index) )
+                    file_feature_original.write( ", " + str(picturable_word_list[index]) )
                 file_feature.write( '\n' )
                 file_feature_original.write( '\n' )
                 # print "\n"
@@ -287,6 +316,31 @@ for round in range(0, len(filenum_list)):
         i += 1
 
     file.close()
+
+file_feature.write("\n Stats for 5 words before POS:\n")
+count = 0
+for key, value in before_pos_dict.iteritems():
+    count += before_pos_dict[key]
+for key, value in before_pos_dict.iteritems():
+    file_feature.write( str(key) + " has count " + str(before_pos_dict[key]) + "  ( " + 
+        str("{0:.2f}".format(before_pos_dict[key] * 100 / float(count)) ) + "%)\n" )
+
+file_feature.write("\n Stats for 5 words after POS:\n")
+count = 0
+for key, value in after_pos_dict.iteritems():
+    count += after_pos_dict[key]
+for key, value in after_pos_dict.iteritems():
+    file_feature.write( str(key) + " has count " + str(after_pos_dict[key]) + "  ( " + 
+        str("{0:.2f}".format(after_pos_dict[key] * 100 / float(count)) )+ "%)\n" )
+
+file_feature.write("\n Stats for picturable words frequency:\n")
+count = 0
+for key, value in picture_dict.iteritems():
+    count += picture_dict[key]
+for key, value in picture_dict.iteritems():
+    file_feature.write( str(key) + ": " + picturable_word_list[key] + " has count " + str(picture_dict[key]) + "  ( " + 
+        str("{0:.2f}".format(picture_dict[key] * 100 / float(count)) )+ "%)\n" )
+    
 
 
 file_feature.close()
