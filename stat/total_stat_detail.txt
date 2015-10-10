@@ -1,0 +1,748 @@
+
+noun chair n clean tag pos: NN
+
+blod_id: 2
+line_no: 12
+id: 12
+type: perm
+status: final
+agreement: EMS
+value: Adirondack chair 
+object: charming folding Trex Adirondack chair 
+noun in clean sentence: chair
+noun in clean sentence pos: NN
+
+clean sentence:  But since I know concentrated FOCUS is what can quickly transform little uneventful areas into inspiring spaces , I really have been trying hard to grow in my ability to stick with improving one corner at a time until it feels more complete.\r\n ' , '\r\n ' , 'This little spot has been in progress for awhile , but recently I did a little spring clean up , planted a few pots and plants and set up a charming folding Trex Adirondack chair and end table near my recycled spool table ( you can find the all weather patio furniture from Trex ) .
+
+clean tag: [('But', 'CC'), ('since', 'IN'), ('I', 'PRP'), ('know', 'VBP'), ('concentrated', 'VBN'), ('FOCUS', 'NNP'), ('is', 'VBZ'), ('what', 'WP'), ('can', 'MD'), ('quickly', 'RB'), ('transform', 'VB'), ('little', 'JJ'), ('uneventful', 'JJ'), ('areas', 'NNS'), ('into', 'IN'), ('inspiring', 'VBG'), ('spaces', 'NNS'), (',', ','), ('I', 'PRP'), ('really', 'RB'), ('have', 'VBP'), ('been', 'VBN'), ('trying', 'VBG'), ('hard', 'RB'), ('to', 'TO'), ('grow', 'VB'), ('in', 'IN'), ('my', 'PRP$'), ('ability', 'NN'), ('to', 'TO'), ('stick', 'VB'), ('with', 'IN'), ('improving', 'VBG'), ('one', 'CD'), ('corner', 'NN'), ('at', 'IN'), ('a', 'DT'), ('time', 'NN'), ('until', 'IN'), ('it', 'PRP'), ('feels', 'VBZ'), ('more', 'JJR'), ('complete.\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'This", 'NNP'), ('little', 'RB'), ('spot', 'VBD'), ('has', 'VBZ'), ('been', 'VBN'), ('in', 'IN'), ('progress', 'NN'), ('for', 'IN'), ('awhile', 'NN'), (',', ','), ('but', 'CC'), ('recently', 'RB'), ('I', 'PRP'), ('did', 'VBD'), ('a', 'DT'), ('little', 'RB'), ('spring', 'VBG'), ('clean', 'JJ'), ('up', 'IN'), (',', ','), ('planted', 'VBN'), ('a', 'DT'), ('few', 'JJ'), ('pots', 'NNS'), ('and', 'CC'), ('plants', 'NNS'), ('and', 'CC'), ('set', 'VB'), ('up', 'RP'), ('a', 'DT'), ('charming', 'NN'), ('folding', 'VBG'), ('Trex', 'NNP'), ('Adirondack', 'NNP'), ('chair', 'NN'), ('and', 'CC'), ('end', 'NN'), ('table', 'NN'), ('near', 'IN'), ('my', 'PRP$'), ('recycled', 'VBN'), ('spool', 'NN'), ('table', 'NN'), ('(', ':'), ('you', 'PRP'), ('can', 'MD'), ('find', 'VB'), ('the', 'DT'), ('all', 'DT'), ('weather', 'NN'), ('patio', 'NN'), ('furniture', 'NN'), ('from', 'IN'), ('Trex', 'NNP'), (')', 'NNP'), ('.', '.')]
+
+verb post n clean tag pos: NN
+
+blod_id: 3
+line_no: 31
+id: 12
+type: perm
+status: final
+agreement: ES
+value: Mother\ 's Day post 
+object: early Mother 's Day post 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  ! \r\n ' , '\r\n ' , '\r\n ' , 'Posted by Alice at 7:51 PM No comments : \r\n ' , 'Labels : # StayStrong , BOS/Chronic Rejection , Jozi\r\n ' , 'Saturday , May 9 , 2015\r\n ' , `` Early Mother 's Day post ! \r\n '' , 'Wanted to share the pics in an early Mother\ 's Day post !
+
+clean tag: [('!', 'NN'), ('\\r\\n', 'NN'), ("'", "''"), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'Posted", 'JJ'), ('by', 'IN'), ('Alice', 'NNP'), ('at', 'IN'), ('7:51', 'CD'), ('PM', 'NNP'), ('No', 'NNP'), ('comments', 'VBZ'), (':', ':'), ('\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'Labels", 'NNS'), (':', ':'), ('#', '#'), ('StayStrong', 'NNP'), (',', ','), ('BOS/Chronic', 'JJ'), ('Rejection', 'NNP'), (',', ','), ('Jozi\\r\\n', 'NNP'), ("'", 'POS'), (',', ','), ("'Saturday", 'NNP'), (',', ','), ('May', 'NNP'), ('9', 'CD'), (',', ','), ('2015\\r\\n', 'CD'), ("'", 'POS'), (',', ','), ('``', '``'), ('Early', 'RB'), ('Mother', 'DT'), ("'s", 'POS'), ('Day', 'NNP'), ('post', 'NN'), ('!', '.'), ('\\r\\n', 'JJ'), ("''", "''"), (',', ','), ("'Wanted", 'JJ'), ('to', 'TO'), ('share', 'VB'), ('the', 'DT'), ('pics', 'NNS'), ('in', 'IN'), ('an', 'DT'), ('early', 'JJ'), ('Mother\\', 'NN'), ("'s", 'POS'), ('Day', 'NNP'), ('post', 'NN'), ('!', '.')]
+
+verb post n clean tag pos: NN
+
+blod_id: 7
+line_no: 19
+id: 0
+type: perm
+status: final
+agreement: e
+value: blog 
+object: 'flaws and all ' blog post 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  \n '' , 'Well-being - Since I wrote my \'flaws and all\ ' blog post back in October , things have remained pretty similar .
+
+clean tag: [('\\n', 'JJ'), ("''", "''"), (',', ','), ("'Well-being", 'JJ'), ('-', ':'), ('Since', 'IN'), ('I', 'PRP'), ('wrote', 'VBD'), ('my', 'PRP$'), ("\\'flaws", 'NNS'), ('and', 'CC'), ('all\\', 'JJ'), ("'", "''"), ('blog', 'NN'), ('post', 'NN'), ('back', 'RB'), ('in', 'IN'), ('October', 'NNP'), (',', ','), ('things', 'NNS'), ('have', 'VBP'), ('remained', 'VBN'), ('pretty', 'RB'), ('similar', 'JJ'), ('.', '.')]
+
+verb post n clean tag pos: NN
+
+blod_id: 7
+line_no: 22
+id: 0
+type: perm
+status: final
+agreement: e
+value: blog 
+object: post 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  \n ' , '\n ' , 'This post is a little bit different for me , but it\ 's something I just had the urge to write , so I do hope you liked it !
+
+clean tag: [('\\n', 'JJ'), ("'", 'POS'), (',', ','), ("'\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'This", 'NNP'), ('post', 'NN'), ('is', 'VBZ'), ('a', 'DT'), ('little', 'RB'), ('bit', 'NN'), ('different', 'NN'), ('for', 'IN'), ('me', 'PRP'), (',', ','), ('but', 'CC'), ('it\\', 'NNP'), ("'s", 'POS'), ('something', 'NN'), ('I', 'PRP'), ('just', 'RB'), ('had', 'VBD'), ('the', 'DT'), ('urge', 'NN'), ('to', 'TO'), ('write', 'VB'), (',', ','), ('so', 'RB'), ('I', 'PRP'), ('do', 'VBP'), ('hope', 'NN'), ('you', 'PRP'), ('liked', 'VBD'), ('it', 'PRP'), ('!', '.')]
+
+verb post n clean tag pos: NN
+
+blod_id: 7
+line_no: 26
+id: 0
+type: perm
+status: final
+agreement: e
+value: blog 
+object: post 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  \n ' , `` POSTED BY JAZMINE ROCKS @ JAZZABELLE 'S DIARY AT 17:19 18 COMMENTS : \n '' , 'FRIDAY , 3 APRIL 2015\n ' , 'short & sweet.\n ' , '\n ' , 'Why hello , just a short and sweet post from me today !
+
+clean tag: [('\\n', 'JJ'), ("'", 'POS'), (',', ','), ('``', '``'), ('POSTED', 'VBN'), ('BY', 'NNP'), ('JAZMINE', 'NNP'), ('ROCKS', 'NNP'), ('@', 'NNP'), ('JAZZABELLE', 'NNP'), ("'S", 'POS'), ('DIARY', 'NNP'), ('AT', 'NNP'), ('17:19', 'CD'), ('18', 'CD'), ('COMMENTS', 'NNS'), (':', ':'), ('\\n', 'JJ'), ("''", "''"), (',', ','), ("'FRIDAY", 'NNP'), (',', ','), ('3', 'CD'), ('APRIL', 'NNP'), ('2015\\n', 'CD'), ("'", 'POS'), (',', ','), ("'short", 'NN'), ('&', 'CC'), ('sweet.\\n', 'NNP'), ("'", "''"), (',', ','), ("'\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'Why", 'JJ'), ('hello', 'NN'), (',', ','), ('just', 'RB'), ('a', 'DT'), ('short', 'JJ'), ('and', 'CC'), ('sweet', 'JJ'), ('post', 'NN'), ('from', 'IN'), ('me', 'PRP'), ('today', 'NN'), ('!', '.')]
+
+verb post n clean tag pos: NN
+
+blod_id: 7
+line_no: 32
+id: 0
+type: perm
+status: final
+agreement: e
+value: blog 
+object: last outfit post 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  Following on from my last outfit post , this look was also shot by the lovely Amber on a chilly day in February .
+
+clean tag: [('Following', 'VBG'), ('on', 'IN'), ('from', 'IN'), ('my', 'PRP$'), ('last', 'JJ'), ('outfit', 'NN'), ('post', 'NN'), (',', ','), ('this', 'DT'), ('look', 'NN'), ('was', 'VBD'), ('also', 'RB'), ('shot', 'RB'), ('by', 'IN'), ('the', 'DT'), ('lovely', 'JJ'), ('Amber', 'NNP'), ('on', 'IN'), ('a', 'DT'), ('chilly', 'RB'), ('day', 'NN'), ('in', 'IN'), ('February', 'NNP'), ('.', '.')]
+
+verb dress n clean tag pos: NN
+
+blod_id: 7
+line_no: 33
+id: 13
+type: perm
+status: final
+agreement: ems
+value: dress 
+object: dress 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  This dress has become my go to outfit as of late - it\ 's super flattering for my shape as it nips in at the waist ( giving me the illusion of hips , wahey ! )
+
+clean tag: [('This', 'DT'), ('dress', 'NN'), ('has', 'VBZ'), ('become', 'VBN'), ('my', 'PRP$'), ('go', 'NN'), ('to', 'TO'), ('outfit', 'VB'), ('as', 'IN'), ('of', 'IN'), ('late', 'JJ'), ('-', ':'), ('it\\', 'JJ'), ("'s", 'POS'), ('super', 'NN'), ('flattering', 'NN'), ('for', 'IN'), ('my', 'PRP$'), ('shape', 'NN'), ('as', 'IN'), ('it', 'PRP'), ('nips', 'VBZ'), ('in', 'IN'), ('at', 'IN'), ('the', 'DT'), ('waist', 'NN'), ('(', ':'), ('giving', 'VBG'), ('me', 'PRP'), ('the', 'DT'), ('illusion', 'NN'), ('of', 'IN'), ('hips', 'NNS'), (',', ','), ('wahey', 'PRP'), ('!', '.'), (')', ':')]
+
+verb post n clean tag pos: NN
+
+blod_id: 8
+line_no: 64
+id: 3
+type: perm
+status: final
+agreement: e
+value: blog 
+object: blog post 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  In my last blog post I wrote about going on a 6 mile trail run/hike .
+
+clean tag: [('In', 'IN'), ('my', 'PRP$'), ('last', 'JJ'), ('blog', 'NN'), ('post', 'NN'), ('I', 'PRP'), ('wrote', 'VBD'), ('about', 'IN'), ('going', 'VBG'), ('on', 'IN'), ('a', 'DT'), ('6', 'CD'), ('mile', 'NN'), ('trail', 'NN'), ('run/hike', 'NN'), ('.', '.')]
+
+verb post n clean tag pos: NN
+
+blod_id: 9
+line_no: 2
+id: 0
+type: perm
+status: final
+agreement: e
+value: blog 
+object: blog post 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  This will be my last blog post .\r\n ' , '\r\n ' , 'From the very beginning , I always said that I would wake up one day and pull the plug on the madness without warning .
+
+clean tag: [('This', 'DT'), ('will', 'MD'), ('be', 'VB'), ('my', 'PRP$'), ('last', 'JJ'), ('blog', 'NN'), ('post', 'NN'), ('.\\r\\n', 'NN'), ("'", "''"), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'From", 'NNP'), ('the', 'DT'), ('very', 'JJ'), ('beginning', 'NN'), (',', ','), ('I', 'PRP'), ('always', 'RB'), ('said', 'VBD'), ('that', 'IN'), ('I', 'PRP'), ('would', 'MD'), ('wake', 'VB'), ('up', 'RP'), ('one', 'CD'), ('day', 'NN'), ('and', 'CC'), ('pull', 'NN'), ('the', 'DT'), ('plug', 'NN'), ('on', 'IN'), ('the', 'DT'), ('madness', 'NN'), ('without', 'IN'), ('warning', 'NN'), ('.', '.')]
+
+verb drive n clean tag pos: VB
+
+blod_id: 11
+line_no: 6
+id: 0
+type: perm
+status: final
+agreement: SM
+value: car 
+object: drive 
+verb in clean sentence: yew
+verb in clean sentence pos: VB
+
+clean sentence:  I finished my first post-amp 5K , dipped my toes in the ocean for the first time in years , and learned how to drive again.\n ' , '\n ' , 'I\xe2\x80\x99d be lying if I said that the past six months have been perfect or without challenges .
+
+clean tag: [('I', 'PRP'), ('finished', 'VBD'), ('my', 'PRP$'), ('first', 'JJ'), ('post-amp', 'NN'), ('5K', 'CD'), (',', ','), ('dipped', 'VBD'), ('my', 'PRP$'), ('toes', 'NNS'), ('in', 'IN'), ('the', 'DT'), ('ocean', 'JJ'), ('for', 'IN'), ('the', 'DT'), ('first', 'JJ'), ('time', 'NN'), ('in', 'IN'), ('years', 'NNS'), (',', ','), ('and', 'CC'), ('learned', 'VBD'), ('how', 'WRB'), ('to', 'TO'), ('drive', 'VB'), ('again.\\n', 'JJ'), ("'", "''"), (',', ','), ("'\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'I\\xe2\\x80\\x99d", 'JJ'), ('be', 'VB'), ('lying', 'VBG'), ('if', 'IN'), ('I', 'PRP'), ('said', 'VBD'), ('that', 'IN'), ('the', 'DT'), ('past', 'JJ'), ('six', 'CD'), ('months', 'NNS'), ('have', 'VBP'), ('been', 'VBN'), ('perfect', 'JJ'), ('or', 'CC'), ('without', 'IN'), ('challenges', 'NNS'), ('.', '.')]
+
+verb drive n clean tag pos: VB
+
+blod_id: 11
+line_no: 8
+id: 0
+type: perm
+status: final
+agreement: SM
+value: car 
+object: drive 
+verb in clean sentence: yew
+verb in clean sentence pos: VB
+
+clean sentence:  My patience has been tested as I have had to wait for things : a leg , the ability to drive , and the freedom to walk unassisted , to name a few .
+
+clean tag: [('My', 'PRP$'), ('patience', 'NN'), ('has', 'VBZ'), ('been', 'VBN'), ('tested', 'VBN'), ('as', 'IN'), ('I', 'PRP'), ('have', 'VBP'), ('had', 'VBN'), ('to', 'TO'), ('wait', 'VB'), ('for', 'IN'), ('things', 'NNS'), (':', ':'), ('a', 'DT'), ('leg', 'NN'), (',', ','), ('the', 'DT'), ('ability', 'NN'), ('to', 'TO'), ('drive', 'VB'), (',', ','), ('and', 'CC'), ('the', 'DT'), ('freedom', 'NN'), ('to', 'TO'), ('walk', 'VB'), ('unassisted', 'VBN'), (',', ','), ('to', 'TO'), ('name', 'VB'), ('a', 'DT'), ('few', 'JJ'), ('.', '.')]
+
+verb dress n clean tag pos: NN
+
+blod_id: 13
+line_no: 0
+id: 0
+type: perm
+status: final
+agreement: EMS
+value: wedding dress 
+object: wedding dress 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  [ 'date : 5/28/2015\r\n ' , 'site : http : //mishaandmia.blogspot.com/2012/11/how-i-made-my-own-wedding-dress.html\r\n ' , '\r\n ' , '\r\n ' , 'Sunday , 18 November 2012\r\n ' , 'How I made my own wedding dress \r\n ' , 'I had never made any dresses , skirts , tops or pants before .
+
+clean tag: [('[', 'NN'), ("'date", 'JJ'), (':', ':'), ('5/28/2015\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'site", 'JJ'), (':', ':'), ('http', 'NN'), (':', ':'), ('//mishaandmia.blogspot.com/2012/11/how-i-made-my-own-wedding-dress.html\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'Sunday", 'NNP'), (',', ','), ('18', 'CD'), ('November', 'NNP'), ('2012\\r\\n', 'CD'), ("'", 'POS'), (',', ','), ("'How", 'NNP'), ('I', 'PRP'), ('made', 'VBD'), ('my', 'PRP$'), ('own', 'JJ'), ('wedding', 'NN'), ('dress', 'NN'), ('\\r\\n', 'NN'), ("'", "''"), (',', ','), ("'I", 'NNP'), ('had', 'VBD'), ('never', 'RB'), ('made', 'VBN'), ('any', 'DT'), ('dresses', 'NNS'), (',', ','), ('skirts', 'NNS'), (',', ','), ('tops', 'NNS'), ('or', 'CC'), ('pants', 'NNS'), ('before', 'IN'), ('.', '.')]
+
+verb dress n clean tag pos: NN
+
+blod_id: 13
+line_no: 3
+id: 0
+type: perm
+status: final
+agreement: EMS
+value: wedding dress 
+object: wedding dress 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  This is my short journal of how I made my own wedding dress ( with my Mom\ 's help ) in two weeks without a pattern or any experience in dress making.\r\n ' , '\r\n ' , '4 months before the wedding\r\n ' , 'We set the date for the wedding and I tell Misha that I want to make my own wedding dress .
+
+clean tag: [('This', 'DT'), ('is', 'VBZ'), ('my', 'PRP$'), ('short', 'NN'), ('journal', 'NN'), ('of', 'IN'), ('how', 'WRB'), ('I', 'PRP'), ('made', 'VBD'), ('my', 'PRP$'), ('own', 'JJ'), ('wedding', 'NN'), ('dress', 'NN'), ('(', ':'), ('with', 'IN'), ('my', 'PRP$'), ('Mom\\', 'NN'), ("'s", 'POS'), ('help', 'NN'), (')', ':'), ('in', 'IN'), ('two', 'CD'), ('weeks', 'NNS'), ('without', 'IN'), ('a', 'DT'), ('pattern', 'NN'), ('or', 'CC'), ('any', 'DT'), ('experience', 'NN'), ('in', 'IN'), ('dress', 'NN'), ('making.\\r\\n', 'NN'), ("'", "''"), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'4", '-NONE-'), ('months', 'NNS'), ('before', 'IN'), ('the', 'DT'), ('wedding\\r\\n', 'JJ'), ("'", 'POS'), (',', ','), ("'We", 'JJ'), ('set', 'NN'), ('the', 'DT'), ('date', 'NN'), ('for', 'IN'), ('the', 'DT'), ('wedding', 'VBG'), ('and', 'CC'), ('I', 'PRP'), ('tell', 'VBP'), ('Misha', 'NNP'), ('that', 'IN'), ('I', 'PRP'), ('want', 'VBP'), ('to', 'TO'), ('make', 'VB'), ('my', 'PRP$'), ('own', 'JJ'), ('wedding', 'NN'), ('dress', 'NN'), ('.', '.')]
+
+verb dress n clean tag pos: NN
+
+blod_id: 13
+line_no: 27
+id: 0
+type: perm
+status: final
+agreement: ES
+value: wedding dress 
+object: dress 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  The dress is not coming together .
+
+clean tag: [('The', 'DT'), ('dress', 'NN'), ('is', 'VBZ'), ('not', 'RB'), ('coming', 'VBG'), ('together', 'RB'), ('.', '.')]
+
+verb dress n clean tag pos: NN
+
+blod_id: 13
+line_no: 34
+id: 0
+type: perm
+status: final
+agreement: ES
+value: wedding dress 
+object: dress 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  I look forward to working with her on the dress and getting some century old sewing tips .
+
+clean tag: [('I', 'PRP'), ('look', 'VBP'), ('forward', 'RB'), ('to', 'TO'), ('working', 'VBG'), ('with', 'IN'), ('her', 'PRP$'), ('on', 'IN'), ('the', 'DT'), ('dress', 'NN'), ('and', 'CC'), ('getting', 'VBG'), ('some', 'DT'), ('century', 'NN'), ('old', 'JJ'), ('sewing', 'NN'), ('tips', 'NNS'), ('.', '.')]
+
+verb dress n clean tag pos: NN
+
+blod_id: 13
+line_no: 45
+id: 0
+type: perm
+status: final
+agreement: EMS
+value: wedding dress 
+object: dress 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  Gives it a nice soft , vintage feel.\r\n ' , '\r\n ' , '\r\n ' , '14 days before the wedding\r\n ' , 'Mom and I officially begin working on the dress .
+
+clean tag: [('Gives', 'NNS'), ('it', 'PRP'), ('a', 'DT'), ('nice', 'JJ'), ('soft', 'NN'), (',', ','), ('vintage', 'NN'), ('feel.\\r\\n', '-NONE-'), ("'", "''"), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'14", '-NONE-'), ('days', 'NNS'), ('before', 'IN'), ('the', 'DT'), ('wedding\\r\\n', 'JJ'), ("'", 'POS'), (',', ','), ("'Mom", 'NNP'), ('and', 'CC'), ('I', 'PRP'), ('officially', 'RB'), ('begin', 'VBP'), ('working', 'VBG'), ('on', 'IN'), ('the', 'DT'), ('dress', 'NN'), ('.', '.')]
+
+verb dress n clean tag pos: NN
+
+blod_id: 13
+line_no: 68
+id: 0
+type: perm
+status: final
+agreement: ES
+value: wedding dress 
+object: dress 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  We are having some trouble fitting it well.\r\n ' , 'Misha keeps asking how the dress is coming along .
+
+clean tag: [('We', 'PRP'), ('are', 'VBP'), ('having', 'VBG'), ('some', 'DT'), ('trouble', 'NN'), ('fitting', 'VBG'), ('it', 'PRP'), ('well.\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'Misha", 'NNP'), ('keeps', 'VBZ'), ('asking', 'VBG'), ('how', 'WRB'), ('the', 'DT'), ('dress', 'NN'), ('is', 'VBZ'), ('coming', 'VBG'), ('along', 'IN'), ('.', '.')]
+
+verb dress n clean tag pos: NN
+
+blod_id: 13
+line_no: 82
+id: 0
+type: perm
+status: final
+agreement: EMS
+value: wedding dress 
+object: dress 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  She is amazing ! \r\n ' , '\r\n ' , '\r\n ' , 'Sewing with a cast on\r\n ' , 'The dress has to be adjusted to my full arm cast .
+
+clean tag: [('She', 'PRP'), ('is', 'VBZ'), ('amazing', 'VBG'), ('!', '.'), ('\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'Sewing", 'JJ'), ('with', 'IN'), ('a', 'DT'), ('cast', 'JJ'), ('on\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'The", 'NNP'), ('dress', 'NN'), ('has', 'VBZ'), ('to', 'TO'), ('be', 'VB'), ('adjusted', 'VBN'), ('to', 'TO'), ('my', 'PRP$'), ('full', 'JJ'), ('arm', 'NN'), ('cast', 'NN'), ('.', '.')]
+
+verb dress n clean tag pos: NN
+
+blod_id: 13
+line_no: 86
+id: 0
+type: perm
+status: final
+agreement: EMS
+value: wedding dress 
+object: dress 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  At least it will match.\r\n ' , '\r\n ' , '2 days before the wedding\r\n ' , 'We are frantically trying to finish the dress .
+
+clean tag: [('At', 'IN'), ('least', 'JJS'), ('it', 'PRP'), ('will', 'MD'), ('match.\\r\\n', 'VB'), ("'", "''"), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'2", '-NONE-'), ('days', 'NNS'), ('before', 'IN'), ('the', 'DT'), ('wedding\\r\\n', 'JJ'), ("'", 'POS'), (',', ','), ("'We", 'JJ'), ('are', 'VBP'), ('frantically', 'RB'), ('trying', 'VBG'), ('to', 'TO'), ('finish', 'VB'), ('the', 'DT'), ('dress', 'NN'), ('.', '.')]
+
+verb dress n clean tag pos: NN
+
+blod_id: 13
+line_no: 91
+id: 0
+type: perm
+status: final
+agreement: EMS
+value: wedding dress 
+object: dress 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  I think he 's got the picture.\r\n '' , '\r\n ' , '1 day before the wedding\r\n ' , 'The dress is still missing some snaps and hooks and the silk cast cover is not done .
+
+clean tag: [('I', 'PRP'), ('think', 'VBP'), ('he', 'PRP'), ("'s", 'VBZ'), ('got', 'VBN'), ('the', 'DT'), ('picture.\\r\\n', 'JJ'), ("''", "''"), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'1", '-NONE-'), ('day', 'NN'), ('before', 'IN'), ('the', 'DT'), ('wedding\\r\\n', 'JJ'), ("'", 'POS'), (',', ','), ("'The", 'NNP'), ('dress', 'NN'), ('is', 'VBZ'), ('still', 'RB'), ('missing', 'VBG'), ('some', 'DT'), ('snaps', 'NNS'), ('and', 'CC'), ('hooks', 'NNS'), ('and', 'CC'), ('the', 'DT'), ('silk', 'NN'), ('cast', 'NN'), ('cover', 'NN'), ('is', 'VBZ'), ('not', 'RB'), ('done', 'VBN'), ('.', '.')]
+
+verb dress n clean tag pos: NN
+
+blod_id: 13
+line_no: 97
+id: 0
+type: perm
+status: final
+agreement: EMS
+value: wedding dress 
+object: dress 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  \r\n ' , '\r\n ' , '30 minutes before the wedding\r\n ' , 'The dress is ready .
+
+clean tag: [('\\r\\n', 'JJ'), ("'", 'POS'), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'30", '-NONE-'), ('minutes', 'VBZ'), ('before', 'IN'), ('the', 'DT'), ('wedding\\r\\n', 'JJ'), ("'", 'POS'), (',', ','), ("'The", 'NNP'), ('dress', 'NN'), ('is', 'VBZ'), ('ready', 'JJ'), ('.', '.')]
+
+verb dress n clean tag pos: NN
+
+blod_id: 13
+line_no: 100
+id: 0
+type: perm
+status: final
+agreement: EMS
+value: wedding dress 
+object: dress 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  Let\ 's get married ! \r\n ' , '\r\n ' , '\r\n ' , 'And we live happily ever after.\r\n ' , '\r\n ' , '3 weeks AFTER the wedding\r\n ' , 'Still waiting for the official wedding pictures but here are pictures of the dress on the stand .
+
+clean tag: [('Let\\', 'NN'), ("'s", 'POS'), ('get', 'NN'), ('married', 'VBD'), ('!', '.'), ('\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'And", 'NNP'), ('we', 'PRP'), ('live', 'VBP'), ('happily', 'RB'), ('ever', 'RB'), ('after.\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'3", '-NONE-'), ('weeks', 'VBZ'), ('AFTER', 'NNP'), ('the', 'DT'), ('wedding\\r\\n', 'NNP'), ("'", 'POS'), (',', ','), ("'Still", 'NNP'), ('waiting', 'NN'), ('for', 'IN'), ('the', 'DT'), ('official', 'NN'), ('wedding', 'VBG'), ('pictures', 'NNS'), ('but', 'CC'), ('here', 'RB'), ('are', 'VBP'), ('pictures', 'NNS'), ('of', 'IN'), ('the', 'DT'), ('dress', 'NN'), ('on', 'IN'), ('the', 'DT'), ('stand', 'NN'), ('.', '.')]
+
+verb dress n clean tag pos: NN
+
+blod_id: 13
+line_no: 101
+id: 0
+type: perm
+status: final
+agreement: EMS
+value: wedding dress 
+object: wedding dress 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  \r\n ' , '\r\n ' , '\r\n ' , 'My wedding dress - the final look\r\n ' , '\r\n ' , 'Lessons learned : \r\n ' , '\r\n ' , `` Do n't leave the making of your wedding dress to the last minute .
+
+clean tag: [('\\r\\n', 'JJ'), ("'", 'POS'), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'My", 'JJ'), ('wedding', 'NN'), ('dress', 'NN'), ('-', ':'), ('the', 'DT'), ('final', 'JJ'), ('look\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'Lessons", 'NNS'), ('learned', 'VBD'), (':', ':'), ('\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ('``', '``'), ('Do', 'VBP'), ("n't", 'RB'), ('leave', 'VB'), ('the', 'DT'), ('making', 'VBG'), ('of', 'IN'), ('your', 'PRP$'), ('wedding', 'NN'), ('dress', 'NN'), ('to', 'TO'), ('the', 'DT'), ('last', 'JJ'), ('minute', 'NN'), ('.', '.')]
+
+verb dress n clean tag pos: NN
+
+blod_id: 14
+line_no: 24
+id: 8
+type: perm
+status: final
+agreement: EMS
+value: cocktail dress 
+object: cocktail dress 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  The only exception is a cocktail dress , which was the dead giveaway that I\ 'm not a student anymore .
+
+clean tag: [('The', 'DT'), ('only', 'JJ'), ('exception', 'NN'), ('is', 'VBZ'), ('a', 'DT'), ('cocktail', 'NN'), ('dress', 'NN'), (',', ','), ('which', 'WDT'), ('was', 'VBD'), ('the', 'DT'), ('dead', 'JJ'), ('giveaway', 'NN'), ('that', 'WDT'), ('I\\', '-NONE-'), ("'m", 'VBP'), ('not', 'RB'), ('a', 'DT'), ('student', 'NN'), ('anymore', 'NN'), ('.', '.')]
+
+verb dress n clean tag pos: NN
+
+blod_id: 14
+line_no: 26
+id: 8
+type: perm
+status: final
+agreement: EMS
+value: cocktail dress 
+object: cocktail dress 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  As a student , bringing a cocktail dress never even crossed my mind.\r\n ' , '\r\n ' , 'After laying it out in the neatly , I rolled everything up .
+
+clean tag: [('As', 'IN'), ('a', 'DT'), ('student', 'NN'), (',', ','), ('bringing', 'VBG'), ('a', 'DT'), ('cocktail', 'NN'), ('dress', 'NN'), ('never', 'RB'), ('even', 'RB'), ('crossed', 'VBN'), ('my', 'PRP$'), ('mind.\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'After", 'JJ'), ('laying', 'NN'), ('it', 'PRP'), ('out', 'RP'), ('in', 'IN'), ('the', 'DT'), ('neatly', 'RB'), (',', ','), ('I', 'PRP'), ('rolled', 'VBD'), ('everything', 'VBG'), ('up', 'RP'), ('.', '.')]
+
+verb dress n clean tag pos: NN
+
+blod_id: 14
+line_no: 32
+id: 8
+type: perm
+status: final
+agreement: EMS
+value: cocktail dress 
+object: cocktail dress 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  The had to be versatile ; I can wear them dressed for more formal occasions like putting them with the = `` cocktail dress '' id = `` 8 '' type = `` perm '' status = `` final '' agreement = `` EMS '' > cocktail dress , but they also had to be not too flashy so I could wear them for work .
+
+clean tag: [('The', 'DT'), ('had', 'VBD'), ('to', 'TO'), ('be', 'VB'), ('versatile', 'JJ'), (';', ':'), ('I', 'PRP'), ('can', 'MD'), ('wear', 'VB'), ('them', 'PRP'), ('dressed', 'VBN'), ('for', 'IN'), ('more', 'JJR'), ('formal', 'JJ'), ('occasions', 'NNS'), ('like', 'IN'), ('putting', 'VBG'), ('them', 'PRP'), ('with', 'IN'), ('the', 'DT'), ('=', 'NNP'), ('``', '``'), ('cocktail', 'NN'), ('dress', 'NN'), ("''", "''"), ('id', 'VBD'), ('=', 'NNP'), ('``', '``'), ('8', 'CD'), ("''", "''"), ('type', 'NN'), ('=', ':'), ('``', '``'), ('perm', 'NN'), ("''", "''"), ('status', 'NN'), ('=', ':'), ('``', '``'), ('final', 'JJ'), ("''", "''"), ('agreement', 'NN'), ('=', ':'), ('``', '``'), ('EMS', 'NNS'), ("''", "''"), ('>', ':'), ('cocktail', 'NN'), ('dress', 'NN'), (',', ','), ('but', 'CC'), ('they', 'PRP'), ('also', 'RB'), ('had', 'VBD'), ('to', 'TO'), ('be', 'VB'), ('not', 'RB'), ('too', 'RB'), ('flashy', 'JJ'), ('so', 'IN'), ('I', 'PRP'), ('could', 'MD'), ('wear', 'VB'), ('them', 'PRP'), ('for', 'IN'), ('work', 'NN'), ('.', '.')]
+
+verb drive n clean tag pos: JJ
+
+blod_id: 15
+line_no: 4
+id: 2
+type: perm
+status: 
+agreement: M
+value: car 
+object: drive 
+verb in clean sentence: yew
+verb in clean sentence pos: JJ
+
+clean sentence:  \r\n ' , 'Joy in the knowledge that we have a Heavenly Father who loves us , \r\n ' , 'who is keenly aware of each and everyone of us and the trials that we are going through.\r\n ' , ' Below is an Instagram that I posted early one morning on our drive to the hospital.\r\n ' , '\r\n ' , 'These were the thoughts that came to my mind as I saw the beautiful sunrise that morning .
+
+clean tag: [('\\r\\n', 'JJ'), ("'", 'POS'), (',', ','), ("'Joy", 'NNP'), ('in', 'IN'), ('the', 'DT'), ('knowledge', 'NN'), ('that', 'IN'), ('we', 'PRP'), ('have', 'VBP'), ('a', 'DT'), ('Heavenly', 'NNP'), ('Father', 'NNP'), ('who', 'WP'), ('loves', 'VBZ'), ('us', 'PRP'), (',', ','), ('\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'who", 'NNP'), ('is', 'VBZ'), ('keenly', 'RB'), ('aware', 'JJ'), ('of', 'IN'), ('each', 'DT'), ('and', 'CC'), ('everyone', 'NN'), ('of', 'IN'), ('us', 'PRP'), ('and', 'CC'), ('the', 'DT'), ('trials', 'NNS'), ('that', 'WDT'), ('we', 'PRP'), ('are', 'VBP'), ('going', 'VBG'), ('through.\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'", "''"), ('Below', 'NNP'), ('is', 'VBZ'), ('an', 'DT'), ('Instagram', 'NNP'), ('that', 'IN'), ('I', 'PRP'), ('posted', 'VBD'), ('early', 'RB'), ('one', 'CD'), ('morning', 'NN'), ('on', 'IN'), ('our', 'PRP$'), ('drive', 'JJ'), ('to', 'TO'), ('the', 'DT'), ('hospital.\\r\\n', 'JJ'), ("'", 'POS'), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'These", 'JJ'), ('were', 'VBD'), ('the', 'DT'), ('thoughts', 'NNS'), ('that', 'WDT'), ('came', 'VBD'), ('to', 'TO'), ('my', 'PRP$'), ('mind', 'NN'), ('as', 'IN'), ('I', 'PRP'), ('saw', 'VBD'), ('the', 'DT'), ('beautiful', 'JJ'), ('sunrise', 'NN'), ('that', 'WDT'), ('morning', 'VBG'), ('.', '.')]
+
+verb call n clean tag pos: NN
+
+blod_id: 15
+line_no: 8
+id: 3
+type: perm
+status: final
+agreement: EMS
+value: phone 
+object: phone call 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  \r\n ' , 'With that I will begin the story.\r\n ' , '\r\n ' , 'Getting the phone call and hearing the words \xe2\x80\x9cEric has bone cancer\xe2\x80\x9d \r\n ' , 'took me by surprise and seemed almost impossible for me to comprehend.\r\n ' , ' It just didn\xe2\x80\x99t make sense .
+
+clean tag: [('\\r\\n', 'JJ'), ("'", 'POS'), (',', ','), ("'With", 'JJ'), ('that', 'IN'), ('I', 'PRP'), ('will', 'MD'), ('begin', 'VB'), ('the', 'DT'), ('story.\\r\\n', 'JJ'), ("'", 'POS'), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'Getting", 'JJ'), ('the', 'DT'), ('phone', 'NN'), ('call', 'NN'), ('and', 'CC'), ('hearing', 'NN'), ('the', 'DT'), ('words', 'NNS'), ('\\xe2\\x80\\x9cEric', 'JJ'), ('has', 'VBZ'), ('bone', 'NN'), ('cancer\\xe2\\x80\\x9d', 'JJ'), ('\\r\\n', 'NN'), ("'", "''"), (',', ','), ("'took", 'JJ'), ('me', 'PRP'), ('by', 'IN'), ('surprise', 'NN'), ('and', 'CC'), ('seemed', 'VBD'), ('almost', 'RB'), ('impossible', 'JJ'), ('for', 'IN'), ('me', 'PRP'), ('to', 'TO'), ('comprehend.\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'", "''"), ('It', 'PRP'), ('just', 'RB'), ('didn\\xe2\\x80\\x99t', 'JJ'), ('make', 'NN'), ('sense', 'NN'), ('.', '.')]
+
+verb call n clean tag pos: NN
+
+blod_id: 15
+line_no: 37
+id: 3
+type: perm
+status: final
+agreement: EMS
+value: phone 
+object: call 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  \r\n ' , ' I love that Julie Coyle , and every time I think about her cheering me on and encouraging me to spit , I get the giggles ! \r\n ' , '\r\n ' , 'It was a long week waiting for the results , although I prayed every night and day that I would be the match , \r\n ' , ' by the time the next Monday rolled around , I had almost forgot all about it.\r\n ' , ' When I picked up a call that morning and Greta , the bone marrow transplant coordinator at the LDS in Salt Lake , \r\n ' , 'was on the other end of the line , it caught me off gaurd , and then I realized ... this is it ... and I sat down and braced myself .
+
+clean tag: [('\\r\\n', 'JJ'), ("'", 'POS'), (',', ','), ("'", "''"), ('I', 'PRP'), ('love', 'VBP'), ('that', 'IN'), ('Julie', 'NNP'), ('Coyle', 'NNP'), (',', ','), ('and', 'CC'), ('every', 'DT'), ('time', 'NN'), ('I', 'PRP'), ('think', 'VBP'), ('about', 'IN'), ('her', 'PRP$'), ('cheering', 'NN'), ('me', 'PRP'), ('on', 'IN'), ('and', 'CC'), ('encouraging', 'VBG'), ('me', 'PRP'), ('to', 'TO'), ('spit', 'VB'), (',', ','), ('I', 'PRP'), ('get', 'VBP'), ('the', 'DT'), ('giggles', 'NNS'), ('!', '.'), ('\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'It", 'JJ'), ('was', 'VBD'), ('a', 'DT'), ('long', 'JJ'), ('week', 'NN'), ('waiting', 'VBG'), ('for', 'IN'), ('the', 'DT'), ('results', 'NNS'), (',', ','), ('although', 'IN'), ('I', 'PRP'), ('prayed', 'VBD'), ('every', 'DT'), ('night', 'NN'), ('and', 'CC'), ('day', 'NN'), ('that', 'IN'), ('I', 'PRP'), ('would', 'MD'), ('be', 'VB'), ('the', 'DT'), ('match', 'NN'), (',', ','), ('\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'", "''"), ('by', 'IN'), ('the', 'DT'), ('time', 'NN'), ('the', 'DT'), ('next', 'JJ'), ('Monday', 'NNP'), ('rolled', 'VBD'), ('around', 'IN'), (',', ','), ('I', 'PRP'), ('had', 'VBD'), ('almost', 'RB'), ('forgot', 'VBN'), ('all', 'DT'), ('about', 'IN'), ('it.\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'", "''"), ('When', 'WRB'), ('I', 'PRP'), ('picked', 'VBD'), ('up', 'RP'), ('a', 'DT'), ('call', 'NN'), ('that', 'WDT'), ('morning', 'VBG'), ('and', 'CC'), ('Greta', 'NNP'), (',', ','), ('the', 'DT'), ('bone', 'NN'), ('marrow', 'NN'), ('transplant', 'NN'), ('coordinator', 'NN'), ('at', 'IN'), ('the', 'DT'), ('LDS', 'NNS'), ('in', 'IN'), ('Salt', 'NNP'), ('Lake', 'NNP'), (',', ','), ('\\r\\n', 'NNP'), ("'", 'POS'), (',', ','), ("'was", 'NNP'), ('on', 'IN'), ('the', 'DT'), ('other', 'JJ'), ('end', 'NN'), ('of', 'IN'), ('the', 'DT'), ('line', 'NN'), (',', ','), ('it', 'PRP'), ('caught', 'VBD'), ('me', 'PRP'), ('off', 'IN'), ('gaurd', 'JJ'), (',', ','), ('and', 'CC'), ('then', 'RB'), ('I', 'PRP'), ('realized', 'VBD'), ('...', ':'), ('this', 'DT'), ('is', 'VBZ'), ('it', 'PRP'), ('...', ':'), ('and', 'CC'), ('I', 'PRP'), ('sat', 'VBP'), ('down', 'RP'), ('and', 'CC'), ('braced', 'VBD'), ('myself', 'PRP'), ('.', '.')]
+
+verb call n clean tag pos: VB
+
+blod_id: 15
+line_no: 45
+id: 3
+type: perm
+status: final
+agreement: EMS
+value: phone 
+object: call 
+verb in clean sentence: yew
+verb in clean sentence pos: VB
+
+clean sentence:  \r\n ' , ' I assured Greta that I was going to be the donor for my brother and with that , \r\n ' , 'she said that I could call my brother and share the good news with him .
+
+clean tag: [('\\r\\n', 'JJ'), ("'", 'POS'), (',', ','), ("'", "''"), ('I', 'PRP'), ('assured', 'VBD'), ('Greta', 'NNP'), ('that', 'IN'), ('I', 'PRP'), ('was', 'VBD'), ('going', 'VBG'), ('to', 'TO'), ('be', 'VB'), ('the', 'DT'), ('donor', 'NN'), ('for', 'IN'), ('my', 'PRP$'), ('brother', 'NN'), ('and', 'CC'), ('with', 'IN'), ('that', 'DT'), (',', ','), ('\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'she", 'NNP'), ('said', 'VBD'), ('that', 'IN'), ('I', 'PRP'), ('could', 'MD'), ('call', 'VB'), ('my', 'PRP$'), ('brother', 'NN'), ('and', 'CC'), ('share', 'NN'), ('the', 'DT'), ('good', 'NN'), ('news', 'NN'), ('with', 'IN'), ('him', 'PRP'), ('.', '.')]
+
+verb post n clean tag pos: NN
+
+blod_id: 15
+line_no: 47
+id: 1
+type: perm
+status: final
+agreement: S
+value: Instagram post 
+object: Insta post 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  \r\n ' , 'Hearing my dear brothers reaction and crying tears of joy together with him was priceless.\r\n ' , '\r\n ' , '\r\n ' , '\r\n ' , 'My Insta post announcing that I was a `` perfect match !
+
+clean tag: [('\\r\\n', 'JJ'), ("'", 'POS'), (',', ','), ("'Hearing", 'JJ'), ('my', 'PRP$'), ('dear', 'NN'), ('brothers', 'NNS'), ('reaction', 'NN'), ('and', 'CC'), ('crying', 'VBG'), ('tears', 'NNS'), ('of', 'IN'), ('joy', 'NN'), ('together', 'RB'), ('with', 'IN'), ('him', 'PRP'), ('was', 'VBD'), ('priceless.\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'My", 'JJ'), ('Insta', 'NNP'), ('post', 'NN'), ('announcing', 'VBG'), ('that', 'IN'), ('I', 'PRP'), ('was', 'VBD'), ('a', 'DT'), ('``', '``'), ('perfect', 'NN'), ('match', 'NN'), ('!', '.')]
+
+verb call n clean tag pos: NN
+
+blod_id: 15
+line_no: 74
+id: 3
+type: perm
+status: final
+agreement: EMS
+value: phone 
+object: call 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  \r\n ' , 'Plans were made and then I\xe2\x80\x99d get a call and things had changed .
+
+clean tag: [('\\r\\n', 'JJ'), ("'", 'POS'), (',', ','), ("'Plans", 'NNS'), ('were', 'VBD'), ('made', 'VBN'), ('and', 'CC'), ('then', 'RB'), ('I\\xe2\\x80\\x99d', 'JJ'), ('get', 'NN'), ('a', 'DT'), ('call', 'NN'), ('and', 'CC'), ('things', 'NNS'), ('had', 'VBD'), ('changed', 'VBN'), ('.', '.')]
+
+verb dress n clean tag pos: NN
+
+blod_id: 15
+line_no: 114
+id: 22
+type: perm
+status: 
+agreement: E
+value: clothes 
+object: dress 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  \r\n ' , `` I did n't know how sick the drug was going to make me\r\n '' , ' and how much I would need the little girls help as they would literally get me up everyday , drag me out of bed , dress me ( I always feel SO much better dressed for the day and my hair and make up done.\r\n ' , ' They made sure that I had time to get ready every day ! )
+
+clean tag: [('\\r\\n', 'JJ'), ("'", 'POS'), (',', ','), ('``', '``'), ('I', 'PRP'), ('did', 'VBD'), ("n't", 'RB'), ('know', 'VB'), ('how', 'WRB'), ('sick', 'NN'), ('the', 'DT'), ('drug', 'NN'), ('was', 'VBD'), ('going', 'VBG'), ('to', 'TO'), ('make', 'VB'), ('me\\r\\n', 'JJ'), ("''", "''"), (',', ','), ("'", "''"), ('and', 'CC'), ('how', 'WRB'), ('much', 'JJ'), ('I', 'PRP'), ('would', 'MD'), ('need', 'VB'), ('the', 'DT'), ('little', 'JJ'), ('girls', 'NNS'), ('help', 'VBP'), ('as', 'RB'), ('they', 'PRP'), ('would', 'MD'), ('literally', 'RB'), ('get', 'VB'), ('me', 'PRP'), ('up', 'RP'), ('everyday', 'NN'), (',', ','), ('drag', 'NN'), ('me', 'PRP'), ('out', 'RP'), ('of', 'IN'), ('bed', 'VBN'), (',', ','), ('dress', 'NN'), ('me', 'PRP'), ('(', ':'), ('I', 'PRP'), ('always', 'RB'), ('feel', 'VBP'), ('SO', 'RB'), ('much', 'RB'), ('better', 'RBR'), ('dressed', 'VBN'), ('for', 'IN'), ('the', 'DT'), ('day', 'NN'), ('and', 'CC'), ('my', 'PRP$'), ('hair', 'NN'), ('and', 'CC'), ('make', 'VB'), ('up', 'RP'), ('done.\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'", "''"), ('They', 'PRP'), ('made', 'VBD'), ('sure', 'JJ'), ('that', 'IN'), ('I', 'PRP'), ('had', 'VBD'), ('time', 'NN'), ('to', 'TO'), ('get', 'VB'), ('ready', 'JJ'), ('every', 'DT'), ('day', 'NN'), ('!', '.'), (')', 'NN')]
+
+verb post n clean tag pos: NN
+
+blod_id: 17
+line_no: 1
+id: 0
+type: perm
+status: final
+agreement: e
+value: blog 
+object: post 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  I could have named this post The Longest Post Shay Has Ever Written , but I didn\'t .
+
+clean tag: [('I', 'PRP'), ('could', 'MD'), ('have', 'VB'), ('named', 'VBN'), ('this', 'DT'), ('post', 'NN'), ('The', 'DT'), ('Longest', 'NNP'), ('Post', 'NNP'), ('Shay', 'NNP'), ('Has', 'NNP'), ('Ever', 'NNP'), ('Written', 'NNP'), (',', ','), ('but', 'CC'), ('I', 'PRP'), ("didn\\'t", 'VBP'), ('.', '.')]
+
+verb post n clean tag pos: NN
+
+blod_id: 17
+line_no: 2
+id: 0
+type: perm
+status: final
+agreement: e
+value: blog 
+object: post 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  Nevertheless , I apologize for the length ... I wanted to fit the entire trip into this one post : ) .\r\n ' , '\r\n ' , 'We decided it was time to load the kids up and head out for beautiful Colorado .
+
+clean tag: [('Nevertheless', 'RB'), (',', ','), ('I', 'PRP'), ('apologize', 'VBP'), ('for', 'IN'), ('the', 'DT'), ('length', 'NN'), ('...', ':'), ('I', 'PRP'), ('wanted', 'VBD'), ('to', 'TO'), ('fit', 'VB'), ('the', 'DT'), ('entire', 'JJ'), ('trip', 'NN'), ('into', 'IN'), ('this', 'DT'), ('one', 'CD'), ('post', 'NN'), (':', ':'), (')', ':'), ('.\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'We", 'JJ'), ('decided', 'VBD'), ('it', 'PRP'), ('was', 'VBD'), ('time', 'NN'), ('to', 'TO'), ('load', 'VB'), ('the', 'DT'), ('kids', 'NNS'), ('up', 'IN'), ('and', 'CC'), ('head', 'NN'), ('out', 'RP'), ('for', 'IN'), ('beautiful', 'JJ'), ('Colorado', 'NNP'), ('.', '.')]
+
+verb drive n clean tag pos: JJ
+
+blod_id: 17
+line_no: 13
+id: 3
+type: perm
+status: 
+agreement: m
+value: loaner car 
+object: 6 hour drive 
+verb in clean sentence: yew
+verb in clean sentence pos: JJ
+
+clean sentence:  It\ 's about a 6 hour drive from Dallas to Amarillo , TX.\r\n ' , '\r\n ' , '\r\n ' , '\r\n ' , 'My kids are so good in the car .
+
+clean tag: [('It\\', 'NN'), ("'s", 'POS'), ('about', 'IN'), ('a', 'DT'), ('6', 'CD'), ('hour', 'NN'), ('drive', 'JJ'), ('from', 'IN'), ('Dallas', 'NNP'), ('to', 'TO'), ('Amarillo', 'NNP'), (',', ','), ('TX.\\r\\n', 'NNP'), ("'", 'POS'), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'My", 'JJ'), ('kids', 'NNS'), ('are', 'VBP'), ('so', 'RB'), ('good', 'JJ'), ('in', 'IN'), ('the', 'DT'), ('car', 'NN'), ('.', '.')]
+
+verb post n clean tag pos: NN
+
+blod_id: 17
+line_no: 25
+id: 0
+type: perm
+status: final
+agreement: e
+value: blog 
+object: post 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  I did a post on cross body bags here if you want to read it !
+
+clean tag: [('I', 'PRP'), ('did', 'VBD'), ('a', 'DT'), ('post', 'NN'), ('on', 'IN'), ('cross', 'NN'), ('body', 'NN'), ('bags', 'NNS'), ('here', 'RB'), ('if', 'IN'), ('you', 'PRP'), ('want', 'VBP'), ('to', 'TO'), ('read', 'VB'), ('it', 'PRP'), ('!', '.')]
+
+verb drive n clean tag pos: JJ
+
+blod_id: 17
+line_no: 63
+id: 3
+type: perm
+status: 
+agreement: m
+value: loaner car 
+object: drive off 
+verb in clean sentence: yew
+verb in clean sentence pos: JJ
+
+clean sentence:  That folks , is irony.\r\n ' , '\r\n ' , 'Thankfully , it was minor and we were able to drive off and head back to Texas ( and thankfully , my new car arrives on Monday ! ) .
+
+clean tag: [('That', 'DT'), ('folks', 'NNS'), (',', ','), ('is', 'VBZ'), ('irony.\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'Thankfully", 'RB'), (',', ','), ('it', 'PRP'), ('was', 'VBD'), ('minor', 'JJ'), ('and', 'CC'), ('we', 'PRP'), ('were', 'VBD'), ('able', 'JJ'), ('to', 'TO'), ('drive', 'JJ'), ('off', 'RP'), ('and', 'CC'), ('head', 'NN'), ('back', 'RB'), ('to', 'TO'), ('Texas', 'NNP'), ('(', ':'), ('and', 'CC'), ('thankfully', 'RB'), (',', ','), ('my', 'PRP$'), ('new', 'JJ'), ('car', 'NN'), ('arrives', 'NNS'), ('on', 'IN'), ('Monday', 'NNP'), ('!', '.'), (')', ':'), ('.', '.')]
+
+verb post n clean tag pos: NN
+
+blod_id: 18
+line_no: 24
+id: 15
+type: perm
+status: final
+agreement: e
+value: blog 
+object: post 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  I do n't plan to decorate for Halloween so I should be good to go for a few months ... yay ! \r\n '' , 'Posted by Bethany 16 comments\r\n ' , 'Email This\r\n ' , 'BlogThis ! \r\n ' , 'Share to Twitter\r\n ' , 'Share to Facebook\r\n ' , 'Share to Pinterest\r\n ' , '\r\n ' , 'Labels : fall decor , mantel\r\n ' , '9.15.2011\r\n ' , 'Lavish\r\n ' , 'This post is going to be more diary-ish than any other .
+
+clean tag: [('I', 'PRP'), ('do', 'VBP'), ("n't", 'RB'), ('plan', 'VB'), ('to', 'TO'), ('decorate', 'VB'), ('for', 'IN'), ('Halloween', 'NNP'), ('so', 'RB'), ('I', 'PRP'), ('should', 'MD'), ('be', 'VB'), ('good', 'JJ'), ('to', 'TO'), ('go', 'VB'), ('for', 'IN'), ('a', 'DT'), ('few', 'JJ'), ('months', 'NNS'), ('...', ':'), ('yay', 'NN'), ('!', '.'), ('\\r\\n', 'JJ'), ("''", "''"), (',', ','), ("'Posted", 'JJ'), ('by', 'IN'), ('Bethany', 'NNP'), ('16', 'CD'), ('comments\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'Email", 'JJ'), ('This\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'BlogThis", 'NNP'), ('!', '.'), ('\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'Share", 'JJ'), ('to', 'TO'), ('Twitter\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'Share", 'JJ'), ('to', 'TO'), ('Facebook\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'Share", 'JJ'), ('to', 'TO'), ('Pinterest\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'Labels", 'NNS'), (':', ':'), ('fall', 'NN'), ('decor', 'NN'), (',', ','), ('mantel\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'9.15.2011\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'Lavish\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'This", 'NNP'), ('post', 'NN'), ('is', 'VBZ'), ('going', 'VBG'), ('to', 'TO'), ('be', 'VB'), ('more', 'JJR'), ('diary-ish', 'JJ'), ('than', 'IN'), ('any', 'DT'), ('other', 'JJ'), ('.', '.')]
+
+noun bar n clean tag pos: NN
+
+blod_id: 21
+line_no: 19
+id: 9
+type: perm
+status: 
+agreement: E
+value: bar top 
+object: raised bar top 
+noun in clean sentence: bar
+noun in clean sentence pos: NN
+
+clean sentence:  It will have a raised bar top on it made from old lumber my grandpa cut years ago .
+
+clean tag: [('It', 'PRP'), ('will', 'MD'), ('have', 'VB'), ('a', 'DT'), ('raised', 'VBN'), ('bar', 'NN'), ('top', 'JJ'), ('on', 'IN'), ('it', 'PRP'), ('made', 'VBD'), ('from', 'IN'), ('old', 'JJ'), ('lumber', 'NN'), ('my', 'PRP$'), ('grandpa', 'NN'), ('cut', 'VBD'), ('years', 'NNS'), ('ago', 'IN'), ('.', '.')]
+
+verb drive n clean tag pos: VB
+
+blod_id: 21
+line_no: 33
+id: 16
+type: perm
+status: final
+agreement: S
+value: car 
+object: drive 
+verb in clean sentence: yew
+verb in clean sentence pos: VB
+
+clean sentence:  We also didn\'t want to drive all the way to Tampa or Orlando to get them .
+
+clean tag: [('We', 'PRP'), ('also', 'RB'), ("didn\\'t", 'JJ'), ('want', 'NN'), ('to', 'TO'), ('drive', 'VB'), ('all', 'DT'), ('the', 'DT'), ('way', 'NN'), ('to', 'TO'), ('Tampa', 'NNP'), ('or', 'CC'), ('Orlando', 'NNP'), ('to', 'TO'), ('get', 'VB'), ('them', 'PRP'), ('.', '.')]
+
+verb post n clean tag pos: NN
+
+blod_id: 22
+line_no: 2
+id: 0
+type: perm
+status: final
+agreement: SM
+value: blog 
+object: post 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  Really , thank you for not yelling at me.\n ' , '\n ' , 'Catch up here and here before reading this post .
+
+clean tag: [('Really', 'RB'), (',', ','), ('thank', 'NN'), ('you', 'PRP'), ('for', 'IN'), ('not', 'RB'), ('yelling', 'VBG'), ('at', 'IN'), ('me.\\n', 'JJ'), ("'", "''"), (',', ','), ("'\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'Catch", 'JJ'), ('up', 'RP'), ('here', 'RB'), ('and', 'CC'), ('here', 'RB'), ('before', 'IN'), ('reading', 'NN'), ('this', 'DT'), ('post', 'NN'), ('.', '.')]
+
+verb post n clean tag pos: NN
+
+blod_id: 23
+line_no: 37
+id: 7
+type: perm
+status: final
+agreement: SM
+value: blog 
+object: post 
+verb in clean sentence: yew
+verb in clean sentence pos: NN
+
+clean sentence:  Dave at 10:12 PM No comments : Links to this post \n ' , 'Wednesday , January 8 , 2014\n ' , '\n ' , 'The Gratitude Game : A Solution to the Grumbles\n ' , 'This was originally posted on my other blog , like the previous post was .
+
+clean tag: [('Dave', 'NNP'), ('at', 'IN'), ('10:12', 'CD'), ('PM', 'NNP'), ('No', 'NNP'), ('comments', 'VBZ'), (':', ':'), ('Links', 'NNS'), ('to', 'TO'), ('this', 'DT'), ('post', 'NN'), ('\\n', 'NN'), ("'", "''"), (',', ','), ("'Wednesday", 'JJ'), (',', ','), ('January', 'NNP'), ('8', 'CD'), (',', ','), ('2014\\n', 'CD'), ("'", 'POS'), (',', ','), ("'\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'The", 'NNP'), ('Gratitude', 'NNP'), ('Game', 'NNP'), (':', ':'), ('A', 'DT'), ('Solution', 'NN'), ('to', 'TO'), ('the', 'DT'), ('Grumbles\\n', 'JJ'), ("'", 'POS'), (',', ','), ("'This", 'NNP'), ('was', 'VBD'), ('originally', 'RB'), ('posted', 'VBN'), ('on', 'IN'), ('my', 'PRP$'), ('other', 'JJ'), ('blog', 'NN'), (',', ','), ('like', 'IN'), ('the', 'DT'), ('previous', 'JJ'), ('post', 'NN'), ('was', 'VBD'), ('.', '.')]
+
+verb drive n clean tag pos: JJ
+
+blod_id: 23
+line_no: 47
+id: 13
+type: perm
+status: final
+agreement: SEM
+value: car 
+object: drive 
+verb in clean sentence: yew
+verb in clean sentence pos: JJ
+
+clean sentence:  So yesterday , on our drive to the YMCA for a little swimming ( and to get out of the house ) after a morning that wasn\'t completely pleasant around the house at times I made up a little game .
+
+clean tag: [('So', 'IN'), ('yesterday', 'NN'), (',', ','), ('on', 'IN'), ('our', 'PRP$'), ('drive', 'JJ'), ('to', 'TO'), ('the', 'DT'), ('YMCA', 'NNP'), ('for', 'IN'), ('a', 'DT'), ('little', 'RB'), ('swimming', 'VBG'), ('(', ':'), ('and', 'CC'), ('to', 'TO'), ('get', 'VB'), ('out', 'IN'), ('of', 'IN'), ('the', 'DT'), ('house', 'NN'), (')', ':'), ('after', 'IN'), ('a', 'DT'), ('morning', 'NN'), ('that', 'WDT'), ("wasn\\'t", '-NONE-'), ('completely', 'RB'), ('pleasant', 'JJ'), ('around', 'IN'), ('the', 'DT'), ('house', 'NN'), ('at', 'IN'), ('times', 'NNS'), ('I', 'PRP'), ('made', 'VBD'), ('up', 'RP'), ('a', 'DT'), ('little', 'RB'), ('game', 'NN'), ('.', '.')]

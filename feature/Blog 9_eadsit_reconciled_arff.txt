@@ -1,0 +1,89 @@
+@DATA@ATTRIBUTE my NUMERIC
+@ATTRIBUTE our NUMERIC
+@ATTRIBUTE this NUMERIC
+@ATTRIBUTE that NUMERIC
+@ATTRIBUTE those NUMERIC
+@ATTRIBUTE these NUMERIC
+@ATTRIBUTE favorite NUMERIC
+@ATTRIBUTE new NUMERIC
+@ATTRIBUTE old NUMERIC
+@ATTRIBUTE some NUMERIC
+@ATTRIBUTE other NUMERIC
+@ATTRIBUTE best NUMERIC
+@ATTRIBUTE same NUMERIC
+@ATTRIBUTE good NUMERIC
+@ATTRIBUTE own NUMERIC
+@ATTRIBUTE modern NUMERIC
+@ATTRIBUTE entire NUMERIC
+@ATTRIBUTE a few NUMERIC
+@ATTRIBUTE lots of NUMERIC
+@ATTRIBUTE a lot of NUMERIC
+@ATTRIBUTE big NUMERIC
+@ATTRIBUTE small NUMERIC
+@ATTRIBUTE huge NUMERIC
+@ATTRIBUTE tiny NUMERIC
+@ATTRIBUTE mini NUMERIC
+@ATTRIBUTE large NUMERIC
+@ATTRIBUTE medium NUMERIC
+@ATTRIBUTE round NUMERIC
+@ATTRIBUTE square NUMERIC
+@ATTRIBUTE smooth NUMERIC
+@ATTRIBUTE rough NUMERIC
+@ATTRIBUTE bright NUMERIC
+@ATTRIBUTE dark NUMERIC
+@ATTRIBUTE warm NUMERIC
+@ATTRIBUTE cold NUMERIC
+@ATTRIBUTE first NUMERIC
+@ATTRIBUTE second NUMERIC
+@ATTRIBUTE 1st NUMERIC
+@ATTRIBUTE 2nd NUMERIC
+@ATTRIBUTE third NUMERIC
+@ATTRIBUTE love NUMERIC
+@ATTRIBUTE like NUMERIC
+@ATTRIBUTE buy NUMERIC
+@ATTRIBUTE get NUMERIC
+@ATTRIBUTE have NUMERIC
+@ATTRIBUTE use NUMERIC
+@ATTRIBUTE give NUMERIC
+@ATTRIBUTE lose NUMERIC
+@ATTRIBUTE receive NUMERIC
+@ATTRIBUTE repair NUMERIC
+@ATTRIBUTE break NUMERIC
+@ATTRIBUTE wash NUMERIC
+@ATTRIBUTE clean NUMERIC
+@ATTRIBUTE tend to NUMERIC
+@ATTRIBUTE take NUMERIC
+@ATTRIBUTE hate NUMERIC
+@ATTRIBUTE carry NUMERIC
+@ATTRIBUTE look at NUMERIC
+@ATTRIBUTE look into NUMERIC
+@ATTRIBUTE find NUMERIC
+@ATTRIBUTE put on NUMERIC
+@ATTRIBUTE place NUMERIC
+@ATTRIBUTE change NUMERIC
+@ATTRIBUTE keep NUMERIC
+@ATTRIBUTE use NUMERIC
+@ATTRIBUTE drive NUMERIC
+@ATTRIBUTE sit on NUMERIC
+
+
+0, 9: 2, JJ, possession
+1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+
+0, 9: 15, JJ, possession
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+
+1, 9: 26, JJ, possession
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+
+2, 9: 26, JJ, possession
+1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+
+3, 9: 26, JJ, possession
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+
+4, 9: 30, JJ, possession
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+
+5, 9: 48, JJ, possession
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 

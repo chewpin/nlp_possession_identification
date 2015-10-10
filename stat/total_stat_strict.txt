@@ -1,0 +1,102 @@
+
+noun chair n clean tag pos: NN
+
+blod_id: 2
+line_no: 12
+id: 12
+type: perm
+status: final
+agreement: EMS
+value: Adirondack chair 
+object: charming folding Trex Adirondack chair 
+noun in clean sentence: chair
+noun in clean sentence pos: NN
+
+clean sentence:  But since I know concentrated FOCUS is what can quickly transform little uneventful areas into inspiring spaces , I really have been trying hard to grow in my ability to stick with improving one corner at a time until it feels more complete.\r\n ' , '\r\n ' , 'This little spot has been in progress for awhile , but recently I did a little spring clean up , planted a few pots and plants and set up a charming folding Trex Adirondack chair and end table near my recycled spool table ( you can find the all weather patio furniture from Trex ) .
+
+clean tag: [('But', 'CC'), ('since', 'IN'), ('I', 'PRP'), ('know', 'VBP'), ('concentrated', 'VBN'), ('FOCUS', 'NNP'), ('is', 'VBZ'), ('what', 'WP'), ('can', 'MD'), ('quickly', 'RB'), ('transform', 'VB'), ('little', 'JJ'), ('uneventful', 'JJ'), ('areas', 'NNS'), ('into', 'IN'), ('inspiring', 'VBG'), ('spaces', 'NNS'), (',', ','), ('I', 'PRP'), ('really', 'RB'), ('have', 'VBP'), ('been', 'VBN'), ('trying', 'VBG'), ('hard', 'RB'), ('to', 'TO'), ('grow', 'VB'), ('in', 'IN'), ('my', 'PRP$'), ('ability', 'NN'), ('to', 'TO'), ('stick', 'VB'), ('with', 'IN'), ('improving', 'VBG'), ('one', 'CD'), ('corner', 'NN'), ('at', 'IN'), ('a', 'DT'), ('time', 'NN'), ('until', 'IN'), ('it', 'PRP'), ('feels', 'VBZ'), ('more', 'JJR'), ('complete.\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'\\r\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'This", 'NNP'), ('little', 'RB'), ('spot', 'VBD'), ('has', 'VBZ'), ('been', 'VBN'), ('in', 'IN'), ('progress', 'NN'), ('for', 'IN'), ('awhile', 'NN'), (',', ','), ('but', 'CC'), ('recently', 'RB'), ('I', 'PRP'), ('did', 'VBD'), ('a', 'DT'), ('little', 'RB'), ('spring', 'VBG'), ('clean', 'JJ'), ('up', 'IN'), (',', ','), ('planted', 'VBN'), ('a', 'DT'), ('few', 'JJ'), ('pots', 'NNS'), ('and', 'CC'), ('plants', 'NNS'), ('and', 'CC'), ('set', 'VB'), ('up', 'RP'), ('a', 'DT'), ('charming', 'NN'), ('folding', 'VBG'), ('Trex', 'NNP'), ('Adirondack', 'NNP'), ('chair', 'NN'), ('and', 'CC'), ('end', 'NN'), ('table', 'NN'), ('near', 'IN'), ('my', 'PRP$'), ('recycled', 'VBN'), ('spool', 'NN'), ('table', 'NN'), ('(', ':'), ('you', 'PRP'), ('can', 'MD'), ('find', 'VB'), ('the', 'DT'), ('all', 'DT'), ('weather', 'NN'), ('patio', 'NN'), ('furniture', 'NN'), ('from', 'IN'), ('Trex', 'NNP'), (')', 'NNP'), ('.', '.')]
+
+verb drive n clean tag pos: VB
+
+blod_id: 11
+line_no: 6
+id: 0
+type: perm
+status: final
+agreement: SM
+value: car 
+object: drive 
+verb in clean sentence: yew
+verb in clean sentence pos: VB
+
+clean sentence:  I finished my first post-amp 5K , dipped my toes in the ocean for the first time in years , and learned how to drive again.\n ' , '\n ' , 'I\xe2\x80\x99d be lying if I said that the past six months have been perfect or without challenges .
+
+clean tag: [('I', 'PRP'), ('finished', 'VBD'), ('my', 'PRP$'), ('first', 'JJ'), ('post-amp', 'NN'), ('5K', 'CD'), (',', ','), ('dipped', 'VBD'), ('my', 'PRP$'), ('toes', 'NNS'), ('in', 'IN'), ('the', 'DT'), ('ocean', 'JJ'), ('for', 'IN'), ('the', 'DT'), ('first', 'JJ'), ('time', 'NN'), ('in', 'IN'), ('years', 'NNS'), (',', ','), ('and', 'CC'), ('learned', 'VBD'), ('how', 'WRB'), ('to', 'TO'), ('drive', 'VB'), ('again.\\n', 'JJ'), ("'", "''"), (',', ','), ("'\\n", 'NNP'), ("'", 'POS'), (',', ','), ("'I\\xe2\\x80\\x99d", 'JJ'), ('be', 'VB'), ('lying', 'VBG'), ('if', 'IN'), ('I', 'PRP'), ('said', 'VBD'), ('that', 'IN'), ('the', 'DT'), ('past', 'JJ'), ('six', 'CD'), ('months', 'NNS'), ('have', 'VBP'), ('been', 'VBN'), ('perfect', 'JJ'), ('or', 'CC'), ('without', 'IN'), ('challenges', 'NNS'), ('.', '.')]
+
+verb drive n clean tag pos: VB
+
+blod_id: 11
+line_no: 8
+id: 0
+type: perm
+status: final
+agreement: SM
+value: car 
+object: drive 
+verb in clean sentence: yew
+verb in clean sentence pos: VB
+
+clean sentence:  My patience has been tested as I have had to wait for things : a leg , the ability to drive , and the freedom to walk unassisted , to name a few .
+
+clean tag: [('My', 'PRP$'), ('patience', 'NN'), ('has', 'VBZ'), ('been', 'VBN'), ('tested', 'VBN'), ('as', 'IN'), ('I', 'PRP'), ('have', 'VBP'), ('had', 'VBN'), ('to', 'TO'), ('wait', 'VB'), ('for', 'IN'), ('things', 'NNS'), (':', ':'), ('a', 'DT'), ('leg', 'NN'), (',', ','), ('the', 'DT'), ('ability', 'NN'), ('to', 'TO'), ('drive', 'VB'), (',', ','), ('and', 'CC'), ('the', 'DT'), ('freedom', 'NN'), ('to', 'TO'), ('walk', 'VB'), ('unassisted', 'VBN'), (',', ','), ('to', 'TO'), ('name', 'VB'), ('a', 'DT'), ('few', 'JJ'), ('.', '.')]
+
+verb call n clean tag pos: VB
+
+blod_id: 15
+line_no: 45
+id: 3
+type: perm
+status: final
+agreement: EMS
+value: phone 
+object: call 
+verb in clean sentence: yew
+verb in clean sentence pos: VB
+
+clean sentence:  \r\n ' , ' I assured Greta that I was going to be the donor for my brother and with that , \r\n ' , 'she said that I could call my brother and share the good news with him .
+
+clean tag: [('\\r\\n', 'JJ'), ("'", 'POS'), (',', ','), ("'", "''"), ('I', 'PRP'), ('assured', 'VBD'), ('Greta', 'NNP'), ('that', 'IN'), ('I', 'PRP'), ('was', 'VBD'), ('going', 'VBG'), ('to', 'TO'), ('be', 'VB'), ('the', 'DT'), ('donor', 'NN'), ('for', 'IN'), ('my', 'PRP$'), ('brother', 'NN'), ('and', 'CC'), ('with', 'IN'), ('that', 'DT'), (',', ','), ('\\r\\n', 'JJ'), ("'", "''"), (',', ','), ("'she", 'NNP'), ('said', 'VBD'), ('that', 'IN'), ('I', 'PRP'), ('could', 'MD'), ('call', 'VB'), ('my', 'PRP$'), ('brother', 'NN'), ('and', 'CC'), ('share', 'NN'), ('the', 'DT'), ('good', 'NN'), ('news', 'NN'), ('with', 'IN'), ('him', 'PRP'), ('.', '.')]
+
+noun bar n clean tag pos: NN
+
+blod_id: 21
+line_no: 19
+id: 9
+type: perm
+status: 
+agreement: E
+value: bar top 
+object: raised bar top 
+noun in clean sentence: bar
+noun in clean sentence pos: NN
+
+clean sentence:  It will have a raised bar top on it made from old lumber my grandpa cut years ago .
+
+clean tag: [('It', 'PRP'), ('will', 'MD'), ('have', 'VB'), ('a', 'DT'), ('raised', 'VBN'), ('bar', 'NN'), ('top', 'JJ'), ('on', 'IN'), ('it', 'PRP'), ('made', 'VBD'), ('from', 'IN'), ('old', 'JJ'), ('lumber', 'NN'), ('my', 'PRP$'), ('grandpa', 'NN'), ('cut', 'VBD'), ('years', 'NNS'), ('ago', 'IN'), ('.', '.')]
+
+verb drive n clean tag pos: VB
+
+blod_id: 21
+line_no: 33
+id: 16
+type: perm
+status: final
+agreement: S
+value: car 
+object: drive 
+verb in clean sentence: yew
+verb in clean sentence pos: VB
+
+clean sentence:  We also didn\'t want to drive all the way to Tampa or Orlando to get them .
+
+clean tag: [('We', 'PRP'), ('also', 'RB'), ("didn\\'t", 'JJ'), ('want', 'NN'), ('to', 'TO'), ('drive', 'VB'), ('all', 'DT'), ('the', 'DT'), ('way', 'NN'), ('to', 'TO'), ('Tampa', 'NNP'), ('or', 'CC'), ('Orlando', 'NNP'), ('to', 'TO'), ('get', 'VB'), ('them', 'PRP'), ('.', '.')]

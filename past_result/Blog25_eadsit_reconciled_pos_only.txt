@@ -1,0 +1,39 @@
+
+Total object statistics:
+RB has count 3
+NN has count 25
+VBD has count 2
+CD has count 1
+-NONE- has count 1
+VBP has count 3
+JJ has count 5
+IN has count 1
+VBZ has count 1
+NNS has count 9
+NNP has count 3
+
+Total value statistics:
+VB has count 2
+RB has count 2
+NN has count 25
+VBN has count 2
+JJ has count 6
+VBZ has count 3
+NNS has count 9
+NNP has count 2
+
+Golden Standard object statistics:
+RB has count 2
+NN has count 8
+VBD has count 2
+VBP has count 2
+JJ has count 2
+NNS has count 1
+
+Golden Standard value statistics:
+VB has count 2
+RB has count 1
+NN has count 9
+VBN has count 2
+JJ has count 2
+NNS has count 1

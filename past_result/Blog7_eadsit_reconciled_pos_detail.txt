@@ -1,0 +1,244 @@
+
+blod_id: 7
+line_no: 0
+id: 0
+type: perm
+status: final
+agreement: e
+value: blog 
+object: blog 
+feature: my
+general_pronoun_indicator: my
+
+blod_id: 7
+line_no: 2
+id: 0
+type: perm
+status: final
+agreement: e
+value: blog 
+object: blog 
+feature: my
+general_pronoun_indicator: my
+
+blod_id: 7
+line_no: 2
+id: 1
+type: perm
+status: final
+agreement: em
+value: camera 
+object: photography 
+feature: my
+general_pronoun_indicator: my
+
+blod_id: 7
+line_no: 4
+id: 0
+type: perm
+status: final
+agreement: e
+value: blog 
+object: blog 
+feature: my
+feature: love
+general_pronoun_indicator: my
+
+blod_id: 7
+line_no: 8
+id: 2
+type: perm
+status: final
+agreement: es
+value: savings 
+object: savings 
+feature: my
+general_pronoun_indicator: my
+
+blod_id: 7
+line_no: 9
+id: 3
+type: perm
+status: final
+agreement: e
+value: Twitter 
+object: Twitter 
+feature: my
+general_pronoun_indicator: my
+
+blod_id: 7
+line_no: 9
+id: 4
+type: perm
+status: final
+agreement: e
+value: Instagram 
+object: Instagram 
+
+blod_id: 7
+line_no: 19
+id: 0
+type: perm
+status: final
+agreement: e
+value: blog 
+object: 'flaws and all ' blog post 
+feature: my
+general_pronoun_indicator: my
+
+blod_id: 7
+line_no: 21
+id: 5
+type: perm
+status: 
+agreement: m
+value: bed 
+object: getting earlier nights 
+
+blod_id: 7
+line_no: 21
+id: 6
+type: perm
+status: 
+agreement: m
+value: books 
+object: read 
+
+blod_id: 7
+line_no: 21
+id: 7
+type: temp
+status: 
+agreement: s
+value: fruit 
+object: fruit 
+
+blod_id: 7
+line_no: 21
+id: 8
+type: temp
+status: 
+agreement: s
+value: vegetables 
+object: veg 
+
+blod_id: 7
+line_no: 21
+id: 9
+type: perm
+status: final
+agreement: em
+value: home 
+object: home 
+
+blod_id: 7
+line_no: 22
+id: 0
+type: perm
+status: final
+agreement: e
+value: blog 
+object: post 
+
+blod_id: 7
+line_no: 23
+id: 0
+type: perm
+status: final
+agreement: e
+value: blog 
+object: blogging 
+
+blod_id: 7
+line_no: 23
+id: 3
+type: perm
+status: final
+agreement: e
+value: Twitter 
+object: Twitter 
+
+blod_id: 7
+line_no: 23
+id: 4
+type: perm
+status: final
+agreement: e
+value: Instagram 
+object: Instagram 
+
+blod_id: 7
+line_no: 23
+id: 10
+type: perm
+status: final
+agreement: e
+value: Facebook 
+object: Facebook 
+
+blod_id: 7
+line_no: 26
+id: 0
+type: perm
+status: final
+agreement: e
+value: blog 
+object: post 
+
+blod_id: 7
+line_no: 27
+id: 11
+type: perm
+status: final
+agreement: ems
+value: sofa 
+object: sofa 
+
+blod_id: 7
+line_no: 31
+id: 12
+type: perm
+status: 
+agreement: m
+value: clothes 
+object: outfit 
+
+blod_id: 7
+line_no: 32
+id: 0
+type: perm
+status: final
+agreement: e
+value: blog 
+object: last outfit post 
+feature: my
+general_pronoun_indicator: my
+
+blod_id: 7
+line_no: 33
+id: 13
+type: perm
+status: final
+agreement: ems
+value: dress 
+object: dress 
+
+blod_id: 7
+line_no: 35
+id: 14
+type: perm
+status: final
+agreement: ems
+value: boots 
+object: extra sassy knee high boots 
+feature: my
+general_pronoun_indicator: my
+
+blod_id: 7
+line_no: 35
+id: 15
+type: perm
+status: final
+agreement: ems
+value: fedora 
+object: classic fedora 

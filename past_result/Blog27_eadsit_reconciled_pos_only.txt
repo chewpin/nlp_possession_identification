@@ -1,0 +1,22 @@
+
+Total object statistics:
+VBP has count 2
+NNS has count 2
+JJ has count 2
+NN has count 3
+NNP has count 2
+
+Total value statistics:
+VB has count 1
+NNS has count 2
+JJ has count 1
+NN has count 8
+
+Golden Standard object statistics:
+VBP has count 1
+JJ has count 1
+NN has count 3
+
+Golden Standard value statistics:
+JJ has count 1
+NN has count 4

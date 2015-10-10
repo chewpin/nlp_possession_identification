@@ -1,0 +1,32 @@
+suitcases
+Home/Luggage
+writing
+Home/Furniture
+jeans
+Clothing/Men
+t-shirt
+Clothing/Men
+sandals
+Clothing/Shoes
+bags
+Baby/Baby Gear
+photos
+Photo Center/Photo Products
+backpacks
+Clothing/Bags & Accessories
+backpacks
+Clothing/Bags & Accessories
+hiking pants
+Clothing/Men
+t-shirts
+Clothing/Men
+apartment
+Home/Furniture
+bed
+Home/Furniture
+mug
+Home/Kitchen & Dining
+television
+Electronics/TV & Video
+photos
+Photo Center/Photo Products
