@@ -518,46 +518,34 @@ verb_per_possession = regular_word_dict["verb_actual"] / float(total_object_coun
 adj_per_possession = regular_word_dict["adj_actual"] / float(total_object_count)
 
 
-# print "\n"
 file6.write("\n Stats for each object:\n")
 for key, value in total_object_pos_dict.iteritems():
-    # print key, ' has actual count ', total_object_pos_dict[key]["count"]
     file6.write( str(key) + " has count " + str(total_object_pos_dict[key]["count"]) + "\n" )
 
 
-# print "\n"
-# print "Count for noun_met:" + str(regular_word_dict["noun_met"])
 file6.write("\n Count for noun_met:" + str(regular_word_dict["noun_met"])+ "\n" )
-# print "\n"
-# print "Count for noun_actual:" + str(regular_word_dict["noun_actual"]) 
 noun_actual_div_total = float(regular_word_dict["noun_actual"] * 100 / float(regular_word_dict["noun_met"] + regular_word_dict["noun_actual"]))
 file6.write("\n Count for noun_actual:" + str(regular_word_dict["noun_actual"]) + "  (" + 
     str("{0:.2f}".format(noun_actual_div_total) ) + "%)\n" )
 
 pos_total = 0
 
-# print "\nStats for total_pos:\n"
 file6.write("\n Stats for total_pos:\n")
 for key, value in stat_dict["pos"].iteritems():
     pos_total += stat_dict["pos"][key]
 for key, value in stat_dict["pos"].iteritems():
-    # print key, ' has count ', stat_dict["pos"][key]
     file6.write( str(key) + " has count " + str(stat_dict["pos"][key]) + "  (" + 
         str("{0:.2f}".format(stat_dict["pos"][key] * 100 / float(pos_total)) ) + "%)\n" )
-# print "\n Stats for total_agreement:\n"
 file6.write("\n Stats for total_agreement:\n")
 for key, value in stat_dict["agreement"].iteritems():
-    # print key, ' has count ', stat_dict["agreement"][key]
     file6.write( str(key) + " has count " + str(stat_dict["agreement"][key]) + "  (" + 
         str("{0:.2f}".format(stat_dict["agreement"][key] * 100 / float(no_agreement)) )+ "%)\n" )
-# print "\nStats for total_agreement_count:\n"
 
 golden_object_num = 0
 silver_object_num = 0
 regular_object_num = 0
 file6.write("\n Stats for total_agreement_count:\n")
 for key, value in stat_dict["agreement_count"].iteritems():
-    # print key, ' has count ', stat_dict["agreement_count"][key]
     if key == 3:
         golden_object_num += stat_dict["agreement_count"][key]
     elif key == 2:
@@ -572,16 +560,12 @@ for key, value in stat_dict["agreement_count"].iteritems():
 file6.write( "golden object num: " + str(golden_object_num) + "\n" )
 file6.write( "silver object num: " + str(silver_object_num)+ "\n"  )
 file6.write( "regular object num: " + str(regular_object_num)+ "\n"  )
-# print "\nStats for total_type:\n"
 file6.write("\n Stats for total_type:\n")
 for key, value in stat_dict["type"].iteritems():
-    # print key, ' has count ', stat_dict["type"][key]
     file6.write( str(key) + " has count " + str(stat_dict["type"][key]) + "  (" + 
         str("{0:.2f}".format(stat_dict["type"][key] * 100 / float(no_type)) ) + "%)\n" )
-# print "\nStats for total_status:\n"
 file6.write("\n Stats for total_status:\n")
 for key, value in stat_dict["status"].iteritems():
-    # print key, ' has count ', stat_dict["status"][key]
     file6.write( str(key) + " has count " + str(stat_dict["status"][key]) + "  (" + 
         str("{0:.2f}".format(stat_dict["status"][key] * 100 / float(no_status)) ) + "%)\n" )
 
@@ -634,19 +618,14 @@ for key, value in category_dict.iteritems():
             file6.write( "0," )
 
 
-# print "object total count: ", total_object_count
 file6.write("\nobject total count: " + str(total_object_count))
 file6.write("\n noun_per_possession: " + str(noun_per_possession) + "\n")
 file6.write("\n verb_per_possession: " + str(verb_per_possession) + "\n")
 file6.write("\n adj_per_possession: " + str(adj_per_possession) + "\n")
-# print "object total no_agreement: ", no_agreement
 file6.write("\nobject total no_agreement: " + str(no_agreement))
-# print "object total no_type: ", no_type
 file6.write("\nobject total no_type: " + str(no_type))
-# print "object total no_status: ", no_status
 file6.write("\nobject total no_status: " + str(no_status))
 
-# print "object total words: ", total_words
 file6.write("\nobject total total_words: " + str(total_words))
 file6.write("\nobject total objects containing verbs: " + str(object_contain_verb_count) + "\n")
 
@@ -654,11 +633,9 @@ file6.write("\nobject total objects containing verbs: " + str(object_contain_ver
 
 sorted_value_for_blog_id = sorted(total_value_dict.items(),key=lambda x:x[1]['count'], reverse=True)
 for i in range(0,20):
-    # print str(sorted_value_for_blog_id[i][0]) + ", count " + str(sorted_value_for_blog_id[i][1]["count"])  + "\n"
     file_total_value.write( str(sorted_value_for_blog_id[i][0]) + ", count " + str(sorted_value_for_blog_id[i][1]["count"])  + "\n" )
     for blog_id in range(0, len(filenum_list)):
         if blog_id in sorted_value_for_blog_id[i][1]:
-            # print blog_id
             file_total_value.write( str(category_list[blog_dict["category"][blog_id]]) + "  " )
     file_total_value.write( "\n" )
 file_total_value.write("\n\n\n\n\n")
@@ -698,9 +675,7 @@ for i in range(0,len(sorted_value_regular)):
 
 
 
-# file5.close()
 file6.close()
-# file7.close()
 file_error.close()
 file_all_word.close()
 file_all_word_clean.close()
