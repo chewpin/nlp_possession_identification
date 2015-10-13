@@ -24,6 +24,7 @@ category_list = [
             "Wine", "Celebrity Gossip", "DIY", "Nature", "Gaming", "Pet", "Finance", "Political", "Career", "Parenting",
             # 42            43      
             "Economics", "Other" ]; 
+
 category_dict = {}
 
 blog_dict = dict()
@@ -73,8 +74,8 @@ file_total_value = open( "stat/total_value.txt", "w")
 file_object_value = open( "stat/object_value.txt", "w")
 
 
-
 read_word_category_dict = {}
+read_word_category_enum_dict = set()
 file_read_word_category_dict = open('category/stat/word_category_man.txt', 'r')
 sentences = file_read_word_category_dict.readlines()
 index = 0
@@ -85,6 +86,8 @@ for sentence in sentences:
     sentence = sentence.rstrip('\n')
     if index % 2 == 1:
         read_category = sentence.strip()
+        if "/" in read_category:
+            read_category = str(read_category.split("/",1)[0])
         read_word_category_dict[read_object] = read_category
     else:
         read_object = sentence.strip()
@@ -95,6 +98,8 @@ for i in range(0,len(sorted_read_word_category_dict)):
 file_read_word_category_dict.close()
 
 for round in range(0, len(filenum_list)):
+    file_golden_tag_only = open( "stat/golden_tag_only_" + str(filenum_list[round]) + ".txt", "w")
+    file_golden_silver_tag_only = open( "stat/golden_silver_tag_only_" + str(filenum_list[round]) + ".txt", "w")
 # for round in range(0, 1):
     filename = 'Blog ' + str(filenum_list[round]) + '_reconciled.xml'
     # filename = 'Blog 1_reconciled.xml'
@@ -165,6 +170,7 @@ for round in range(0, len(filenum_list)):
             if j >= len(tag):
                 break    
             temp_indicate = tag[j][0]
+            file_golden_tag_only.write(temp_indicate + " ")
             # print temp_indicate
             if temp_indicate in dict(clean_tag):
                 if ( str(dict(clean_tag)[temp_indicate])[0].isalpha() or str(dict(clean_tag)[temp_indicate]) =="-NONE-" ):
@@ -177,6 +183,7 @@ for round in range(0, len(filenum_list)):
                 if str(dict(clean_tag)[temp_indicate]).lower()[0] == "n":
                     # print "met NN", temp_indicate
                     regular_word_dict["noun_met"] += 1
+
             if temp_indicate == "/object":
                 round_possession_num += 1
                 blog_dict["possession_per_blog"][round] += 1
@@ -266,15 +273,24 @@ for round in range(0, len(filenum_list)):
                 value_value = value_value.replace(" /'", "")
                 file_total_value.write( "\n " + str(total_object_count) + ", " + value_value + "\n" )
                 if value_value in read_word_category_dict:
-                    print value_value, " category: ", read_word_category_dict[value_value]
+                    # print value_value, " category: ", read_word_category_dict[value_value]
+                    read_word_category_enum_dict.add(read_word_category_dict[value_value])
                     if blog_dict["category"][round] not in category_dict:
                         category_dict[ blog_dict["category"][round] ] = {}
                         if 'word_category' not in category_dict[ blog_dict["category"][round] ]:
                             category_dict[ blog_dict["category"][round] ]['word_category'] = {}
                             category_dict[ blog_dict["category"][round] ]['word_category'][read_word_category_dict[value_value]] = 1
                     else:
-                        category_dict[ blog_dict["category"][round] ]['word_category'][read_word_category_dict[value_value]] += 1
-
+                        if 'word_category' not in category_dict[ blog_dict["category"][round] ]:
+                            category_dict[ blog_dict["category"][round] ]['word_category'] = {}
+                            category_dict[ blog_dict["category"][round] ]['word_category'][read_word_category_dict[value_value]] = 1
+                        else:
+                            if read_word_category_dict[value_value] in category_dict[ blog_dict["category"][round] ]['word_category']:
+                                category_dict[ blog_dict["category"][round] ]['word_category'][read_word_category_dict[value_value]] += 1
+                            else:
+                                category_dict[ blog_dict["category"][round] ]['word_category'][read_word_category_dict[value_value]] = 1
+                else:
+                    print "not category: ", value_value
 
 
                 if value_value not in total_value_dict:
@@ -487,9 +503,15 @@ for round in range(0, len(filenum_list)):
         category_dict[ blog_dict["category"][round] ]["count"] = 1
         category_dict[ blog_dict["category"][round] ]["possession_num"] = round_possession_num
     else:
-        category_dict[ blog_dict["category"][round] ]["count"] += 1
-        category_dict[ blog_dict["category"][round] ]["possession_num"] += round_possession_num
+        if "count" not in category_dict[ blog_dict["category"][round] ]:
+            category_dict[ blog_dict["category"][round] ]["count"] = 1
+            category_dict[ blog_dict["category"][round] ]["possession_num"] = round_possession_num
+        else:
+            category_dict[ blog_dict["category"][round] ]["count"] += 1
+            category_dict[ blog_dict["category"][round] ]["possession_num"] += round_possession_num
     file.close()
+    file_golden_tag_only.close()
+    file_golden_silver_tag_only.close()
 
 noun_per_possession = regular_word_dict["noun_actual"] / float(total_object_count)
 verb_per_possession = regular_word_dict["verb_actual"] / float(total_object_count)
@@ -572,9 +594,44 @@ for key, value in category_dict.iteritems():
     file6.write("category " + str(category_list[key]) + ": \n    num of blogs: " + str( category_dict[key]["count"] ))
     file6.write(",    total possession_num: " + str(category_dict[key]["possession_num"]) + ",    avg possesion per blog: " +
     str("{0:.2f}".format( category_dict[key]["possession_num"] / float(category_dict[key]["count"]) ) )+ "\n")
+    
     for key, value in category_dict[key]['word_category'].iteritems():
         file6.write( str(key) + ": " + str(value) + "\n" )
     file6.write("\n")
+
+index = 0
+file6.write("\n\n")
+for category in read_word_category_enum_dict:
+    file6.write( str(index) + ": " + category + "\n")
+    index += 1
+file6.write("\n")
+index = 0
+for category in read_word_category_enum_dict:
+    file6.write( str(index) + ": " + category+ "\n")
+    index += 1
+file6.write("\n")
+index = 0
+
+for category in category_list:
+    file6.write( str(category) + "," )
+file6.write("\n")
+
+
+for category in read_word_category_enum_dict:
+    file6.write( str(category) + "," )
+file6.write("\n\n")
+
+for key, value in category_dict.iteritems():
+    file6.write("\n" + str(key) + "\n")
+    for category in read_word_category_enum_dict:
+        if category in category_dict[key]['word_category']:
+            num = category_dict[key]['word_category'][category]
+            if len(str(num)) == 1: 
+                file6.write( str(num)  + ",")
+            else:
+                file6.write( str(num) + "," )
+        else:
+            file6.write( "0," )
 
 
 # print "object total count: ", total_object_count
@@ -648,7 +705,6 @@ file_error.close()
 file_all_word.close()
 file_all_word_clean.close()
 file_total_value.close()
-
 
 
 
