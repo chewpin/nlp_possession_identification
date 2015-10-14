@@ -15,9 +15,9 @@ total_object_end_tag_count = 0
 
 agreement_total_count = 0
 agreement_golden_total = agreement_silver_total = 0
-file_golden_total = open( "stat_2/golden_total.txt", "w")
-file_silver_total = open( "stat_2/silver_total.txt", "w")
-file_regular_total = open( "stat_2/regular_total.txt", "w")
+file_golden_total = open( "stat_2/3+.txt", "w")
+file_silver_total = open( "stat_2/2+.txt", "w")
+file_regular_total = open( "stat_2/1+.txt", "w")
 
 for round in range(0, len(filenum_list)):
 # for round in range(0, 1):
@@ -33,6 +33,9 @@ for round in range(0, len(filenum_list)):
     
     corpus = file.readlines()
     print "blog_id: ", filenum_list[round] ,"\n"
+    file_golden_total.write("\n\nblog_id: " + str(filenum_list[round])+ "\n")
+    file_silver_total.write("\n\nblog_id: " + str(filenum_list[round])+ "\n")
+    file_regular_total.write("\n\nblog_id: " + str(filenum_list[round])+ "\n")
     sentence_num = 0
     for sentence in corpus:
         to_write_corpus_list_golden.append("")
@@ -47,6 +50,7 @@ for round in range(0, len(filenum_list)):
                 if "</object>" not in temp_indicate:
                     to_write_corpus_list_golden[sentence_num] += temp_indicate + " "
                     to_write_corpus_list_silver[sentence_num] += temp_indicate + " "
+                    to_write_corpus_list_regular[sentence_num] += temp_indicate + " "
             else:
                 xml_start = j
                 xml_end = -1
@@ -124,13 +128,13 @@ for round in range(0, len(filenum_list)):
                             to_write_corpus_list_regular[sentence_num] += current_regular_sentence + " "
                         else: # wrong format, does not count
                             tag_sentence = words[xml_start:current_index]
-                            current_golden_sentence = ""
+                            current_golden_sentence = current_silver_sentence = current_regular_sentence = ""
                             for sent in tag_sentence:
                                 current_golden_sentence += sent + " "
                             current_golden_sentence = re.sub('<object.*?>','',current_golden_sentence, flags=re.DOTALL)
                             to_write_corpus_list_golden[sentence_num] += current_golden_sentence + " "
-                            to_write_corpus_list_silver[sentence_num] += current_silver_sentence + " "
-                            to_write_corpus_list_regular[sentence_num] += current_regular_sentence + " "
+                            to_write_corpus_list_silver[sentence_num] += current_golden_sentence + " "
+                            to_write_corpus_list_regular[sentence_num] += current_golden_sentence + " "
                         j = current_index - 1
                         break
             j += 1
