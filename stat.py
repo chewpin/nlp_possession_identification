@@ -32,12 +32,6 @@ blog_dict["possession_per_blog"] = [0 for i in range(28)]
 blog_dict["category"] = [ 5, 34, 12, 18, 12, 20, 43, 12, 43, 3, 18, 18, 8, 5, 31, 41, 5, 
                           23, 26, 5, 18, 43, 18, 18, 18, 18, 8 ]
 
-stat_dict = dict()
-stat_dict["pos"] = {}
-stat_dict["agreement"] = {}
-stat_dict["agreement_count"] = {}
-stat_dict["type"] = {}
-stat_dict["status"] = {}
 # stat_dict["possession_per_blog"] = [0 for i in range(28)]
 
 regular_word_dict = dict()
@@ -98,13 +92,19 @@ for i in range(0,len(sorted_read_word_category_dict)):
 file_read_word_category_dict.close()
 
 for round in range(0, len(filenum_list)):
-    file_golden_tag_only = open( "stat/golden_tag_only_" + str(filenum_list[round]) + ".txt", "w")
-    file_golden_silver_tag_only = open( "stat/golden_silver_tag_only_" + str(filenum_list[round]) + ".txt", "w")
+    
+    stat_dict = dict()
+    stat_dict["pos"] = {}
+    stat_dict["agreement"] = {}
+    stat_dict["agreement_count"] = {}
+    stat_dict["type"] = {}
+    stat_dict["status"] = {}
 # for round in range(0, 1):
     filename = 'Blog ' + str(filenum_list[round]) + '_reconciled.xml'
     # filename = 'Blog 1_reconciled.xml'
     filename_alone = filename.rsplit('.', 1)[0]
     file = open("reconcile/" + filename, 'r')
+    file_current_total_object = open( "stat/total_object_" + str(filenum_list[round]) + ".txt", "w")
     
     sentences = str(file.readlines())
     print "blog_id: ", filenum_list[round] ,"\n"
@@ -170,7 +170,6 @@ for round in range(0, len(filenum_list)):
             if j >= len(tag):
                 break    
             temp_indicate = tag[j][0]
-            file_golden_tag_only.write(temp_indicate + " ")
             # print temp_indicate
             if temp_indicate in dict(clean_tag):
                 if ( str(dict(clean_tag)[temp_indicate])[0].isalpha() or str(dict(clean_tag)[temp_indicate]) =="-NONE-" ):
@@ -370,6 +369,7 @@ for round in range(0, len(filenum_list)):
 
                 object_value = object_value.strip()
                 file6.write( "\n " + str(total_object_count) + ", " + object_value + "\n" )
+                file_current_total_object.write( "\n " + str(total_object_count) + ", " + object_value + "\n" )
                 file_object_value.write( "\n " + str(total_object_count) + ", " + object_value +  ",   " + value_value + "\n" )
                 # if object_value_count > 2:
                     # file6.write("span " + str(object_value_count) + ": " + object_value+ "\n")
@@ -510,8 +510,29 @@ for round in range(0, len(filenum_list)):
             category_dict[ blog_dict["category"][round] ]["count"] += 1
             category_dict[ blog_dict["category"][round] ]["possession_num"] += round_possession_num
     file.close()
-    file_golden_tag_only.close()
-    file_golden_silver_tag_only.close()
+
+
+
+    golden_object_num = 0
+    silver_object_num = 0
+    regular_object_num = 0
+    file_current_total_object.write("\n Stats for total_agreement_count:\n")
+    for key, value in stat_dict["agreement_count"].iteritems():
+        if key == 3:
+            golden_object_num += stat_dict["agreement_count"][key]
+        elif key == 2:
+            silver_object_num += stat_dict["agreement_count"][key]
+        elif key == 1:
+            regular_object_num += stat_dict["agreement_count"][key]
+        else:
+            file_error.wrote("ERROR in agreement_count < 1 for " + str(key))
+        file_current_total_object.write( str(key) + " has count " + str(stat_dict["agreement_count"][key]) + "\n" )
+
+    file_current_total_object.write( "golden object num: " + str(golden_object_num) + "\n" )
+    file_current_total_object.write( "silver object num: " + str(silver_object_num)+ "\n"  )
+    file_current_total_object.write( "regular object num: " + str(regular_object_num)+ "\n"  )
+    file_current_total_object.close()
+
 
 noun_per_possession = regular_word_dict["noun_actual"] / float(total_object_count)
 verb_per_possession = regular_word_dict["verb_actual"] / float(total_object_count)
