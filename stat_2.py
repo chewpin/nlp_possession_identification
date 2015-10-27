@@ -19,8 +19,8 @@ file_golden_total = open( "stat_2/3+.txt", "w")
 file_silver_total = open( "stat_2/2+.txt", "w")
 file_regular_total = open( "stat_2/1+.txt", "w")
 
-for round in range(0, len(filenum_list)):
-# for round in range(0, 1):
+# for round in range(0, len(filenum_list)):
+for round in range(0, 1):
     filename = 'Blog ' + str(filenum_list[round]) + '_reconciled.xml'
     # filename = 'Blog 22_reconciled.xml'
     file_golden_tag_only = open( "stat_2/golden/golden_tag_only_" + str(filenum_list[round]) + ".txt", "w")
@@ -103,13 +103,14 @@ for round in range(0, len(filenum_list)):
                                 if ">" in words[find_in_tags_index]:
                                     object_index_start = find_in_tags_index + 1
                                     object_index_end = find_in_tags_index + 1
-                                    print "object start: ", words[find_in_tags_index]
+                                    # print "object start: ", words[find_in_tags_index]
                                     object_value = ""
                                     while "<" not in words[object_index_end]:
-                                        print words[object_index_end]
+                                        # print words[object_index_end]
                                         object_value += str(words[object_index_end]) + " "
                                         object_index_end += 1
-                                    print "object value: ", object_value
+                                    object_value = object_value.strip()
+                                    print "object value: [" + str(object_value) + "]"
                                 find_in_tags_index += 1
                             file_total_object.write( str(total_object_count) + ": blog " + str(round) + "\t" + object_value + "\n" )
                             current_golden_sentence = ""
@@ -139,7 +140,7 @@ for round in range(0, len(filenum_list)):
                         break
             j += 1
             # print "j = ", j, ", sent: ", to_write_corpus_list_golden[sentence_num] 
-        # print "sentence_num = ", sentence_num, ", ", to_write_corpus_list_golden[sentence_num],  "\n\n\n"
+        print "sentence_num = ", sentence_num, ", ", to_write_corpus_list_golden[sentence_num],  "\n\n\n"
         file_golden_tag_only.write(to_write_corpus_list_golden[sentence_num] + "\n")
         file_silver_tag_only.write(to_write_corpus_list_silver[sentence_num] + "\n")
         file_golden_total.write(to_write_corpus_list_golden[sentence_num] + "\n")
