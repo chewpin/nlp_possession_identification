@@ -17,10 +17,10 @@ agreement_total_count = 0
 agreement_golden_total = agreement_silver_total = 0
 
 # for round in range(0, len(filenum_list)):
-for round in range(13, 14):
+for round in range(0, 1):
     filename = 'Blog ' + str(filenum_list[round]) + '_reconciled.xml'
     file_clean = open( "reconcile/clean/" + str(filenum_list[round]) + "_clean.txt", "r" )
-    file_clean_index = open( "reconcile/clean/" + str(filenum_list[round]) + "_clean_index.txt", "w" )
+    file_clean_index = open( "reconcile/clean/" + str(filenum_list[round]) + "_clean_index.txt", "r" )
     file = open("reconcile/" + filename, 'r')
     # to_write_corpus_list_clean = []
     round_agreement_total_count = round_agreement_golden_total = round_agreement_silver_total = 0
@@ -29,9 +29,11 @@ for round in range(13, 14):
     clean_corpus = file_clean.readlines()
     print "blog_id: ", filenum_list[round] ,"\n"
     sentence_num = 0
-
+    clean_index_corpus = file_clean_index.readlines()
+    print clean_index_corpus
     for sentence in corpus:
         clean_sentence = clean_corpus[sentence_num]
+        clean_index_corpus_content = clean_index_corpus[sentence_num]
         # print clean_sentence
         # to_write_corpus_list_clean.append("")
         j = 0
@@ -40,6 +42,16 @@ for round in range(13, 14):
         get_clean_tag_map_count_word = 0
         get_clean_tag_map_count_clean = 0
         clean_tag_map = {}
+        clean_index_corpus_content = clean_index_corpus_content.split()
+        print clean_index_corpus_content
+        temp_index = 0
+        while temp_index < len(clean_index_corpus_content):
+            if clean_index_corpus_content[temp_index] != clean_index_corpus_content[temp_index+1]:
+                print clean_words[int(clean_index_corpus_content[temp_index]):int(clean_index_corpus_content[temp_index+1])+1]
+            else:
+                print clean_words[int(clean_index_corpus_content[temp_index])]
+            temp_index += 2
+
         # while get_clean_tag_map_count_word < len(words):
         #     # clean_word = re.sub('^[^A-Za-z0-9]*','',words[get_clean_tag_map_count_word], flags=re.DOTALL)
         #     clean_word = re.sub('/^([^a-zA-Z0-9])*/','',words[get_clean_tag_map_count_word], flags=re.DOTALL)
