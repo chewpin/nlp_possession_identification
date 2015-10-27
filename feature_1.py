@@ -19,9 +19,10 @@ agreement_golden_total = agreement_silver_total = 0
 # file_silver_total = open( "feature_1/2+.txt", "w")
 # file_regular_total = open( "feature_1/1+.txt", "w")
 
-# for round in range(0, len(filenum_list)):
-for round in range(24, 25):
+for round in range(0, len(filenum_list)):
+# for round in range(24, 25):
     filename = 'Blog ' + str(filenum_list[round]) + '_reconciled.xml'
+    file_clean = open( "reconcile/clean/" + str(filenum_list[round]) + "_clean.txt", "w" )
     # filename = 'Blog 22_reconciled.xml'
     # file_golden_tag_only = open( "feature_1/golden/golden_tag_only_" + str(filenum_list[round]) + ".txt", "w")
     # file_silver_tag_only = open( "feature_1/silver/golden_silver_tag_only_" + str(filenum_list[round]) + ".txt", "w")
@@ -29,6 +30,7 @@ for round in range(24, 25):
     # to_write_corpus_list_golden = []
     # to_write_corpus_list_silver = []
     # to_write_corpus_list_regular = []
+    to_write_corpus_list_clean = []
     round_agreement_total_count = round_agreement_golden_total = round_agreement_silver_total = 0
     
     corpus = file.readlines()
@@ -41,6 +43,7 @@ for round in range(24, 25):
         # to_write_corpus_list_golden.append("")
         # to_write_corpus_list_silver.append("")
         # to_write_corpus_list_regular.append("")
+        to_write_corpus_list_clean.append("")
         j = 0
         words = sentence.split()
 
@@ -49,6 +52,7 @@ for round in range(24, 25):
             if temp_indicate != "<object":
                 if "</object>" not in temp_indicate:
                     temp_indicate = temp_indicate
+                    to_write_corpus_list_clean[sentence_num] += temp_indicate + " "
                     # to_write_corpus_list_golden[sentence_num] += temp_indicate + " "
                     # to_write_corpus_list_silver[sentence_num] += temp_indicate + " "
                     # to_write_corpus_list_regular[sentence_num] += temp_indicate + " "
@@ -115,7 +119,11 @@ for round in range(24, 25):
                             file_total_object.write( str(total_object_count) + ": blog " + str(round) + "\t" + object_value + "\n" )
                             # current_golden_sentence = ""
                             # for sent in tag_sentence:
-                            #     current_golden_sentence += sent + " "
+                                # current_golden_sentence += sent + " "
+                            
+                            clean_sentence = re.sub('<object.*?/object>',object_value,tag_sentence_str, flags=re.DOTALL)
+                            clean_sentence = clean_sentence.strip()
+                            to_write_corpus_list_clean[sentence_num] += clean_sentence + " "
                             # current_silver_sentence = current_golden_sentence
                             # current_regular_sentence = current_golden_sentence
                             # print current_golden_sentence
@@ -127,10 +135,10 @@ for round in range(24, 25):
                             # to_write_corpus_list_golden[sentence_num] += current_golden_sentence + " "
                             # to_write_corpus_list_silver[sentence_num] += current_silver_sentence + " "
                             # to_write_corpus_list_regular[sentence_num] += current_regular_sentence + " "
-                            if xml_start-1 >= 0:
-                                print "left 1 word: " , words[xml_start-1]
-                            if xml_end+1 < len(words): 
-                                print "right 1 word: ", words[xml_end+1]
+                            # if xml_start-1 >= 0:
+                            #     print "left 1 word: " , words[xml_start-1]
+                            # if xml_end+1 < len(words): 
+                            #     print "right 1 word: ", words[xml_end+1]
                         else: # wrong format, does not count
                             tag_sentence = words[xml_start:current_index]
                             # current_golden_sentence = current_silver_sentence = current_regular_sentence = ""
@@ -144,8 +152,9 @@ for round in range(24, 25):
                         break # END if "</object>" in temp_indicate:
             j += 1
             # print "j = ", j, ", sent: ", to_write_corpus_list_golden[sentence_num] 
-        # print "sentence_num = ", sentence_num, ", ", to_write_corpus_list_regular[sentence_num],  "\n\n\n"
+        print "clean_sentence: ", to_write_corpus_list_clean[sentence_num]
         print "sentence_num = ", sentence_num, ", ", words,  "\n\n"
+        file_clean.write(to_write_corpus_list_clean[sentence_num] + "\n")
         # file_golden_tag_only.write(to_write_corpus_list_golden[sentence_num] + "\n")
         # file_silver_tag_only.write(to_write_corpus_list_silver[sentence_num] + "\n")
         # file_golden_total.write(to_write_corpus_list_golden[sentence_num] + "\n")
@@ -153,7 +162,7 @@ for round in range(24, 25):
         # file_regular_total.write(to_write_corpus_list_regular[sentence_num] + "\n")
         sentence_num += 1
         #  END while True and j < len(words):
-
+    file_clean.close()
 
     print "total_object_count: ", total_object_count
     print "total_object_end_tag_count: ", total_object_end_tag_count
