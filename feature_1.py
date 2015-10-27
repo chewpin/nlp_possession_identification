@@ -19,8 +19,8 @@ agreement_golden_total = agreement_silver_total = 0
 # file_silver_total = open( "feature_1/2+.txt", "w")
 # file_regular_total = open( "feature_1/1+.txt", "w")
 
-for round in range(0, len(filenum_list)):
-# for round in range(24, 25):
+# for round in range(0, len(filenum_list)):
+for round in range(13, 14):
     filename = 'Blog ' + str(filenum_list[round]) + '_reconciled.xml'
     file_clean = open( "reconcile/clean/" + str(filenum_list[round]) + "_clean.txt", "w" )
     # filename = 'Blog 22_reconciled.xml'
@@ -141,9 +141,15 @@ for round in range(0, len(filenum_list)):
                             #     print "right 1 word: ", words[xml_end+1]
                         else: # wrong format, does not count
                             tag_sentence = words[xml_start:current_index]
+                            tag_sentence_str = ""
+                            for sent in tag_sentence:
+                                tag_sentence_str += sent + " "
+                            clean_sentence = re.sub('<object.*?>','',tag_sentence_str, flags=re.DOTALL)
+                            clean_sentence = clean_sentence.strip()
+                            to_write_corpus_list_clean[sentence_num] += clean_sentence + " "
+                            print "INVALID\nINVALID\nINVALID\nINVALID\nINVALID\nINVALID\nINVALID\nINVALID\n"
+                            print clean_sentence
                             # current_golden_sentence = current_silver_sentence = current_regular_sentence = ""
-                            # for sent in tag_sentence:
-                            #     current_golden_sentence += sent + " "
                             # current_golden_sentence = re.sub('<object.*?>','',current_golden_sentence, flags=re.DOTALL)
                             # to_write_corpus_list_golden[sentence_num] += current_golden_sentence + " "
                             # to_write_corpus_list_silver[sentence_num] += current_golden_sentence + " "
