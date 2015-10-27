@@ -15,47 +15,64 @@ total_object_end_tag_count = 0
 
 agreement_total_count = 0
 agreement_golden_total = agreement_silver_total = 0
-# file_golden_total = open( "feature_1/3+.txt", "w")
-# file_silver_total = open( "feature_1/2+.txt", "w")
-# file_regular_total = open( "feature_1/1+.txt", "w")
 
 # for round in range(0, len(filenum_list)):
 for round in range(13, 14):
     filename = 'Blog ' + str(filenum_list[round]) + '_reconciled.xml'
-    file_clean = open( "reconcile/clean/" + str(filenum_list[round]) + "_clean.txt", "w" )
-    # filename = 'Blog 22_reconciled.xml'
-    # file_golden_tag_only = open( "feature_1/golden/golden_tag_only_" + str(filenum_list[round]) + ".txt", "w")
-    # file_silver_tag_only = open( "feature_1/silver/golden_silver_tag_only_" + str(filenum_list[round]) + ".txt", "w")
+    file_clean = open( "reconcile/clean/" + str(filenum_list[round]) + "_clean.txt", "r" )
+    file_clean_index = open( "reconcile/clean/" + str(filenum_list[round]) + "_clean_index.txt", "w" )
     file = open("reconcile/" + filename, 'r')
-    # to_write_corpus_list_golden = []
-    # to_write_corpus_list_silver = []
-    # to_write_corpus_list_regular = []
-    to_write_corpus_list_clean = []
+    # to_write_corpus_list_clean = []
     round_agreement_total_count = round_agreement_golden_total = round_agreement_silver_total = 0
     
     corpus = file.readlines()
+    clean_corpus = file_clean.readlines()
     print "blog_id: ", filenum_list[round] ,"\n"
-    # file_golden_total.write("\n\nblog_id: " + str(filenum_list[round])+ "\n")
-    # file_silver_total.write("\n\nblog_id: " + str(filenum_list[round])+ "\n")
-    # file_regular_total.write("\n\nblog_id: " + str(filenum_list[round])+ "\n")
     sentence_num = 0
+
     for sentence in corpus:
-        # to_write_corpus_list_golden.append("")
-        # to_write_corpus_list_silver.append("")
-        # to_write_corpus_list_regular.append("")
-        to_write_corpus_list_clean.append("")
+        clean_sentence = clean_corpus[sentence_num]
+        # print clean_sentence
+        # to_write_corpus_list_clean.append("")
         j = 0
         words = sentence.split()
+        clean_words = clean_sentence.split()
+        get_clean_tag_map_count_word = 0
+        get_clean_tag_map_count_clean = 0
+        clean_tag_map = {}
+        # while get_clean_tag_map_count_word < len(words):
+        #     # clean_word = re.sub('^[^A-Za-z0-9]*','',words[get_clean_tag_map_count_word], flags=re.DOTALL)
+        #     clean_word = re.sub('/^([^a-zA-Z0-9])*/','',words[get_clean_tag_map_count_word], flags=re.DOTALL)
+        #     print "clean1:", clean_word
+        #     print "word: ", words[get_clean_tag_map_count_word], ", \tclean: ", clean_words[get_clean_tag_map_count_clean]
+        #     if words[get_clean_tag_map_count_word] == clean_words[get_clean_tag_map_count_clean]:
+        #         print "equal: ", words[get_clean_tag_map_count_word]
+        #         get_clean_tag_map_count_word += 1
+        #         get_clean_tag_map_count_clean += 1
+        #     else:
+        #         get_clean_tag_map_count_word += 1
+                # if "<" not in words[get_clean_tag_map_count_word]:
+                #     get_clean_tag_map_count_word += 1
+                # else:
+                #     while ">" not in words[get_clean_tag_map_count_word] and get_clean_tag_map_count_word < len(words):
+                #         # print "tag: ", words[get_clean_tag_map_count_word]
+                #         get_clean_tag_map_count_word += 1
+                #     get_clean_tag_map_count_word += 1
+                #     while words[get_clean_tag_map_count_word] == clean_words[get_clean_tag_map_count_clean]:
+                #         print "equal: word: ", words[get_clean_tag_map_count_word], ", \tclean: ", clean_words[get_clean_tag_map_count_clean]
+                #         get_clean_tag_map_count_word += 1
+                #         get_clean_tag_map_count_clean += 1
+                #     get_clean_tag_map_count_word += 1
+                    # print "1st out: ", words[get_clean_tag_map_count_word]
+
+
 
         while True and j < len(words):
             temp_indicate = words[j]
             if temp_indicate != "<object":
                 if "</object>" not in temp_indicate:
                     temp_indicate = temp_indicate
-                    to_write_corpus_list_clean[sentence_num] += temp_indicate + " "
-                    # to_write_corpus_list_golden[sentence_num] += temp_indicate + " "
-                    # to_write_corpus_list_silver[sentence_num] += temp_indicate + " "
-                    # to_write_corpus_list_regular[sentence_num] += temp_indicate + " "
+                    # to_write_corpus_list_clean[sentence_num] += temp_indicate + " "
             else:
                 xml_start = j
                 xml_end = -1
@@ -117,81 +134,39 @@ for round in range(13, 14):
                                     print "object value: [" + str(object_value) + "]"
                                 find_in_tags_index += 1
                             file_total_object.write( str(total_object_count) + ": blog " + str(round) + "\t" + object_value + "\n" )
-                            # current_golden_sentence = ""
-                            # for sent in tag_sentence:
-                                # current_golden_sentence += sent + " "
                             
-                            clean_sentence = re.sub('<object.*?/object>',object_value,tag_sentence_str, flags=re.DOTALL)
-                            clean_sentence = clean_sentence.strip()
-                            to_write_corpus_list_clean[sentence_num] += clean_sentence + " "
-                            # current_silver_sentence = current_golden_sentence
-                            # current_regular_sentence = current_golden_sentence
-                            # print current_golden_sentence
-                            # if not golden:
-                            #     current_golden_sentence = re.sub('<object.*?/object>',object_value,current_golden_sentence, flags=re.DOTALL)
-                            # if not silver:
-                            #     current_silver_sentence = re.sub('<object.*?/object>',object_value,current_silver_sentence, flags=re.DOTALL)
-                            # print current_golden_sentence
-                            # to_write_corpus_list_golden[sentence_num] += current_golden_sentence + " "
-                            # to_write_corpus_list_silver[sentence_num] += current_silver_sentence + " "
-                            # to_write_corpus_list_regular[sentence_num] += current_regular_sentence + " "
-                            # if xml_start-1 >= 0:
-                            #     print "left 1 word: " , words[xml_start-1]
-                            # if xml_end+1 < len(words): 
-                            #     print "right 1 word: ", words[xml_end+1]
+                            # clean_sentence = re.sub('<object.*?/object>',object_value,tag_sentence_str, flags=re.DOTALL)
+                            # clean_sentence = clean_sentence.strip()
+                            # to_write_corpus_list_clean[sentence_num] += clean_sentence + " "
                         else: # wrong format, does not count
                             tag_sentence = words[xml_start:current_index]
                             tag_sentence_str = ""
                             for sent in tag_sentence:
                                 tag_sentence_str += sent + " "
-                            clean_sentence = re.sub('<object.*?>','',tag_sentence_str, flags=re.DOTALL)
-                            clean_sentence = clean_sentence.strip()
-                            to_write_corpus_list_clean[sentence_num] += clean_sentence + " "
-                            print "INVALID\nINVALID\nINVALID\nINVALID\nINVALID\nINVALID\nINVALID\nINVALID\n"
-                            print clean_sentence
-                            # current_golden_sentence = current_silver_sentence = current_regular_sentence = ""
-                            # current_golden_sentence = re.sub('<object.*?>','',current_golden_sentence, flags=re.DOTALL)
-                            # to_write_corpus_list_golden[sentence_num] += current_golden_sentence + " "
-                            # to_write_corpus_list_silver[sentence_num] += current_golden_sentence + " "
-                            # to_write_corpus_list_regular[sentence_num] += current_golden_sentence + " "
+                            # clean_sentence = re.sub('<object.*?>','',tag_sentence_str, flags=re.DOTALL)
+                            # clean_sentence = clean_sentence.strip()
+                            # to_write_corpus_list_clean[sentence_num] += clean_sentence + " "
+                            # print "INVALID\nINVALID\nINVALID\nINVALID\nINVALID\nINVALID\nINVALID\nINVALID\n"
+                            # print clean_sentence
                         j = current_index - 1
                         break # END if "</object>" in temp_indicate:
             j += 1
             # print "j = ", j, ", sent: ", to_write_corpus_list_golden[sentence_num] 
-        print "clean_sentence: ", to_write_corpus_list_clean[sentence_num]
-        print "sentence_num = ", sentence_num, ", ", words,  "\n\n"
-        file_clean.write(to_write_corpus_list_clean[sentence_num] + "\n")
-        # file_golden_tag_only.write(to_write_corpus_list_golden[sentence_num] + "\n")
-        # file_silver_tag_only.write(to_write_corpus_list_silver[sentence_num] + "\n")
-        # file_golden_total.write(to_write_corpus_list_golden[sentence_num] + "\n")
-        # file_silver_total.write(to_write_corpus_list_silver[sentence_num] + "\n")
-        # file_regular_total.write(to_write_corpus_list_regular[sentence_num] + "\n")
+        # print "clean_sentence: ", to_write_corpus_list_clean[sentence_num]
+        print "sentence_num = ", sentence_num, ", ", sentence,  "\n\n"
+        # file_clean.write(to_write_corpus_list_clean[sentence_num] + "\n")
         sentence_num += 1
+        # if sentence_num > 18:
+        #     break
         #  END while True and j < len(words):
-    file_clean.close()
+    # file_clean.close()
 
     print "total_object_count: ", total_object_count
     print "total_object_end_tag_count: ", total_object_end_tag_count
-    # file_golden_tag_only.write( "\nobject num: " + str(round_agreement_total_count) + "\n" )
-    # file_golden_tag_only.write( "golden object num: " + str(round_agreement_golden_total) + "\n" )
-    # file_golden_tag_only.write( "silver+golden object num: " + str(round_agreement_silver_total)+ "\n"  )
-    # file_golden_tag_only.write( "real silver object num: " + str(round_agreement_silver_total - round_agreement_golden_total)+ "\n"  )
-# file_golden_tag_only.close()
-# file_silver_tag_only.close()
 file_total_object.write( "\nobject num: " + str(total_object_count) + "\n" )
-# file_total_object.write( "golden object num: " + str(agreement_golden_total) + "\n" )
-# file_total_object.write( "silver+golden object num: " + str(agreement_silver_total)+ "\n"  )
-# file_total_object.write( "real silver object num: " + str(agreement_silver_total - agreement_golden_total)+ "\n"  )
 file_total_object.close()
 file_error.close()
-# file_golden_total.close()
-# file_silver_total.close()
-# file_regular_total.close()
 print "agreement_total_count: ", agreement_total_count
-# print "agreement_golden_count: ", agreement_golden_total
-# print "agreement_silver_count: ", agreement_silver_total
-# print "agreement pure silver: ", agreement_silver_total - agreement_golden_total
-# print "agreement pure regular: ", agreement_total_count - agreement_silver_total
 
 
 
