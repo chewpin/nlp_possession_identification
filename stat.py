@@ -91,20 +91,25 @@ for i in range(0,len(sorted_read_word_category_dict)):
     print sorted_read_word_category_dict[i][1] , ":  " , sorted_read_word_category_dict[i][0]
 file_read_word_category_dict.close()
 
+
+# temps
+temp_1015_no_category_count = 0
+temp_1015_no_category_count_map = {}
+
+stat_dict = dict()
+stat_dict["pos"] = {}
+stat_dict["agreement"] = {}
+stat_dict["agreement_count"] = {}
+stat_dict["type"] = {}
+stat_dict["status"] = {}
+
 for round in range(0, len(filenum_list)):
-    
-    stat_dict = dict()
-    stat_dict["pos"] = {}
-    stat_dict["agreement"] = {}
-    stat_dict["agreement_count"] = {}
-    stat_dict["type"] = {}
-    stat_dict["status"] = {}
 # for round in range(0, 1):
     filename = 'Blog ' + str(filenum_list[round]) + '_reconciled.xml'
     # filename = 'Blog 1_reconciled.xml'
     filename_alone = filename.rsplit('.', 1)[0]
     file = open("reconcile/" + filename, 'r')
-    file_current_total_object = open( "stat/total_object_" + str(filenum_list[round]) + ".txt", "w")
+    # file_current_total_object = open( "stat/total_object_" + str(filenum_list[round]) + ".txt", "w")
     
     sentences = str(file.readlines())
     print "blog_id: ", filenum_list[round] ,"\n"
@@ -290,6 +295,8 @@ for round in range(0, len(filenum_list)):
                                 category_dict[ blog_dict["category"][round] ]['word_category'][read_word_category_dict[value_value]] = 1
                 else:
                     print "not category: ", value_value
+                    temp_1015_no_category_count += 1
+                    temp_1015_no_category_count_map[value_value] = 1
 
 
                 if value_value not in total_value_dict:
@@ -369,7 +376,7 @@ for round in range(0, len(filenum_list)):
 
                 object_value = object_value.strip()
                 file6.write( "\n " + str(total_object_count) + ", " + object_value + "\n" )
-                file_current_total_object.write( "\n " + str(total_object_count) + ", " + object_value + "\n" )
+                # file_current_total_object.write( "\n " + str(total_object_count) + ", " + object_value + "\n" )
                 file_object_value.write( "\n " + str(total_object_count) + ", " + object_value +  ",   " + value_value + "\n" )
                 # if object_value_count > 2:
                     # file6.write("span " + str(object_value_count) + ": " + object_value+ "\n")
@@ -450,16 +457,18 @@ for round in range(0, len(filenum_list)):
                             total_value_dict_golden[value_value] = 1
                         else:
                             total_value_dict_golden[value_value] += 1
-                    elif len(agreement_value) == 2:
+                    if len(agreement_value) >= 2:
                         if value_value not in total_value_dict_silver:
                             total_value_dict_silver[value_value] = 1
                         else:
                             total_value_dict_silver[value_value] += 1
-                    if len(agreement_value) == 1:
+                    if len(agreement_value) >= 1:
                         if value_value not in total_value_dict_regular:
                             total_value_dict_regular[value_value] = 1
                         else:
                             total_value_dict_regular[value_value] += 1
+                if not agreement_present:
+                    print "NO AGREEMENT for ", value_value 
                 if type_present:
                     if type_value not in total_object_pos_dict[object_value]["type"]:
                         total_object_pos_dict[object_value]["type"][type_value] = 1
@@ -513,25 +522,25 @@ for round in range(0, len(filenum_list)):
 
 
 
-    golden_object_num = 0
-    silver_object_num = 0
-    regular_object_num = 0
-    file_current_total_object.write("\n Stats for total_agreement_count:\n")
-    for key, value in stat_dict["agreement_count"].iteritems():
-        if key == 3:
-            golden_object_num += stat_dict["agreement_count"][key]
-        elif key == 2:
-            silver_object_num += stat_dict["agreement_count"][key]
-        elif key == 1:
-            regular_object_num += stat_dict["agreement_count"][key]
-        else:
-            file_error.wrote("ERROR in agreement_count < 1 for " + str(key))
-        file_current_total_object.write( str(key) + " has count " + str(stat_dict["agreement_count"][key]) + "\n" )
+    # golden_object_num = 0
+    # silver_object_num = 0
+    # regular_object_num = 0
+    # file_current_total_object.write("\n Stats for total_agreement_count:\n")
+    # for key, value in stat_dict["agreement_count"].iteritems():
+    #     if key == 3:
+    #         golden_object_num += stat_dict["agreement_count"][key]
+    #     elif key == 2:
+    #         silver_object_num += stat_dict["agreement_count"][key]
+    #     elif key == 1:
+    #         regular_object_num += stat_dict["agreement_count"][key]
+    #     else:
+    #         file_error.wrote("ERROR in agreement_count < 1 for " + str(key))
+        # file_current_total_object.write( str(key) + " has count " + str(stat_dict["agreement_count"][key]) + "\n" )
 
-    file_current_total_object.write( "golden object num: " + str(golden_object_num) + "\n" )
-    file_current_total_object.write( "silver object num: " + str(silver_object_num)+ "\n"  )
-    file_current_total_object.write( "regular object num: " + str(regular_object_num)+ "\n"  )
-    file_current_total_object.close()
+    # file_current_total_object.write( "golden object num: " + str(golden_object_num) + "\n" )
+    # file_current_total_object.write( "silver object num: " + str(silver_object_num)+ "\n"  )
+    # file_current_total_object.write( "regular object num: " + str(regular_object_num)+ "\n"  )
+    # file_current_total_object.close()
 
 
 noun_per_possession = regular_word_dict["noun_actual"] / float(total_object_count)
@@ -658,7 +667,7 @@ for i in range(0,20):
     for blog_id in range(0, len(filenum_list)):
         if blog_id in sorted_value_for_blog_id[i][1]:
             file_total_value.write( str(category_list[blog_dict["category"][blog_id]]) + "  " )
-    file_total_value.write( "\n" )
+    file_total_value.write( "\n\n" )
 file_total_value.write("\n\n\n\n\n")
 
 sorted_value_1 = sorted(total_value_dict_1.items(), key=operator.itemgetter(1), reverse=True)
@@ -693,7 +702,8 @@ for i in range(0,len(sorted_value_regular)):
     file_total_value.write( str(sorted_value_regular[i][0]) + ", count " + str(sorted_value_regular[i][1])  + "\n" )
 
 
-
+print "temp_1015_no_category_count: ", temp_1015_no_category_count
+print "temp_1015_no_category_count_map count: ", len(temp_1015_no_category_count_map)
 
 
 file6.close()
