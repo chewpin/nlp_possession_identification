@@ -21,8 +21,8 @@ agreement_golden_total = agreement_silver_total = 0
 
 
 
-# for round in range(0, len(filenum_list)):
-for round in range(0, 1):
+for round in range(0, len(filenum_list)):
+# for round in range(0, 1):
     filename = 'Blog ' + str(filenum_list[round]) + '_reconciled.xml'
     file_clean = open( "reconcile/clean/" + str(filenum_list[round]) + "_clean.txt", "w" )
     file_clean_index = open( "reconcile/clean/" + str(filenum_list[round]) + "_clean_index.txt", "w" )

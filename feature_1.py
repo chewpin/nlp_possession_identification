@@ -14,13 +14,10 @@ sentences = file_read_word_category_dict.readlines()
 index = 0
 read_object = ""
 read_category = ""
-read_word_category_dict = {}
 for sentence in sentences:
     sentence = sentence.rstrip('\n')
     if index % 2 == 1:
         read_category = sentence.strip()
-        if "/" in read_category:
-            read_category = str(read_category.split("/",1)[0])
         read_word_category_dict[read_object] = read_category
     else:
         read_object = sentence.strip()
@@ -28,8 +25,7 @@ for sentence in sentences:
 sorted_read_word_category_dict = sorted(read_word_category_dict.items(), key=operator.itemgetter(1))
 for i in range(0,len(sorted_read_word_category_dict)):
     print sorted_read_word_category_dict[i][1] , ":  " , sorted_read_word_category_dict[i][0]
-file_read_word_category_dict.close()
-
+file_read_word_category_dict.close
 
 
 file_error = open( "feature_1/error.txt", "w")

@@ -71,7 +71,19 @@ file_object_value = open( "stat/object_value.txt", "w")
 read_word_category_dict = {}
 read_word_category_enum_dict = set()
 file_read_word_category_dict = open('category/stat/word_category_man.txt', 'r')
+file_read_word_category_list = open('category/stat/word_category_list.txt', 'r')
+file_write_word_category_list_index = open('category/stat/word_category_list_index.txt', 'w')
 sentences = file_read_word_category_dict.readlines()
+readlines_read_word_category_list = file_read_word_category_list.readlines()
+word_category_list_dict = {}
+temp_1031_i = 0
+for category in readlines_read_word_category_list:
+    category = category.rstrip('\n')
+    category = category.strip()
+    word_category_list_dict[category] = temp_1031_i
+    file_write_word_category_list_index.write( str(temp_1031_i) + " " + category + "\n" )
+    temp_1031_i += 1
+file_write_word_category_list_index.close()
 index = 0
 read_object = ""
 read_category = ""
@@ -80,9 +92,12 @@ for sentence in sentences:
     sentence = sentence.rstrip('\n')
     if index % 2 == 1:
         read_category = sentence.strip()
-        if "/" in read_category:
-            read_category = str(read_category.split("/",1)[0])
-        read_word_category_dict[read_object] = read_category
+        # if "/" in read_category:
+        #     read_category = str(read_category.split("/",1)[0])
+        if read_category in word_category_list_dict:
+            read_word_category_dict[read_object] = word_category_list_dict[read_category]
+        else:
+            print read_category, " not in word_category_list_dict"
     else:
         read_object = sentence.strip()
     index += 1
@@ -95,6 +110,7 @@ file_read_word_category_dict.close()
 # temps
 temp_1015_no_category_count = 0
 temp_1015_no_category_count_map = {}
+temp_1031_yes_category_count = 0
 
 stat_dict = dict()
 stat_dict["pos"] = {}
@@ -276,27 +292,29 @@ for round in range(0, len(filenum_list)):
                 value_value = value_value.replace("\\ ", "")
                 value_value = value_value.replace(" /'", "")
                 file_total_value.write( "\n " + str(total_object_count) + ", " + value_value + "\n" )
-                if value_value in read_word_category_dict:
-                    # print value_value, " category: ", read_word_category_dict[value_value]
-                    read_word_category_enum_dict.add(read_word_category_dict[value_value])
-                    if blog_dict["category"][round] not in category_dict:
-                        category_dict[ blog_dict["category"][round] ] = {}
-                        if 'word_category' not in category_dict[ blog_dict["category"][round] ]:
-                            category_dict[ blog_dict["category"][round] ]['word_category'] = {}
-                            category_dict[ blog_dict["category"][round] ]['word_category'][read_word_category_dict[value_value]] = 1
-                    else:
-                        if 'word_category' not in category_dict[ blog_dict["category"][round] ]:
-                            category_dict[ blog_dict["category"][round] ]['word_category'] = {}
-                            category_dict[ blog_dict["category"][round] ]['word_category'][read_word_category_dict[value_value]] = 1
-                        else:
-                            if read_word_category_dict[value_value] in category_dict[ blog_dict["category"][round] ]['word_category']:
-                                category_dict[ blog_dict["category"][round] ]['word_category'][read_word_category_dict[value_value]] += 1
-                            else:
+                if status_present:
+                    if value_value in read_word_category_dict:
+                        # print value_value, " category: ", read_word_category_dict[value_value]
+                        read_word_category_enum_dict.add(read_word_category_dict[value_value])
+                        if blog_dict["category"][round] not in category_dict:
+                            category_dict[ blog_dict["category"][round] ] = {}
+                            if 'word_category' not in category_dict[ blog_dict["category"][round] ]:
+                                category_dict[ blog_dict["category"][round] ]['word_category'] = {}
                                 category_dict[ blog_dict["category"][round] ]['word_category'][read_word_category_dict[value_value]] = 1
-                else:
-                    print "not category: ", value_value
-                    temp_1015_no_category_count += 1
-                    temp_1015_no_category_count_map[value_value] = 1
+                        else:
+                            if 'word_category' not in category_dict[ blog_dict["category"][round] ]:
+                                category_dict[ blog_dict["category"][round] ]['word_category'] = {}
+                                category_dict[ blog_dict["category"][round] ]['word_category'][read_word_category_dict[value_value]] = 1
+                            else:
+                                if read_word_category_dict[value_value] in category_dict[ blog_dict["category"][round] ]['word_category']:
+                                    category_dict[ blog_dict["category"][round] ]['word_category'][read_word_category_dict[value_value]] += 1
+                                else:
+                                    category_dict[ blog_dict["category"][round] ]['word_category'][read_word_category_dict[value_value]] = 1
+                        temp_1031_yes_category_count += 1
+                    else:
+                        print "not category: ", value_value
+                        temp_1015_no_category_count += 1
+                        temp_1015_no_category_count_map[value_value] = 1
 
 
                 if value_value not in total_value_dict:
@@ -616,12 +634,12 @@ for key, value in category_dict.iteritems():
 index = 0
 file6.write("\n\n")
 for category in read_word_category_enum_dict:
-    file6.write( str(index) + ": " + category + "\n")
+    file6.write( str(index) + ": " + str(category) + "\n")
     index += 1
 file6.write("\n")
 index = 0
 for category in read_word_category_enum_dict:
-    file6.write( str(index) + ": " + category+ "\n")
+    file6.write( str(index) + ": " + str(category) + "\n")
     index += 1
 file6.write("\n")
 index = 0
@@ -704,6 +722,7 @@ for i in range(0,len(sorted_value_regular)):
 
 print "temp_1015_no_category_count: ", temp_1015_no_category_count
 print "temp_1015_no_category_count_map count: ", len(temp_1015_no_category_count_map)
+print "temp_1031_yes_category_count: ", temp_1031_yes_category_count
 
 
 file6.close()
