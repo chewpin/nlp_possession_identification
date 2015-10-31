@@ -89,7 +89,7 @@ for round in range(0, len(filenum_list)):
                 object_value = ""
                 agreement_value = ""
                 object_index_start = object_index_end = 0
-                agreement_present = False
+                agreement_present = final = False
                 golden = silver = False
 
                 current_index = j
@@ -99,10 +99,8 @@ for round in range(0, len(filenum_list)):
                     temp_indicate = words[current_index]
                     if "</object>" in temp_indicate or "<object" in temp_indicate:
                         if "</object>" in temp_indicate: # needs end tag
-                            total_object_count += 1
                             # print temp_indicate
                             xml_end = current_index
-                            total_object_end_tag_count += 1
                             file_error.write( str(total_object_count) + str(words[xml_start:xml_end+1]) + "\n")
                             tag_sentence = words[xml_start:xml_end+1]
                             tag_sentence_str = ""
@@ -128,51 +126,43 @@ for round in range(0, len(filenum_list)):
                                     # print "SILVER"
                             else:
                                print "Nothing found!!"
-                            while find_in_tags_index < xml_end:
-                                # print tag_sentence_str
-                                if ">" in words[find_in_tags_index]:
-                                    object_index_start = find_in_tags_index + 1
-                                    object_index_end = find_in_tags_index + 1
-                                    # print "object start: ", words[find_in_tags_index]
-                                    object_value = ""
-                                    while "<" not in words[object_index_end]:
-                                        # print words[object_index_end]
-                                        object_value += str(words[object_index_end]) + " "
-                                        object_index_end += 1
-                                    object_value = object_value.strip()
-                                    # print "object value: [" + str(object_value) + "]"
-                                find_in_tags_index += 1
-                            file_total_object.write( str(total_object_count) + ": blog " + str(round) + "\t" + object_value + "\n" )
-                            # current_golden_sentence = ""
-                            # for sent in tag_sentence:
-                                # current_golden_sentence += sent + " "
-                            
-                            clean_sentence = re.sub('<object.*?/object>',object_value,tag_sentence_str, flags=re.DOTALL)
-                            clean_sentence = clean_sentence.strip()
-                            to_write_corpus_list_clean[sentence_num] += clean_sentence + " "
-                            temp_strip_clean = clean_sentence.split()
-                            temp_clean_size = 0
-                            for temp in temp_strip_clean:
-                                temp_clean_size += 1
-                                print clean_file_index, ": ", temp
-                                clean_file_index += 1
-                            # clean_file_index += object_index_end - object_index_start
-                            file_clean_index.write( str(clean_file_index-temp_clean_size) + " " + str(clean_file_index-1) + " " )
-                            # current_silver_sentence = current_golden_sentence
-                            # current_regular_sentence = current_golden_sentence
-                            # print current_golden_sentence
-                            # if not golden:
-                            #     current_golden_sentence = re.sub('<object.*?/object>',object_value,current_golden_sentence, flags=re.DOTALL)
-                            # if not silver:
-                            #     current_silver_sentence = re.sub('<object.*?/object>',object_value,current_silver_sentence, flags=re.DOTALL)
-                            # print current_golden_sentence
-                            # to_write_corpus_list_golden[sentence_num] += current_golden_sentence + " "
-                            # to_write_corpus_list_silver[sentence_num] += current_silver_sentence + " "
-                            # to_write_corpus_list_regular[sentence_num] += current_regular_sentence + " "
-                            # if xml_start-1 >= 0:
-                            #     print "left 1 word: " , words[xml_start-1]
-                            # if xml_end+1 < len(words): 
-                            #     print "right 1 word: ", words[xml_end+1]
+                            searchObj = re.search( 'status *= *"(.*)" *>.*<.*>', tag_sentence_str, re.M|re.I)
+                            if searchObj:
+                                # print "\n\nagreement_value: ", searchObj.group(1)
+                                final = True
+                                print "             FINAL!!!"
+                            else:
+                               print "NOT FINAL!!"
+                            if final:
+                                total_object_count += 1
+                                total_object_end_tag_count += 1
+                                while find_in_tags_index < xml_end:
+                                    # print tag_sentence_str
+                                    if ">" in words[find_in_tags_index]:
+                                        object_index_start = find_in_tags_index + 1
+                                        object_index_end = find_in_tags_index + 1
+                                        # print "object start: ", words[find_in_tags_index]
+                                        object_value = ""
+                                        while "<" not in words[object_index_end]:
+                                            # print words[object_index_end]
+                                            object_value += str(words[object_index_end]) + " "
+                                            object_index_end += 1
+                                        object_value = object_value.strip()
+                                        # print "object value: [" + str(object_value) + "]"
+                                    find_in_tags_index += 1
+                                file_total_object.write( str(total_object_count) + ": blog " + str(round) + "\t" + object_value + "\n" )
+                                
+                                clean_sentence = re.sub('<object.*?/object>',object_value,tag_sentence_str, flags=re.DOTALL)
+                                clean_sentence = clean_sentence.strip()
+                                to_write_corpus_list_clean[sentence_num] += clean_sentence + " "
+                                temp_strip_clean = clean_sentence.split()
+                                temp_clean_size = 0
+                                for temp in temp_strip_clean:
+                                    temp_clean_size += 1
+                                    print clean_file_index, ": ", temp
+                                    clean_file_index += 1
+                                file_clean_index.write( str(clean_file_index-temp_clean_size) + " " + str(clean_file_index-1) + " " )
+
                         j = current_index - 1
                         break # END if "</object>" in temp_indicate:
             j += 1
