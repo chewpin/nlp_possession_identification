@@ -21,8 +21,8 @@ agreement_golden_total = agreement_silver_total = 0
 
 
 
-for round in range(0, len(filenum_list)):
-# for round in range(0, 1):
+# for round in range(0, len(filenum_list)):
+for round in range(0, 1):
     filename = 'Blog ' + str(filenum_list[round]) + '_reconciled.xml'
     file_clean = open( "reconcile/clean/" + str(filenum_list[round]) + "_clean.txt", "w" )
     file_clean_index = open( "reconcile/clean/" + str(filenum_list[round]) + "_clean_index.txt", "w" )
@@ -77,7 +77,7 @@ for round in range(0, len(filenum_list)):
                 if "</object>" not in temp_indicate:
                     temp_indicate = temp_indicate
                     to_write_corpus_list_clean[sentence_num] += temp_indicate + " "
-                    print clean_file_index, ": ", temp_indicate
+                    # print clean_file_index, ": ", temp_indicate
                     clean_file_index += 1
                     # to_write_corpus_list_golden[sentence_num] += temp_indicate + " "
                     # to_write_corpus_list_silver[sentence_num] += temp_indicate + " "
@@ -88,7 +88,7 @@ for round in range(0, len(filenum_list)):
                 value_value = ""
                 object_value = ""
                 agreement_value = ""
-                object_index_start = object_index_end = 0
+                object_index_start = object_index_end = value_index = 0
                 agreement_present = final = False
                 golden = silver = False
 
@@ -107,11 +107,17 @@ for round in range(0, len(filenum_list)):
                             for sent in tag_sentence:
                                 tag_sentence_str += sent + " "
                             find_in_tags_index = xml_start
+                            searchObj = re.search( r'value *= *"(.*)" id *', tag_sentence_str, re.I+re.S)
+                            if searchObj:
+                                value_value = str(searchObj.group(1)).strip()
+                                value_value_list = value_value.split()
+                                print "value_value: ", value_value
+                                print value_value_list
+                            else:
+                               print "Nothing found!!"
                             searchObj = re.search( 'agreement *= *"(.*)" *>.*<.*>', tag_sentence_str, re.M|re.I)
                             if searchObj:
                                 # print "\n\nagreement_value: ", searchObj.group(1)
-                                agreement_present = True
-                                agreement_value = str(searchObj.group(1))
                                 agreement_total_count += 1
                                 round_agreement_total_count += 1
                                 if len(agreement_value) == 3:
@@ -161,7 +167,10 @@ for round in range(0, len(filenum_list)):
                                     temp_clean_size += 1
                                     print clean_file_index, ": ", temp
                                     clean_file_index += 1
-                                file_clean_index.write( str(clean_file_index-temp_clean_size) + " " + str(clean_file_index-1) + " " )
+                                file_clean_index.write( str(clean_file_index-temp_clean_size) + " " + str(clean_file_index-1) + " " + str(len(value_value_list)) + " ")
+                                for i in range(0,len(value_value_list)):
+                                    file_clean_index.write(str(value_value_list[i]) + " ")
+
 
                         j = current_index - 1
                         break # END if "</object>" in temp_indicate:
