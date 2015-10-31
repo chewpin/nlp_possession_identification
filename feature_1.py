@@ -13,11 +13,13 @@ filenum_list = [1,2,3,4,5,6,7, 8, 9,10,11,12,13,14,15, 16, 17, 18,19,20,21,22,23
 total_object_count = 0
 total_object_end_tag_count = 0
 
+clean_tag_total_object_count = 0
+
 agreement_total_count = 0
 agreement_golden_total = agreement_silver_total = 0
 
-# for round in range(0, len(filenum_list)):
-for round in range(0, 1):
+for round in range(0, len(filenum_list)):
+# for round in range(0, 1):
     filename = 'Blog ' + str(filenum_list[round]) + '_reconciled.xml'
     file_clean = open( "reconcile/clean/" + str(filenum_list[round]) + "_clean.txt", "r" )
     file_clean_index = open( "reconcile/clean/" + str(filenum_list[round]) + "_clean_index.txt", "r" )
@@ -61,10 +63,12 @@ for round in range(0, 1):
         while temp_index < len(clean_index_corpus_content):
             if clean_index_corpus_content[temp_index] != clean_index_corpus_content[temp_index+1]:
                 # print clean_words[int(clean_index_corpus_content[temp_index]):int(clean_index_corpus_content[temp_index+1])+1]
+                clean_tag_total_object_count += 1
                 for temp_i in range(int(clean_index_corpus_content[temp_index]),int(clean_index_corpus_content[temp_index+1])+1):
                     print tagged[ temp_i ][0], ", ", tagged[ temp_i ][1]
 
             else:
+                clean_tag_total_object_count += 1
                 # print clean_words[int(clean_index_corpus_content[temp_index])]
                 print tagged[ int(clean_index_corpus_content[temp_index]) ][0], ", ", tagged[ int(clean_index_corpus_content[temp_index]) ][1]
             temp_index += 2
@@ -166,6 +170,7 @@ for round in range(0, 1):
 
     print "total_object_count: ", total_object_count
     print "total_object_end_tag_count: ", total_object_end_tag_count
+    print "clean_tag_total_object_count: ", clean_tag_total_object_count
 file_total_object.write( "\nobject num: " + str(total_object_count) + "\n" )
 file_total_object.close()
 file_error.close()
