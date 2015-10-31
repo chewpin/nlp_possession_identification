@@ -16,8 +16,8 @@ total_object_end_tag_count = 0
 agreement_total_count = 0
 agreement_golden_total = agreement_silver_total = 0
 
-# for round in range(0, len(filenum_list)):
-for round in range(0, 1):
+for round in range(0, len(filenum_list)):
+# for round in range(0, 1):
     filename = 'Blog ' + str(filenum_list[round]) + '_reconciled.xml'
     file_clean = open( "reconcile/clean/" + str(filenum_list[round]) + "_clean.txt", "r" )
     file_clean_index = open( "reconcile/clean/" + str(filenum_list[round]) + "_clean_index.txt", "r" )
@@ -30,7 +30,13 @@ for round in range(0, 1):
     print "blog_id: ", filenum_list[round] ,"\n"
     sentence_num = 0
     clean_index_corpus = file_clean_index.readlines()
-    print clean_index_corpus
+    corpus_str = str(corpus)
+
+    # tagged = nltk.sent_tokenize(corpus_str.strip())
+    # tagged = [nltk.word_tokenize(sent) for sent in tagged]
+    # tagged = [nltk.pos_tag(sent) for sent in tagged]
+    # print tagged
+
     for sentence in corpus:
         clean_sentence = clean_corpus[sentence_num]
         clean_index_corpus_content = clean_index_corpus[sentence_num]
@@ -43,40 +49,25 @@ for round in range(0, 1):
         get_clean_tag_map_count_clean = 0
         clean_tag_map = {}
         clean_index_corpus_content = clean_index_corpus_content.split()
-        print clean_index_corpus_content
+        # print clean_index_corpus_content
         temp_index = 0
+
+        # print clean_words
+        clean_sentence = clean_sentence.decode('utf-8')
+        clean_words = clean_sentence.split()
+        tagged = nltk.pos_tag(clean_words)
+        # print "1111111: ", tagged
+
         while temp_index < len(clean_index_corpus_content):
             if clean_index_corpus_content[temp_index] != clean_index_corpus_content[temp_index+1]:
-                print clean_words[int(clean_index_corpus_content[temp_index]):int(clean_index_corpus_content[temp_index+1])+1]
+                # print clean_words[int(clean_index_corpus_content[temp_index]):int(clean_index_corpus_content[temp_index+1])+1]
+                for temp_i in range(int(clean_index_corpus_content[temp_index]),int(clean_index_corpus_content[temp_index+1])+1):
+                    print tagged[ temp_i ][0], ", ", tagged[ temp_i ][1]
+
             else:
-                print clean_words[int(clean_index_corpus_content[temp_index])]
+                # print clean_words[int(clean_index_corpus_content[temp_index])]
+                print tagged[ int(clean_index_corpus_content[temp_index]) ][0], ", ", tagged[ int(clean_index_corpus_content[temp_index]) ][1]
             temp_index += 2
-
-        # while get_clean_tag_map_count_word < len(words):
-        #     # clean_word = re.sub('^[^A-Za-z0-9]*','',words[get_clean_tag_map_count_word], flags=re.DOTALL)
-        #     clean_word = re.sub('/^([^a-zA-Z0-9])*/','',words[get_clean_tag_map_count_word], flags=re.DOTALL)
-        #     print "clean1:", clean_word
-        #     print "word: ", words[get_clean_tag_map_count_word], ", \tclean: ", clean_words[get_clean_tag_map_count_clean]
-        #     if words[get_clean_tag_map_count_word] == clean_words[get_clean_tag_map_count_clean]:
-        #         print "equal: ", words[get_clean_tag_map_count_word]
-        #         get_clean_tag_map_count_word += 1
-        #         get_clean_tag_map_count_clean += 1
-        #     else:
-        #         get_clean_tag_map_count_word += 1
-                # if "<" not in words[get_clean_tag_map_count_word]:
-                #     get_clean_tag_map_count_word += 1
-                # else:
-                #     while ">" not in words[get_clean_tag_map_count_word] and get_clean_tag_map_count_word < len(words):
-                #         # print "tag: ", words[get_clean_tag_map_count_word]
-                #         get_clean_tag_map_count_word += 1
-                #     get_clean_tag_map_count_word += 1
-                #     while words[get_clean_tag_map_count_word] == clean_words[get_clean_tag_map_count_clean]:
-                #         print "equal: word: ", words[get_clean_tag_map_count_word], ", \tclean: ", clean_words[get_clean_tag_map_count_clean]
-                #         get_clean_tag_map_count_word += 1
-                #         get_clean_tag_map_count_clean += 1
-                #     get_clean_tag_map_count_word += 1
-                    # print "1st out: ", words[get_clean_tag_map_count_word]
-
 
 
         while True and j < len(words):
@@ -143,7 +134,7 @@ for round in range(0, 1):
                                         object_value += str(words[object_index_end]) + " "
                                         object_index_end += 1
                                     object_value = object_value.strip()
-                                    print "object value: [" + str(object_value) + "]"
+                                    # print "object value: [" + str(object_value) + "]"
                                 find_in_tags_index += 1
                             file_total_object.write( str(total_object_count) + ": blog " + str(round) + "\t" + object_value + "\n" )
                             
@@ -165,7 +156,7 @@ for round in range(0, 1):
             j += 1
             # print "j = ", j, ", sent: ", to_write_corpus_list_golden[sentence_num] 
         # print "clean_sentence: ", to_write_corpus_list_clean[sentence_num]
-        print "sentence_num = ", sentence_num, ", ", sentence,  "\n\n"
+        # print "sentence_num = ", sentence_num, ", ", sentence,  "\n\n"
         # file_clean.write(to_write_corpus_list_clean[sentence_num] + "\n")
         sentence_num += 1
         # if sentence_num > 18:

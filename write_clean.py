@@ -21,8 +21,8 @@ agreement_golden_total = agreement_silver_total = 0
 
 
 
-# for round in range(0, len(filenum_list)):
-for round in range(0, 1):
+for round in range(0, len(filenum_list)):
+# for round in range(0, 1):
     filename = 'Blog ' + str(filenum_list[round]) + '_reconciled.xml'
     file_clean = open( "reconcile/clean/" + str(filenum_list[round]) + "_clean.txt", "w" )
     file_clean_index = open( "reconcile/clean/" + str(filenum_list[round]) + "_clean_index.txt", "w" )
@@ -50,7 +50,13 @@ for round in range(0, 1):
         # to_write_corpus_list_regular.append("")
         to_write_corpus_list_clean.append("")
         j = 0
+        sentence = sentence.replace(",", " ,")
+        sentence = sentence.replace(".", " .")
+        sentence = sentence.replace("?", " ?")
+        # sentence = re.sub(r"(\w)([!@#$%^&*()[]{};:,./<>?\|`~-=_+])", r"\1 \2", sentence)
+        sentence = re.sub( r'([a-zA-Z])([!@#$%\-^&*(){};:,\\.?\|`~=_+])', r'\1 \2', sentence)
         words = sentence.split()
+        print sentence
 
         while True and j < len(words):
             temp_indicate = words[j]
